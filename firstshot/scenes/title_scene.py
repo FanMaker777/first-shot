@@ -17,8 +17,8 @@ class TitleScene:
         # 全ての弾と敵を削除する
         self.game.enemy_state.enemies = []  # 敵のリスト
         self.game.player_state.bullets = []  # 自機の弾のリスト
-        self.game.enemy_bullets = []  # 敵の弾のリスト
-        self.game.blasts = []  # 爆発エフェクトのリスト
+        self.game.enemy_state.bullets = []  # 敵の弾のリスト
+        self.game.enemy_state.blasts = []  # 爆発エフェクトのリスト
 
         # BGMを再生する
         pyxel.playm(0, loop=True)

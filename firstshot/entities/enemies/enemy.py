@@ -48,9 +48,9 @@ class Enemy:
             self.game.enemy_state.enemies.remove(self)
 
         # スコアを加算する
-        self.game.score += self.level * 10
+        self.game.game_data.score += self.level * 10
         # パイロット毎に経験値を加算する
-        if self.game.pilot_kind == PILOT_CLARICE:
+        if self.game.player_state.pilot_kind == PILOT_CLARICE:
             self.game.player_state.exp += self.level * 1.1
         else:
             self.game.player_state.exp += self.level * 1

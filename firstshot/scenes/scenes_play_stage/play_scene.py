@@ -15,20 +15,20 @@ class PlayScene:
         # プレイ状態を初期化する
         self.game.enemy_state.enemies = []  # 敵のリスト
         self.game.player_state.bullets = []  # 自機の弾のリスト
-        self.game.enemy_bullets = []  # 敵の弾のリスト
-        self.game.blasts = []  # 爆発エフェクトのリスト
-        self.game.boss_emerge_flag = False  # ボスフラグ
-        self.game.boss_destroy_flag = False  # ボス撃破フラグ
-        self.game.boss_alert = 0 # ボスアラートの表示時間
+        self.game.enemy_state.bullets = []  # 敵の弾のリスト
+        self.game.enemy_state.blasts = []  # 爆発エフェクトのリスト
+        self.game.boss_state.active = False  # ボスフラグ
+        self.game.boss_state.destroyed = False  # ボス撃破フラグ
+        self.game.boss_state.alert_timer = 0  # ボスアラートの表示時間
 
         pyxel.stop()  # BGMの再生を止める
         pygame.mixer.music.stop()  # 停止
 
 
     def update(self):
-        self.game.play_time += 1  # プレイ時間をカウントする
+        self.game.game_data.play_time += 1  # プレイ時間をカウントする
         # 30秒(毎秒30フレームx30)毎に難易度を1上げる
-        self.game.level = self.game.play_time // 900 + 1
+        self.game.game_data.difficulty_level = self.game.game_data.play_time // 900 + 1
 
         # 自機を更新する
         if self.game.player_state.instance is not None:
@@ -57,7 +57,7 @@ class PlayScene:
                         self.game.player_state.instance.sound_timer = 5  # 弾発射音を止める時間を設定する
 
         # 敵の弾を更新する
-        for bullet in self.game.enemy_bullets.copy():
+        for bullet in self.game.enemy_state.bullets.copy():
             bullet.update()
 
             # プレイヤーと敵の弾の当たり判定を行う
@@ -66,7 +66,7 @@ class PlayScene:
                 self.game.player_state.instance.add_damage()  # 自機にダメージを与える
 
         # 爆発エフェクトを更新する
-        for blast in self.game.blasts.copy():
+        for blast in self.game.enemy_state.blasts.copy():
             blast.update()
 
     def draw(self):
@@ -84,14 +84,14 @@ class PlayScene:
             bullet.draw()
 
         # 敵の弾を描画する
-        for bullet in self.game.enemy_bullets:
+        for bullet in self.game.enemy_state.bullets:
             bullet.draw()
 
         # 爆発エフェクトを描画する
-        for blast in self.game.blasts:
+        for blast in self.game.enemy_state.blasts:
             blast.draw()
 
         # ボスアラートの表示時間が0より大きい場合
-        if self.game.boss_alert > 0:
-            self.game.boss_alert -= 1
-            pyxel.text(100, 128, "BOSS",pyxel.rndi(0, 240) , self.game.font)
+        if self.game.boss_state.alert_timer > 0:
+            self.game.boss_state.alert_timer -= 1
+            pyxel.text(100, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)

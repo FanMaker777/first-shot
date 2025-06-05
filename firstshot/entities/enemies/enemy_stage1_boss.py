@@ -35,12 +35,12 @@ class StageOneBoss(Enemy):
             self.game.enemy_state.enemies.remove(self)
 
         # スコアを加算する
-        self.game.score += self.level * 10
+        self.game.game_data.score += self.level * 10
         # 経験値を加算する
         self.game.player_state.exp += self.level * 1
 
         # ボス撃破フラグをTrueにする
-        self.game.boss_destroy_flag = True
+        self.game.boss_state.destroyed = True
 
     # 敵を更新する
     def update(self):
@@ -69,4 +69,4 @@ class StageOneBoss(Enemy):
 
     # 敵を描画する
     def draw(self):
-        pyxel.blt(self.x, self.y, self.game.boss_image, 0, 0, 64, 64, 188)
+        pyxel.blt(self.x, self.y, self.game.boss_state.image, 0, 0, 64, 64, 188)

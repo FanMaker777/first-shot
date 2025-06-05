@@ -48,7 +48,7 @@ class SelectPilotScene:
 
         if pyxel.btnp(pyxel.KEY_RETURN):
             # パイロットの種類をgameに登録
-            self.game.pilot_kind = self.pilot_kind
+            self.game.player_state.pilot_kind = self.pilot_kind
 
             pyxel.stop()  # BGMの再生を止める
             # プレイ画面に遷移

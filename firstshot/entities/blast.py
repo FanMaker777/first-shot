@@ -12,7 +12,7 @@ class Blast:
         self.radius = Blast.START_RADIUS  # 爆発の半径
 
         # ゲームの爆発エフェクトリストに登録する
-        game.blasts.append(self)
+        game.enemy_state.blasts.append(self)
 
     # 爆発エフェクトを更新する
     def update(self):
@@ -21,7 +21,7 @@ class Blast:
 
         # 半径が最大になったら爆発エフェクトリストから登録を削除する
         if self.radius > Blast.END_RADIUS:
-            self.game.blasts.remove(self)
+            self.game.enemy_state.blasts.remove(self)
 
     # 爆発エフェクトを描画する
     def draw(self):
