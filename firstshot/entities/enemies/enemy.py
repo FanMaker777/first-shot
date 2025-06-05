@@ -1,6 +1,6 @@
 import pyxel
 
-from firstshot.constants import SCENE_PLAY_STAGE_ONE
+from firstshot.constants import SCENE_PLAY_STAGE_ONE, PILOT_CLARICE
 from firstshot.entities import Blast
 
 
@@ -49,8 +49,11 @@ class Enemy:
 
         # スコアを加算する
         self.game.score += self.level * 10
-        # 経験値を加算する
-        self.game.player_exp += self.level * 1
+        # パイロット毎に経験値を加算する
+        if self.game.pilot_kind == PILOT_CLARICE:
+            self.game.player_exp += self.level * 1.1
+        else:
+            self.game.player_exp += self.level * 1
 
     # 自機の方向の角度を計算する
     def calc_player_angle(self, x, y):
