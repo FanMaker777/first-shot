@@ -1,9 +1,11 @@
 import pyxel
 
+from firstshot.constants import BLAST_START_RADIUS, BLAST_END_RADIUS
+
 # 爆発エフェクトクラス
 class Blast:
-    START_RADIUS = 1  # 開始時の半径
-    END_RADIUS = 8  # 終了時の半径
+    START_RADIUS = BLAST_START_RADIUS  # 開始時の半径
+    END_RADIUS = BLAST_END_RADIUS  # 終了時の半径
 
     def __init__(self, game, x, y):
         self.game = game

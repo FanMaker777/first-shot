@@ -1,7 +1,7 @@
 import pygame
 import pyxel
 
-from firstshot.constants import SCENE_TITLE
+from firstshot.constants import SCENE_TITLE, GAMEOVER_DISPLAY_TIME, SCREEN_WIDTH, SCREEN_HEIGHT
 
 
 # ゲームオーバー画面クラス
@@ -15,7 +15,7 @@ class GameoverScene:
 
         pygame.mixer.music.stop()  # 停止
         # 画面表示時間を設定する
-        self.game.display_timer = 120
+        self.game.display_timer = GAMEOVER_DISPLAY_TIME
 
         # 自機を削除する
         self.game.player_state.instance = None
@@ -28,6 +28,6 @@ class GameoverScene:
 
     def draw(self):
         # 背景を描画する
-        pyxel.blt(0, 0, 1, 0, 0, 256, 256)
+        pyxel.blt(0, 0, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
         # ゲームオーバー文字を描画する
         pyxel.text(112, 128, "GAME OVER", 8, self.game.font)

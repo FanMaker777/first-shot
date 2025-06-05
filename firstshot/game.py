@@ -1,8 +1,21 @@
 import pygame
 import pyxel
 
-from firstshot.constants import SCENE_TITLE, SCENE_SELECT_PILOT, SCENE_PLAY_STAGE_ONE, SCENE_GAMEOVER, \
-    SCENE_PLAY_STAGE_TWO
+from firstshot.constants import (
+    SCENE_TITLE,
+    SCENE_SELECT_PILOT,
+    SCENE_PLAY_STAGE_ONE,
+    SCENE_PLAY_STAGE_TWO,
+    SCENE_GAMEOVER,
+    FONT_PATH,
+    PALETTE_IMAGE_PATH,
+    RESOURCE_FILE,
+    IMAGE_PANK_PATH,
+    TITLE_IMAGE_PATH,
+    CLEAR_COLOR,
+    SCREEN_WIDTH,
+    SCREEN_HEIGHT,
+)
 from firstshot.game_data import PlayerState, EnemyState, BossState, GameData, GameConfig
 from firstshot.logic.dialog import display_exit_dialog
 from firstshot.scenes import TitleScene, GameoverScene
@@ -28,14 +41,14 @@ class Game:
         # pygameのミキサーを初期化
         pygame.mixer.init()
         # ビットマップフォントの読み込み
-        self.font = pyxel.Font("assets/umplus_j10r.bdf")
+        self.font = pyxel.Font(FONT_PATH)
         # 色パレットを254色に更新
-        self.color_image = pyxel.Image(256, 256)
-        self.color_image = pyxel.Image.from_image("assets/color254.png", incl_colors=True)
+        self.color_image = pyxel.Image(SCREEN_WIDTH, SCREEN_HEIGHT)
+        self.color_image = pyxel.Image.from_image(PALETTE_IMAGE_PATH, incl_colors=True)
         # リソースファイル読込
-        pyxel.load("assets/first_shot.pyxres")
-        pyxel.images[0].load(0, 0, "assets/imagePank/pyxel-image0.png")
-        pyxel.images[2].load(0, 0, "assets/background/title.png")
+        pyxel.load(RESOURCE_FILE)
+        pyxel.images[0].load(0, 0, IMAGE_PANK_PATH)
+        pyxel.images[2].load(0, 0, TITLE_IMAGE_PATH)
 
         self.scenes = {
             SCENE_TITLE: TitleScene(self),
@@ -80,7 +93,7 @@ class Game:
     # ゲーム全体を描画する
     def draw(self):
         # 画面を黒でクリアする
-        pyxel.cls(188)
+        pyxel.cls(CLEAR_COLOR)
 
         # 現在のシーンを描画する
         self.scenes[self.game_data.scene_name].draw()

@@ -1,5 +1,7 @@
 import pyxel
 
+from firstshot.constants import CLEAR_COLOR
+
 from firstshot.entities import Bullet, Blast
 from firstshot.entities.enemies import Enemy
 
@@ -69,4 +71,4 @@ class StageOneBoss(Enemy):
 
     # 敵を描画する
     def draw(self):
-        pyxel.blt(self.x, self.y, self.game.boss_state.image, 0, 0, 64, 64, 188)
+        pyxel.blt(self.x, self.y, self.game.boss_state.image, 0, 0, 64, 64, CLEAR_COLOR)
