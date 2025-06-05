@@ -23,9 +23,11 @@ from firstshot.scenes.scenes_play_stage import PlayScene
 
 # ステージ1 画面クラス
 class StageOneScene(PlayScene):
+    """ステージ1を表すシーン。"""
 
     # 画面を開始する
     def start(self):
+        """シーン開始時の処理。"""
 
         # プレイ状態を初期化する
         super().start()
@@ -51,6 +53,7 @@ class StageOneScene(PlayScene):
         Player(self.game, PLAYER_START_X, PLAYER_START_Y)
 
     def update(self):
+        """フレームごとの更新処理。"""
 
         # ボス撃破フラグをTrueの場合、次のステージに移行する
         if self.game.boss_state.destroyed:
@@ -82,5 +85,6 @@ class StageOneScene(PlayScene):
         super().update()
 
     def draw(self):
+        """描画処理。"""
         # 親クラスのメソッド実行
         super().draw()

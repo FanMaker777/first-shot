@@ -26,8 +26,10 @@ from scenes import Background
 
 # ゲームクラス(ゲーム全体を管理するクラス)
 class Game:
+    """ゲーム全体の管理を行うクラス。"""
 
     def __init__(self):
+        """ゲームの初期化を行う。"""
         # ゲームの状態を初期化する
         # 各サブコンポーネントの状態だけを持つ
         self.game_config = GameConfig()
@@ -69,11 +71,13 @@ class Game:
 
     # シーンを変更する
     def change_scene(self, scene_name):
+        """シーンを切り替える。"""
         self.game_data.scene_name = scene_name
         self.scenes[self.game_data.scene_name].start()
 
     # ゲーム全体を更新する
     def update(self):
+        """ゲーム全体の更新処理。"""
         # Escキーを押されたら、終了確認ダイアログを表示
         if not self.game_data.is_exit_mode and pyxel.btnp(pyxel.KEY_E):
             self.game_data.is_exit_mode = True
@@ -92,6 +96,7 @@ class Game:
 
     # ゲーム全体を描画する
     def draw(self):
+        """ゲーム全体の描画処理。"""
         # 画面を黒でクリアする
         pyxel.cls(CLEAR_COLOR)
 

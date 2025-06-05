@@ -2,6 +2,7 @@
 
 # キャラクター同士のヒットエリアが重なっているか判定する
 def check_collision(entity1, entity2):
+    """2つのオブジェクトが接触しているかを判定する。"""
     entity1_x1 = entity1.x + entity1.hit_area[0]
     entity1_y1 = entity1.y + entity1.hit_area[1]
     entity1_x2 = entity1.x + entity1.hit_area[2]

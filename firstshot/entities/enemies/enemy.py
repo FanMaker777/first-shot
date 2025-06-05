@@ -6,9 +6,11 @@ from firstshot.entities import Blast
 
 # 敵クラス
 class Enemy:
+    """敵キャラクターの基底クラス。"""
 
     # 敵を初期化してゲームに登録する
     def __init__(self, game, level, x, y):
+        """敵キャラクターを初期化しリストに登録する。"""
         self.game = game
         self.level = level  # 強さ
         self.x = x
@@ -22,6 +24,7 @@ class Enemy:
 
     # 敵にダメージを与える
     def add_damage(self):
+        """敵がダメージを受けた際の処理。"""
         if self.armor > 0:  # 装甲が残っている時
             self.armor -= 1
 
@@ -57,6 +60,7 @@ class Enemy:
 
     # 自機の方向の角度を計算する
     def calc_player_angle(self, x, y):
+        """プレイヤーの方向角を計算して返す。"""
         player = self.game.player_state.instance
         if player is None:  # 自機が存在しない時
             return 90
@@ -65,11 +69,13 @@ class Enemy:
 
     # 敵の生存時間を計算する
     def add_life_time(self):
+        """生存時間を更新する。"""
         # 生存時間をカウントする
         self.life_time += 1
 
     # 画面外にでた敵を削除する
     def delete_out_enemy(self):
+        """画面外に出た敵を削除する。"""
         # 敵が画面下から出たら敵リストから削除する
         if self.y >= pyxel.height:  # 画面下から出たか
             if self in self.game.enemy_state.enemies:

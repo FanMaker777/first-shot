@@ -15,8 +15,10 @@ from firstshot.constants import (
 
 # パイロット選択画面クラス
 class SelectPilotScene:
+    """パイロット選択画面を管理するクラス。"""
     # 画面を初期化する
     def __init__(self, game):
+        """インスタンスを初期化する。"""
         self.game = game  # ゲームクラス
         # パイロットの順番
         self.pilot_kind = 0
@@ -29,12 +31,14 @@ class SelectPilotScene:
 
     # 画面を開始する
     def start(self):
+        """画面開始時の処理。"""
         # パイロットの順番
         self.pilot_kind = 0
         # パイロット画像をイメージパンクに読み込む
         pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT1_IMAGE)
 
     def update(self):
+        """画面の更新処理。"""
         if pyxel.btnp(pyxel.KEY_RIGHT):
             # パイロットの順番を次に
             self.pilot_kind = (self.pilot_kind + 1) % 3
@@ -65,6 +69,7 @@ class SelectPilotScene:
             self.game.change_scene(SCENE_PLAY_STAGE_ONE)
 
     def draw(self):
+        """画面の描画処理。"""
         # 画面をクリアする
         pyxel.cls(CLEAR_COLOR)
         # パイロットの表示

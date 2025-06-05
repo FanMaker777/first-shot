@@ -8,9 +8,11 @@ from firstshot.entities.enemies import Enemy
 
 # 敵クラス
 class RobotAroundShooter(Enemy):
+    """複数方向に弾を放つロボット型の敵。"""
 
     # 敵を更新する
     def update(self):
+        """敵の挙動を更新する。"""
         # 生存時間をカウントする
         self.add_life_time()
 
@@ -25,4 +27,5 @@ class RobotAroundShooter(Enemy):
 
     # 敵を描画する
     def draw(self):
+        """敵を描画する。"""
         pyxel.blt(self.x, self.y, 0, 5, 20, 15, 20, CLEAR_COLOR)

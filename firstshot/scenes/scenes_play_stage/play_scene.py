@@ -7,12 +7,15 @@ from firstshot.logic.collision import check_collision
 
 # プレイ画面クラス
 class PlayScene:
+    """各ステージ共通のプレイ画面基底クラス。"""
     # 画面を初期化する
     def __init__(self, game):
+        """インスタンスを初期化する。"""
         self.game = game
 
     # 画面を開始する
     def start(self):
+        """プレイ開始時の初期化処理。"""
         # プレイ状態を初期化する
         self.game.enemy_state.enemies = []  # 敵のリスト
         self.game.player_state.bullets = []  # 自機の弾のリスト
@@ -27,6 +30,7 @@ class PlayScene:
 
 
     def update(self):
+        """ゲームプレイ中の更新処理。"""
         self.game.game_data.play_time += 1  # プレイ時間をカウントする
         # 30秒(毎秒30フレームx30)毎に難易度を1上げる
         self.game.game_data.difficulty_level = self.game.game_data.play_time // 900 + 1
@@ -71,6 +75,7 @@ class PlayScene:
             blast.update()
 
     def draw(self):
+        """ゲームプレイ中の描画処理。"""
         # ステージ背景を描画する
         pyxel.blt(0, 0, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
 

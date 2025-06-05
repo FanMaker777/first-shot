@@ -7,9 +7,11 @@ from firstshot.entities.enemies import Enemy
 
 # 敵クラス
 class Zigzag(Enemy):
+    """左右にジグザグ移動する敵キャラクター。"""
 
     # 敵を更新する
     def update(self):
+        """敵の挙動を更新する。"""
         # 生存時間をカウントする
         self.add_life_time()
 
@@ -27,4 +29,5 @@ class Zigzag(Enemy):
 
     # 敵を描画する
     def draw(self):
+        """敵を描画する。"""
         pyxel.blt(self.x, self.y, 0, 2, 30, 12, 12, CLEAR_COLOR)

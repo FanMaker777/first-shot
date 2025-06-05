@@ -5,12 +5,15 @@ from firstshot.constants import SCENE_SELECT_PILOT, SCREEN_WIDTH, SCREEN_HEIGHT
 
 # タイトル画面クラス
 class TitleScene:
+    """タイトル画面を管理するクラス。"""
     # タイトル画面を初期化する
     def __init__(self, game):
+        """インスタンスを初期化する。"""
         self.game = game  # ゲームクラス
 
     # タイトル画面を開始する
     def start(self):
+        """画面開始時の処理。"""
         # 自機を削除する
         self.game.player_state.instance = None  # プレイヤーを削除
 
@@ -24,10 +27,12 @@ class TitleScene:
         pyxel.playm(0, loop=True)
 
     def update(self):
+        """画面の更新処理。"""
         if pyxel.btnp(pyxel.KEY_RETURN):
             # パイロット選択画面に遷移
             self.game.change_scene(SCENE_SELECT_PILOT)
 
     def draw(self):
+        """画面の描画処理。"""
         # タイトル画面を表示
         pyxel.blt(0, 0, 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0)

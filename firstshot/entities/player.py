@@ -23,9 +23,11 @@ from firstshot.entities import Blast, Bullet
 
 # 自機クラス
 class Player:
+    """プレイヤーキャラクターを表すクラス。"""
 
     # 自機を初期化してゲームに登録する
     def __init__(self, game, x, y):
+        """プレイヤーを初期化しゲームに登録する。"""
         self.game = game  # ゲームへの参照
         self.x = x  # X座標
         self.y = y  # Y座標
@@ -44,6 +46,7 @@ class Player:
 
     # 自機にダメージを与える
     def add_damage(self):
+        """プレイヤーがダメージを受けた際の処理。"""
         # 爆発エフェクトを生成する
         Blast(self.game, self.x + 4, self.y + 4)
 
@@ -59,6 +62,7 @@ class Player:
 
     # 自機を更新する
     def update(self):
+        """プレイヤーの状態を更新する。"""
 
         #プレイヤーレベル判定
         if self.game.player_state.exp >= 128:
@@ -122,4 +126,5 @@ class Player:
 
     # 自機を描画する
     def draw(self):
+        """プレイヤーを描画する。"""
         pyxel.blt(self.x, self.y, 0, 0, 0, 8, 8, CLEAR_COLOR)
