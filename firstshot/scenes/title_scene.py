@@ -12,11 +12,11 @@ class TitleScene:
     # タイトル画面を開始する
     def start(self):
         # 自機を削除する
-        self.game.player = None  # プレイヤーを削除
+        self.game.player_state.instance = None  # プレイヤーを削除
 
         # 全ての弾と敵を削除する
-        self.game.enemies = []  # 敵のリスト
-        self.game.player_bullets = []  # 自機の弾のリスト
+        self.game.enemy_state.enemies = []  # 敵のリスト
+        self.game.player_state.bullets = []  # 自機の弾のリスト
         self.game.enemy_bullets = []  # 敵の弾のリスト
         self.game.blasts = []  # 爆発エフェクトのリスト
 

@@ -15,7 +15,7 @@ class Player:
         self.shot_timer = 0  # 弾発射までの残り時間
         # プレイヤーのステータス
         # パイロット毎に当たり判定を変更する
-        if self.game.pilot_kind == PILOT_GENZOU:
+        if self.game.player_state.pilot_kind == PILOT_GENZOU:
             self.hit_area = (1, 1, 3, 3)  # 当たり判定の領域 (x1,y1,x2,y2)
         else:
             self.hit_area = (1, 6, 6, 6) # 当たり判定の領域 (x1,y1,x2,y2)
@@ -23,7 +23,7 @@ class Player:
         self.shot_interval = 12 # 弾の発射間隔
 
         # ゲームに自機を登録する
-        self.game.player = self
+        self.game.player_state.instance = self
 
     # 自機にダメージを与える
     def add_damage(self):
@@ -35,7 +35,7 @@ class Player:
         pyxel.play(0, 2)
 
         # 自機を削除する
-        self.game.player = None
+        self.game.player_state.instance = None
 
         # シーンをゲームオーバー画面に変更する
         self.game.change_scene(SCENE_GAMEOVER)
@@ -44,17 +44,17 @@ class Player:
     def update(self):
 
         #プレイヤーレベル判定
-        if self.game.player_exp >= 128:
-            self.game.player_lv = 5
+        if self.game.player_state.exp >= 128:
+            self.game.player_state.lv = 5
             self.shot_interval = 4
-        elif self.game.player_exp >= 64:
-            self.game.player_lv = 4
+        elif self.game.player_state.exp >= 64:
+            self.game.player_state.lv = 4
             self.shot_interval = 6
-        elif self.game.player_exp >= 16:
-            self.game.player_lv = 3
+        elif self.game.player_state.exp >= 16:
+            self.game.player_state.lv = 3
             self.shot_interval = 8
-        elif self.game.player_exp >= 8:
-            self.game.player_lv = 2
+        elif self.game.player_state.exp >= 8:
+            self.game.player_state.lv = 2
             self.shot_interval = 10
 
         # キー入力で自機を移動させる
@@ -81,12 +81,12 @@ class Player:
             # 自機の弾を生成する
             Bullet(self.game, Bullet.SIDE_PLAYER, self.x, self.y - 3, -90, 5)
             # レベルアップで発射弾を増やす
-            if self.game.player_lv >= 5:
+            if self.game.player_state.lv >= 5:
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x - 3, self.y - 3, -75, 5)
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x + 3, self.y - 3, -105, 5)
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x - 6, self.y - 3, -60, 5)
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x + 6, self.y - 3, -120, 5)
-            elif self.game.player_lv >= 3:
+            elif self.game.player_state.lv >= 3:
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x - 3, self.y - 3, -75, 5)
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x + 3, self.y - 3, -105, 5)
 

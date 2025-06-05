@@ -46,12 +46,12 @@ class StageTwoScene(PlayScene):
                     RobotPlayerShooter(self.game, self.game.level, pyxel.rndi(16, 180), -8)
 
         # ボスフラグがオン　AND　ボスが未出現の時
-        elif self.game.boss_emerge_flag and not any(isinstance(x, StageTwoBossLeft) for x in self.game.enemies.copy()):
+        elif self.game.boss_emerge_flag and not any(isinstance(x, StageTwoBossLeft) for x in self.game.enemy_state.enemies.copy()):
             self.game.boss_alert = 180 #ボスアラートの表示時間を設定
             StageTwoBossLeft(self.game, 50, 18, -64) # ボスを出現させる
 
         # ボスフラグがオン　AND　ボスが未出現の時
-        elif self.game.boss_emerge_flag and not any(isinstance(x, StageTwoBossRight) for x in self.game.enemies.copy()):
+        elif self.game.boss_emerge_flag and not any(isinstance(x, StageTwoBossRight) for x in self.game.enemy_state.enemies.copy()):
             self.game.boss_alert = 180  # ボスアラートの表示時間を設定
             StageTwoBossRight(self.game, 50, 118, -64)  # ボスを出現させる
 
@@ -71,5 +71,5 @@ class StageTwoScene(PlayScene):
         # 各情報を描画する
         pyxel.text(210, 32, "SCORE", 0, self.game.font)
         pyxel.text(210, 48, f"{self.game.score:05}", 0, self.game.font)
-        pyxel.text(210, 112, f"EXP {self.game.player_exp}", 0, self.game.font)
-        pyxel.text(210, 128, f"LV {self.game.player_lv}", 0, self.game.font)
+        pyxel.text(210, 112, f"EXP {self.game.player_state.exp}", 0, self.game.font)
+        pyxel.text(210, 128, f"LV {self.game.player_state.lv}", 0, self.game.font)

@@ -18,7 +18,7 @@ class GameoverScene:
         self.game.display_timer = 120
 
         # 自機を削除する
-        self.game.player = None
+        self.game.player_state.instance = None
 
     def update(self):
         if self.game.display_timer > 0:  # 画面表示時間が残っている時

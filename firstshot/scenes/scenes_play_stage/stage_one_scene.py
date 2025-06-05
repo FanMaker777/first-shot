@@ -18,8 +18,8 @@ class StageOneScene(PlayScene):
         self.game.score = 0  # スコアを0に戻す
         self.game.play_time = 0  # プレイ時間を0に戻す
         self.game.level = 1  # 難易度レベルを1に戻す
-        self.game.player_exp = 1000  # プレイヤー経験値を0に戻す
-        self.game.player_lv = 1  # プレイヤーレベルを1に戻す
+        self.game.player_state.exp = 0  # プレイヤー経験値を0に戻す
+        self.game.player_state.lv = 1  # プレイヤーレベルを1に戻す
 
         # ステージ画像を切り替え
         pyxel.images[1].load(0, 0, "assets/background/stage.png")
@@ -58,7 +58,7 @@ class StageOneScene(PlayScene):
                     PlayerShooter(self.game, self.game.level, pyxel.rndi(16, 180), -8)
 
         # ボスフラグがオン　AND　ボスが未出現の時
-        elif self.game.boss_emerge_flag and not any(isinstance(x, StageOneBoss) for x in self.game.enemies.copy()):
+        elif self.game.boss_emerge_flag and not any(isinstance(x, StageOneBoss) for x in self.game.enemy_state.enemies.copy()):
             self.game.boss_alert = 180 #ボスアラートの表示時間を設定
             StageOneBoss(self.game, 50, 78, -64) # ボスを出現させる
 
@@ -78,5 +78,5 @@ class StageOneScene(PlayScene):
         # 各情報を描画する
         pyxel.text(210, 32, "SCORE", 0, self.game.font)
         pyxel.text(210, 48, f"{self.game.score:05}", 0, self.game.font)
-        pyxel.text(210, 112, f"EXP {self.game.player_exp}", 0, self.game.font)
-        pyxel.text(210, 128, f"LV {self.game.player_lv}", 0, self.game.font)
+        pyxel.text(210, 112, f"EXP {self.game.player_state.exp}", 0, self.game.font)
+        pyxel.text(210, 128, f"LV {self.game.player_state.lv}", 0, self.game.font)

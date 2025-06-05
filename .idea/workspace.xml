@@ -5,18 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b55b034-856c-4665-9e99-989d7ce24a2a" name="変更" comment="変更内容:&#10;- player.pyからテストコードを削除">
+      <change afterPath="$PROJECT_DIR$/firstshot/game_data/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firstshot/game_data/entity_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firstshot/game_data/game_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/entities/bullet.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/bullet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_robot_follow.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_robot_follow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage1_boss.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage1_boss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_left.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_left.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_right.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_right.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/firstshot/entities/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/firstshot/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/logic/dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/logic/dialog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/background_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/background_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/gameover_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/gameover_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/play_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/play_scene.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_one_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_one_scene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/select_pilot_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/select_pilot_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_two_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_two_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/title_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/title_scene.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -26,22 +45,25 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "FanMaker777"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;FanMaker777&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/FanMaker777/first-shot.git",
-    "accountId": "be985bd1-ae36-412b-a027-a6dac3e414eb"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/FanMaker777/first-shot.git&quot;,
+    &quot;accountId&quot;: &quot;be985bd1-ae36-412b-a027-a6dac3e414eb&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2y4BiHf5Gy1D18XoCPpu8Ia0WJS" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,7 +75,7 @@
     "Python.player.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/pilot-ability",
+    "git-widget-placeholder": "5-create-dataclass",
     "last_opened_file_path": "C:/Users/myoso/PycharmProjects/Firstshot",
     "settings.editor.selected.configurable": "configurable.group.project"
   }

@@ -19,7 +19,7 @@ class Background:
             self.stars.append((x, y, vy))  # タプルとしてリストに登録
 
         # ゲームに背景を登録する
-        self.game.background = self
+        self.game.game_data.background = self
 
     # 背景を更新する
     def update(self):

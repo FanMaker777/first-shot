@@ -31,13 +31,13 @@ class StageTwoBossLeft(Enemy):
         pyxel.play(2, 2, resume=True)  # チャンネル2で割り込み再生させる
 
         # 敵をリストから削除する
-        if self in self.game.enemies:  # 敵リストに登録されている時
-            self.game.enemies.remove(self)
+        if self in self.game.enemy_state.enemies:  # 敵リストに登録されている時
+            self.game.enemy_state.enemies.remove(self)
 
         # スコアを加算する
         self.game.score += self.level * 10
         # 経験値を加算する
-        self.game.player_exp += self.level * 1
+        self.game.player_state.exp += self.level * 1
 
         # ボス撃破フラグをTrueにする
         self.game.boss_destroy_flag = True

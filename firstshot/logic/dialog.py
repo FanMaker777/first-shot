@@ -34,4 +34,4 @@ def display_exit_dialog(game):
         pyxel.quit()
     else:
         # 「いいえ」を押された → 確認モードを解除してゲームに戻る
-        game.is_exit_dialog = False
+        game.game_data.is_exit_mode = False
