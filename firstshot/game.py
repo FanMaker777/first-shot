@@ -41,6 +41,7 @@ class Game:
         self.scene_name = None  # 現在のシーン名
         self.play_time = 0  # プレイ時間
         self.level = 0  # 難易度レベル
+        self.pilot_kind = 0 # プレイヤーの種類
         self.player_exp = 0  # プレイヤー経験値
         self.player_lv = 1  # プレイヤーレベル
         self.background = None  # 背景

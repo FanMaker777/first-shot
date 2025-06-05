@@ -12,6 +12,10 @@ SCENE_GAMEOVER = "gameover"  # ゲームオーバー画面
 
 # ファイルパス
 
+# パイロット
+PILOT_CLARICE = 0 # クラリーチェ
+PILOT_ROCKY = 1 # ロッキー
+PILOT_GENZOU = 2 # ゲンゾウ
 
 
 # ダイアログ

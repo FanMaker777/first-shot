@@ -4,54 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b55b034-856c-4665-9e99-989d7ce24a2a" name="変更" comment="初期登録">
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/background/stage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/background/stage2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/background/stage3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/background/title.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/bgm/stage1_ba-dakkuman.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/color254.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/enemy/boss_sheet_size192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/enemy/boss_stage2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/enemy/enemy_sheet2_size64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/enemy/enemy_stage2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/first_shot.pyxres" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/imagePank/pyxel-image0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/pilot/pilot1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/pilot/pilot2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/pilot/pilot3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/assets/umplus_j10r.bdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/blast.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/bullet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_around_shooter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_player_shooter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_robot_around_shooter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_robot_follow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_robot_player_shooter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage1_boss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_left.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_right.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_zigzag.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/entities/player.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/logic/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/logic/collision.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/logic/dialog.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/scenes/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/scenes/background_scene.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/scenes/gameover_scene.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/play_scene.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_one_scene.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_two_scene.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/scenes/select_pilot_scene.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/scenes/title_scene.py" afterDir="false" />
+    <list default="true" id="9b55b034-856c-4665-9e99-989d7ce24a2a" name="変更" comment="変更内容:&#10;- player.pyからテストコードを削除">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/entities/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_one_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_one_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/select_pilot_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/select_pilot_scene.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,11 +19,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "FanMaker777"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/FanMaker777/first-shot.git",
+    "accountId": "be985bd1-ae36-412b-a027-a6dac3e414eb"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2y4BiHf5Gy1D18XoCPpu8Ia0WJS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -73,10 +50,12 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.main.executor": "Run",
+    "Python.player.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/myoso/PycharmProjects/Firstshot"
+    "git-widget-placeholder": "feature/pilot-ability",
+    "last_opened_file_path": "C:/Users/myoso/PycharmProjects/Firstshot",
+    "settings.editor.selected.configurable": "configurable.group.project"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -90,6 +69,9 @@
         <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
       </set>
     </attachedChunks>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\myoso\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="デフォルトタスク">
@@ -107,7 +89,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749084754748</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="変更内容:&#10;- player.pyからテストコードを削除">
+      <option name="closed" value="true" />
+      <created>1749087535837</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749087535837</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,6 +125,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="初期登録" />
-    <option name="LAST_COMMIT_MESSAGE" value="初期登録" />
+    <MESSAGE value="変更内容:&#10;- player.pyからテストコードを削除" />
+    <option name="LAST_COMMIT_MESSAGE" value="変更内容:&#10;- player.pyからテストコードを削除" />
   </component>
 </project>

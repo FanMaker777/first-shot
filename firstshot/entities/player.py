@@ -1,6 +1,6 @@
 import pyxel
 
-from firstshot.constants import SCENE_GAMEOVER
+from firstshot.constants import SCENE_GAMEOVER, PILOT_GENZOU
 from firstshot.entities import Blast, Bullet
 
 
@@ -14,7 +14,11 @@ class Player:
         self.y = y  # Y座標
         self.shot_timer = 0  # 弾発射までの残り時間
         # プレイヤーのステータス
-        self.hit_area = (1, 1, 6, 6)  # 当たり判定の領域 (x1,y1,x2,y2)
+        # パイロット毎に当たり判定を変更する
+        if self.game.pilot_kind == PILOT_GENZOU:
+            self.hit_area = (1, 1, 3, 3)  # 当たり判定の領域 (x1,y1,x2,y2)
+        else:
+            self.hit_area = (1, 6, 6, 6) # 当たり判定の領域 (x1,y1,x2,y2)
         self.move_speed = 2  # 移動速度
         self.shot_interval = 12 # 弾の発射間隔
 
