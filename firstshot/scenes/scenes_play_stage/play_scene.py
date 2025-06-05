@@ -1,6 +1,7 @@
 import pygame
 import pyxel
 
+from firstshot.constants import SCREEN_HEIGHT, CLEAR_COLOR, SCREEN_WIDTH
 from firstshot.logic.collision import check_collision
 
 
@@ -70,6 +71,8 @@ class PlayScene:
             blast.update()
 
     def draw(self):
+        # ステージ背景を描画する
+        pyxel.blt(0, 0, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
 
         # 自機を描画する
         if self.game.player_state.instance is not None:
@@ -90,6 +93,15 @@ class PlayScene:
         # 爆発エフェクトを描画する
         for blast in self.game.enemy_state.blasts:
             blast.draw()
+
+        # 情報スペースを表示
+        pyxel.rectb(200, 0, 56, SCREEN_HEIGHT, 0)
+        pyxel.rect(201, 1, 54, SCREEN_HEIGHT - 2, CLEAR_COLOR)
+        # 各情報を描画する
+        pyxel.text(208, 32, "SCORE", 0, self.game.font)
+        pyxel.text(208, 48, f"{self.game.game_data.score:05}", 0, self.game.font)
+        pyxel.text(208, 112, f"EXP {int(self.game.player_state.exp)}", 0, self.game.font)
+        pyxel.text(208, 128, f"LV {self.game.player_state.lv}", 0, self.game.font)
 
         # ボスアラートの表示時間が0より大きい場合
         if self.game.boss_state.alert_timer > 0:

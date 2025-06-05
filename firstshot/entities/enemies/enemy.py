@@ -41,7 +41,7 @@ class Enemy:
             # 爆発音を再生する
             pyxel.play(2, 2, resume=True)  # チャンネル2で割り込み再生させる
         else:
-            pyxel.play(2, 2, )  # チャンネル2で割り込みなしで再生させる
+            pyxel.play(2, 2 )  # チャンネル2で割り込みなしで再生させる
 
         # 敵をリストから削除する
         if self in self.game.enemy_state.enemies:  # 敵リストに登録されている時

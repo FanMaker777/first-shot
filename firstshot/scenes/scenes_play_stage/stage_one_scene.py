@@ -82,17 +82,5 @@ class StageOneScene(PlayScene):
         super().update()
 
     def draw(self):
-        # ステージ背景を描画する
-        pyxel.blt(0, 0, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
-
         # 親クラスのメソッド実行
         super().draw()
-
-        # 情報スペースを表示
-        pyxel.rectb(200, 0, 56, SCREEN_HEIGHT, 0)
-        pyxel.rect(201, 1, 54, SCREEN_HEIGHT - 2, CLEAR_COLOR)
-        # 各情報を描画する
-        pyxel.text(210, 32, "SCORE", 0, self.game.font)
-        pyxel.text(210, 48, f"{self.game.game_data.score:05}", 0, self.game.font)
-        pyxel.text(210, 112, f"EXP {self.game.player_state.exp}", 0, self.game.font)
-        pyxel.text(210, 128, f"LV {self.game.player_state.lv}", 0, self.game.font)
