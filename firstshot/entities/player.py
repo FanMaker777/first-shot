@@ -30,8 +30,6 @@ class Player:
         pyxel.stop()
         pyxel.play(0, 2)
 
-        return
-
         # 自機を削除する
         self.game.player = None
 
