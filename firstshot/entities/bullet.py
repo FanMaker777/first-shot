@@ -1,0 +1,56 @@
+import pyxel
+
+# 弾クラス
+class Bullet:
+    SIDE_PLAYER = 0  # 自機の弾
+    SIDE_ENEMY = 1  # 敵の弾
+
+    # 弾を初期化してゲームに登録する
+    def __init__(self, game, side, x, y, angle, speed):
+        self.game = game
+        self.side = side
+        self.x = x
+        self.y = y
+        self.vx = pyxel.cos(angle) * speed
+        self.vy = pyxel.sin(angle) * speed
+
+        # 弾の種類に応じた初期化とリストへの登録を行う
+        if self.side == Bullet.SIDE_PLAYER:
+            self.hit_area = (2, 1, 5, 6)
+            game.player_bullets.append(self)
+        else:
+            self.hit_area = (2, 2, 5, 5)
+            game.enemy_bullets.append(self)
+
+    # 弾にダメージを与える
+    def add_damage(self):
+        # 弾をリストから削除する
+        if self.side == Bullet.SIDE_PLAYER:
+            if self in self.game.player_bullets:  # 自機の弾リストに登録されている時
+                self.game.player_bullets.remove(self)
+        else:
+            if self in self.game.enemy_bullets:  # 敵の弾リストに登録されている時
+                self.game.enemy_bullets.remove(self)
+
+    # 弾を更新する
+    def update(self):
+        # 弾の座標を更新する
+        self.x += self.vx
+        self.y += self.vy
+
+        # 弾が画面外に出たら弾リストから登録を削除する
+        if (
+            self.x <= -8
+            or self.x >= pyxel.width
+            or self.y <= -8
+            or self.y >= pyxel.height
+        ):
+            if self.side == Bullet.SIDE_PLAYER:
+                self.game.player_bullets.remove(self)
+            else:
+                self.game.enemy_bullets.remove(self)
+
+    # 弾を描画する
+    def draw(self):
+        src_x = 0 if self.side == Bullet.SIDE_PLAYER else 8
+        pyxel.blt(self.x, self.y, 0, src_x, 8, 8, 8, 188)

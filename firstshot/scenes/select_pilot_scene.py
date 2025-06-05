@@ -1,0 +1,69 @@
+import pyxel
+
+from firstshot.constants import SCENE_PLAY_STAGE_ONE
+
+
+# パイロット選択画面クラス
+class SelectPilotScene:
+    # 画面を初期化する
+    def __init__(self, game):
+        self.game = game  # ゲームクラス
+        # パイロットの順番
+        self.pilot_index = 0
+        # パイロットのアビリティ説明文
+        self.pilot_ability = ""
+        # パイロットのSPスキル説明文
+        self.pilot_skill = ""
+        # パイロット画像のイメージパンク
+        self.pilot_image = pyxel.Image(256, 256)
+
+    # 画面を開始する
+    def start(self):
+        # パイロットの順番
+        self.pilot_index = 0
+        # パイロット画像をイメージパンクに読み込む
+        pyxel.Image.load(self.pilot_image, x=0, y=0, filename="assets/pilot/pilot1.png")
+
+    def update(self):
+        if pyxel.btnp(pyxel.KEY_RIGHT):
+            # パイロットの順番を次に
+            self.pilot_index = (self.pilot_index + 1) % 3
+        if pyxel.btnp(pyxel.KEY_LEFT):
+            # パイロットの順番を前に
+            self.pilot_index = (self.pilot_index - 1) % 3
+            print((self.pilot_index - 1) % 3)
+
+        # パイロットの画像と説明文を切り替え
+        if self.pilot_index == 0:
+            pyxel.Image.load(self.pilot_image, x=0, y=0, filename="assets/pilot/pilot1.png")
+            self.pilot_ability = "アビリティ：獲得EXPが少し増える"
+            self.pilot_skill = "SPスキル：一定時間、敵と敵弾の速度が遅くなる"
+        elif self.pilot_index == 1:
+            pyxel.Image.load(self.pilot_image, x=0, y=0, filename="assets/pilot/pilot2.png")
+            self.pilot_ability = "アビリティ：アイテムのドロップ率が少し増える"
+            self.pilot_skill = "SPスキル：一定時間、連射速度がアップする"
+        elif self.pilot_index == 2:
+            pyxel.Image.load(self.pilot_image, x=0, y=0, filename="assets/pilot/pilot3.png")
+            self.pilot_ability = "アビリティ：自機のアタリ判定が少し小さくなる"
+            self.pilot_skill = "SPスキル：一定時間、ダメージがアップする"
+
+        if pyxel.btnp(pyxel.KEY_RETURN):
+            pyxel.stop()  # BGMの再生を止める
+            # プレイ画面に遷移
+            self.game.change_scene(SCENE_PLAY_STAGE_ONE)
+
+    def draw(self):
+        # 画面をクリアする
+        pyxel.cls(188)
+        # パイロットの表示
+        pyxel.blt(0, 0, self.pilot_image, 0, 0, 256, 200)
+        # メッセージボックスの表示
+        #pyxel.blt(0, 200, 0, 0, 16, 256, 56)
+        # メッセージの表示
+        pyxel.text(5, 203, "パイロット選択(ENTERボタン)", 0,self.game.font)
+        pyxel.text(5, 216, "パイロット切り替え(RIGHT・LEFTボタン)", 0,self.game.font)
+
+        # パイロットの説明を表示
+        pyxel.text(5, 229, self.pilot_ability, 0, self.game.font)
+        pyxel.text(5, 242, self.pilot_skill, 0, self.game.font)
+
