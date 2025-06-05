@@ -1,5 +1,7 @@
 import pyxel
 
+from firstshot.constants import CLEAR_COLOR
+
 from firstshot.entities import Bullet
 from firstshot.entities.enemies import Enemy
 
@@ -23,4 +25,4 @@ class RobotAroundShooter(Enemy):
 
     # 敵を描画する
     def draw(self):
-        pyxel.blt(self.x, self.y, 0, 5, 20, 15, 20, 188)
+        pyxel.blt(self.x, self.y, 0, 5, 20, 15, 20, CLEAR_COLOR)

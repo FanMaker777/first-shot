@@ -7,6 +7,8 @@
 
 from dataclasses import dataclass
 
+from firstshot import constants
+
 @dataclass
 class GameConfig:
     """
@@ -18,10 +20,10 @@ class GameConfig:
         title (str): ゲームウィンドウのタイトル。デフォルトは "First Shot"。
         fps (int): フレームレート（1秒あたりのフレーム数）。デフォルトは 30。
     """
-    width: int = 256      # ゲームウィンドウの幅（ピクセル）
-    height: int = 256     # ゲームウィンドウの高さ（ピクセル）
-    title: str = "First Shot"  # ゲームウィンドウのタイトル
-    fps: int = 30         # フレームレート（FPS）
+    width: int = constants.SCREEN_WIDTH      # ゲームウィンドウの幅（ピクセル）
+    height: int = constants.SCREEN_HEIGHT     # ゲームウィンドウの高さ（ピクセル）
+    title: str = constants.SCREEN_TITLE_TEXT  # ゲームウィンドウのタイトル
+    fps: int = constants.FPS         # フレームレート（FPS）
 
 @dataclass
 class GameData:

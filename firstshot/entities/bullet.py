@@ -1,5 +1,7 @@
 import pyxel
 
+from firstshot.constants import CLEAR_COLOR
+
 # 弾クラス
 class Bullet:
     SIDE_PLAYER = 0  # 自機の弾
@@ -53,4 +55,4 @@ class Bullet:
     # 弾を描画する
     def draw(self):
         src_x = 0 if self.side == Bullet.SIDE_PLAYER else 8
-        pyxel.blt(self.x, self.y, 0, src_x, 8, 8, 8, 188)
+        pyxel.blt(self.x, self.y, 0, src_x, 8, 8, 8, CLEAR_COLOR)

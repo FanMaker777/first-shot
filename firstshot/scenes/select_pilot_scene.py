@@ -1,6 +1,16 @@
 import pyxel
 
-from firstshot.constants import SCENE_PLAY_STAGE_ONE, PILOT_CLARICE, PILOT_ROCKY, PILOT_GENZOU
+from firstshot.constants import (
+    SCENE_PLAY_STAGE_ONE,
+    PILOT_CLARICE,
+    PILOT_ROCKY,
+    PILOT_GENZOU,
+    PILOT1_IMAGE,
+    PILOT2_IMAGE,
+    PILOT3_IMAGE,
+    CLEAR_COLOR,
+    SCREEN_WIDTH,
+)
 
 
 # パイロット選択画面クラス
@@ -15,14 +25,14 @@ class SelectPilotScene:
         # パイロットのSPスキル説明文
         self.pilot_skill = ""
         # パイロット画像のイメージパンク
-        self.pilot_image = pyxel.Image(256, 256)
+        self.pilot_image = pyxel.Image(SCREEN_WIDTH, SCREEN_WIDTH)
 
     # 画面を開始する
     def start(self):
         # パイロットの順番
         self.pilot_kind = 0
         # パイロット画像をイメージパンクに読み込む
-        pyxel.Image.load(self.pilot_image, x=0, y=0, filename="assets/pilot/pilot1.png")
+        pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT1_IMAGE)
 
     def update(self):
         if pyxel.btnp(pyxel.KEY_RIGHT):
@@ -34,15 +44,15 @@ class SelectPilotScene:
 
         # パイロットの画像と説明文を切り替え
         if self.pilot_kind == PILOT_CLARICE:
-            pyxel.Image.load(self.pilot_image, x=0, y=0, filename="assets/pilot/pilot1.png")
+            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT1_IMAGE)
             self.pilot_ability = "アビリティ：獲得EXPが少し増える"
             self.pilot_skill = "SPスキル：一定時間、敵と敵弾の速度が遅くなる"
         elif self.pilot_kind == PILOT_ROCKY:
-            pyxel.Image.load(self.pilot_image, x=0, y=0, filename="assets/pilot/pilot2.png")
+            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT2_IMAGE)
             self.pilot_ability = "アビリティ：アイテムのドロップ率が少し増える"
             self.pilot_skill = "SPスキル：一定時間、連射速度がアップする"
         elif self.pilot_kind == PILOT_GENZOU:
-            pyxel.Image.load(self.pilot_image, x=0, y=0, filename="assets/pilot/pilot3.png")
+            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT3_IMAGE)
             self.pilot_ability = "アビリティ：自機のアタリ判定が少し小さくなる"
             self.pilot_skill = "SPスキル：一定時間、ダメージがアップする"
 
@@ -56,9 +66,9 @@ class SelectPilotScene:
 
     def draw(self):
         # 画面をクリアする
-        pyxel.cls(188)
+        pyxel.cls(CLEAR_COLOR)
         # パイロットの表示
-        pyxel.blt(0, 0, self.pilot_image, 0, 0, 256, 200)
+        pyxel.blt(0, 0, self.pilot_image, 0, 0, SCREEN_WIDTH, 200)
         # メッセージの表示
         pyxel.text(5, 203, "パイロット選択(ENTERボタン)", 0,self.game.font)
         pyxel.text(5, 216, "パイロット切り替え(RIGHT・LEFTボタン)", 0,self.game.font)

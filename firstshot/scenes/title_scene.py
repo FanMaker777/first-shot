@@ -1,6 +1,6 @@
 import pyxel
 
-from firstshot.constants import SCENE_SELECT_PILOT
+from firstshot.constants import SCENE_SELECT_PILOT, SCREEN_WIDTH, SCREEN_HEIGHT
 
 
 # タイトル画面クラス
@@ -30,4 +30,4 @@ class TitleScene:
 
     def draw(self):
         # タイトル画面を表示
-        pyxel.blt(0, 0, 2, 0, 0, 256, 256, 0)
+        pyxel.blt(0, 0, 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0)
