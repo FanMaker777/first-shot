@@ -18,7 +18,7 @@ class Enemy:
         self.life_time = 0  # 生存時間
 
         # ゲームの敵リストに登録する
-        self.game.enemies.append(self)
+        self.game.enemy_state.enemies.append(self)
 
     # 敵にダメージを与える
     def add_damage(self):
@@ -26,7 +26,7 @@ class Enemy:
             self.armor -= 1
 
             # 現在のシーンがステージ1の場合
-            if self.game.scene_name == SCENE_PLAY_STAGE_ONE:
+            if self.game.game_data.scene_name == SCENE_PLAY_STAGE_ONE:
                 # ダメージ音を再生する
                 pyxel.play(2, 1, resume=True)  # チャンネル2で割り込み再生させる
                 return
@@ -37,27 +37,27 @@ class Enemy:
         Blast(self.game, self.x + 4, self.y + 4)
 
         # 現在のシーンがステージ1の場合
-        if self.game.scene_name == SCENE_PLAY_STAGE_ONE:
+        if self.game.game_data.scene_name == SCENE_PLAY_STAGE_ONE:
             # 爆発音を再生する
             pyxel.play(2, 2, resume=True)  # チャンネル2で割り込み再生させる
         else:
             pyxel.play(2, 2, )  # チャンネル2で割り込みなしで再生させる
 
         # 敵をリストから削除する
-        if self in self.game.enemies:  # 敵リストに登録されている時
-            self.game.enemies.remove(self)
+        if self in self.game.enemy_state.enemies:  # 敵リストに登録されている時
+            self.game.enemy_state.enemies.remove(self)
 
         # スコアを加算する
-        self.game.score += self.level * 10
+        self.game.game_data.score += self.level * 10
         # パイロット毎に経験値を加算する
-        if self.game.pilot_kind == PILOT_CLARICE:
-            self.game.player_exp += self.level * 1.1
+        if self.game.player_state.pilot_kind == PILOT_CLARICE:
+            self.game.player_state.exp += self.level * 1.1
         else:
-            self.game.player_exp += self.level * 1
+            self.game.player_state.exp += self.level * 1
 
     # 自機の方向の角度を計算する
     def calc_player_angle(self, x, y):
-        player = self.game.player
+        player = self.game.player_state.instance
         if player is None:  # 自機が存在しない時
             return 90
         else:  # 自機が存在する時
@@ -72,5 +72,5 @@ class Enemy:
     def delete_out_enemy(self):
         # 敵が画面下から出たら敵リストから削除する
         if self.y >= pyxel.height:  # 画面下から出たか
-            if self in self.game.enemies:
-                self.game.enemies.remove(self)  # 敵リストから削除する
+            if self in self.game.enemy_state.enemies:
+                self.game.enemy_state.enemies.remove(self)  # 敵リストから削除する

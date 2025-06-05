@@ -20,12 +20,12 @@ class RobotFollow(Enemy):
 
         # 経過時間にプレイヤーを追跡する
         if self.life_time // 50 % 2 == 0:
-            if self.game.player.x - self.x > 0:
+            if self.game.player_state.instance.x - self.x > 0:
                 self.x += 1.0
             else:
                 self.x -= 1.0
 
-            if self.game.player.y - self.y > 0:
+            if self.game.player_state.instance.y - self.y > 0:
                 self.y += 1.0
             else:
                 self.y -= 1.0

@@ -17,20 +17,20 @@ class Bullet:
         # 弾の種類に応じた初期化とリストへの登録を行う
         if self.side == Bullet.SIDE_PLAYER:
             self.hit_area = (2, 1, 5, 6)
-            game.player_bullets.append(self)
+            game.player_state.bullets.append(self)
         else:
             self.hit_area = (2, 2, 5, 5)
-            game.enemy_bullets.append(self)
+            game.enemy_state.bullets.append(self)
 
     # 弾にダメージを与える
     def add_damage(self):
         # 弾をリストから削除する
         if self.side == Bullet.SIDE_PLAYER:
-            if self in self.game.player_bullets:  # 自機の弾リストに登録されている時
-                self.game.player_bullets.remove(self)
+            if self in self.game.player_state.bullets:  # 自機の弾リストに登録されている時
+                self.game.player_state.bullets.remove(self)
         else:
-            if self in self.game.enemy_bullets:  # 敵の弾リストに登録されている時
-                self.game.enemy_bullets.remove(self)
+            if self in self.game.enemy_state.bullets:  # 敵の弾リストに登録されている時
+                self.game.enemy_state.bullets.remove(self)
 
     # 弾を更新する
     def update(self):
@@ -46,9 +46,9 @@ class Bullet:
             or self.y >= pyxel.height
         ):
             if self.side == Bullet.SIDE_PLAYER:
-                self.game.player_bullets.remove(self)
+                self.game.player_state.bullets.remove(self)
             else:
-                self.game.enemy_bullets.remove(self)
+                self.game.enemy_state.bullets.remove(self)
 
     # 弾を描画する
     def draw(self):
