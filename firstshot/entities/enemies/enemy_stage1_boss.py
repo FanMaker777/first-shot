@@ -8,9 +8,11 @@ from firstshot.entities.enemies import Enemy
 
 # ステージ1のボスクラス
 class StageOneBoss(Enemy):
+    """ステージ1のボスキャラクター。"""
 
     # 敵を初期化してゲームに登録する
     def __init__(self, game, level, x, y):
+        """ボスを初期化してゲームに登録する。"""
 
         super().__init__(game, level, x, y)
         self.level = 50  # 強さ
@@ -19,6 +21,7 @@ class StageOneBoss(Enemy):
 
     # 敵にダメージを与える
     def add_damage(self):
+        """ボスがダメージを受けた際の処理。"""
         if self.armor > 0:  # 装甲が残っている時
             self.armor -= 1
 
@@ -46,6 +49,7 @@ class StageOneBoss(Enemy):
 
     # 敵を更新する
     def update(self):
+        """ボスの挙動を更新する。"""
         # 生存時間をカウントする
         self.add_life_time()
 
@@ -71,4 +75,5 @@ class StageOneBoss(Enemy):
 
     # 敵を描画する
     def draw(self):
+        """ボスを描画する。"""
         pyxel.blt(self.x, self.y, self.game.boss_state.image, 0, 0, 64, 64, CLEAR_COLOR)

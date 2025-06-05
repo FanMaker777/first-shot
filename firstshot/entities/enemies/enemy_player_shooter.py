@@ -8,9 +8,11 @@ from firstshot.entities.enemies import Enemy
 
 # 敵クラス
 class PlayerShooter(Enemy):
+    """プレイヤーを狙って弾を撃つ敵キャラクター。"""
 
     # 敵を更新する
     def update(self):
+        """敵の挙動を更新する。"""
         # 生存時間をカウントする
         self.add_life_time()
 
@@ -25,4 +27,5 @@ class PlayerShooter(Enemy):
 
     # 敵を描画する
     def draw(self):
+        """敵を描画する。"""
         pyxel.blt(self.x, self.y, 0, 15, 52, 12, 12, CLEAR_COLOR)

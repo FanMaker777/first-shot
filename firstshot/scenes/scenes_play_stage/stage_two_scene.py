@@ -29,9 +29,11 @@ from firstshot.constants import (
 
 # ステージ1 画面クラス
 class StageTwoScene(PlayScene):
+    """ステージ2を表すシーン。"""
 
     # 画面を開始する
     def start(self):
+        """シーン開始時の処理。"""
 
         # プレイ状態を初期化する
         super().start()
@@ -51,6 +53,7 @@ class StageTwoScene(PlayScene):
         pygame.mixer.music.play(loops=-1)  # 無限ループ再生
 
     def update(self):
+        """フレームごとの更新処理。"""
 
         # 60秒経過後にボスフラグをオンにする
         if not self.game.boss_state.active and self.game.game_data.play_time >= STAGE2_BOSS_APPEAR_TIME:
@@ -82,5 +85,6 @@ class StageTwoScene(PlayScene):
         super().update()
 
     def draw(self):
+        """描画処理。"""
         # 親クラスのメソッド実行
         super().draw()

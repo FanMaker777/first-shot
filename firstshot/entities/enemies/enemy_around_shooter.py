@@ -8,9 +8,11 @@ from firstshot.entities.enemies import Enemy
 
 # 敵クラス
 class AroundShooter(Enemy):
+    """四方向へ弾を放つ敵キャラクター。"""
 
     # 敵を更新する
     def update(self):
+        """敵の挙動を更新する。"""
         # 生存時間をカウントする
         self.add_life_time()
 
@@ -25,4 +27,5 @@ class AroundShooter(Enemy):
 
     # 敵を描画する
     def draw(self):
+        """敵を描画する。"""
         pyxel.blt(self.x, self.y, 0, 26, 18, 12, 12, CLEAR_COLOR)
