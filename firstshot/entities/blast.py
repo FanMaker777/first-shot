@@ -4,10 +4,12 @@ from firstshot.constants import BLAST_START_RADIUS, BLAST_END_RADIUS
 
 # 爆発エフェクトクラス
 class Blast:
+    """爆発エフェクトを管理するクラス。"""
     START_RADIUS = BLAST_START_RADIUS  # 開始時の半径
     END_RADIUS = BLAST_END_RADIUS  # 終了時の半径
 
     def __init__(self, game, x, y):
+        """爆発エフェクトを初期化しリストへ登録する。"""
         self.game = game
         self.x = x
         self.y = y
@@ -18,6 +20,7 @@ class Blast:
 
     # 爆発エフェクトを更新する
     def update(self):
+        """爆発エフェクトの状態を更新する。"""
         # 半径を大きくする
         self.radius += 1
 
@@ -27,5 +30,6 @@ class Blast:
 
     # 爆発エフェクトを描画する
     def draw(self):
+        """爆発エフェクトを描画する。"""
         pyxel.circ(self.x, self.y, self.radius, 7)
         pyxel.circb(self.x, self.y, self.radius, 10)

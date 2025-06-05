@@ -4,11 +4,13 @@ from firstshot.constants import CLEAR_COLOR
 
 # 弾クラス
 class Bullet:
+    """ゲーム内の弾を表すクラス。"""
     SIDE_PLAYER = 0  # 自機の弾
     SIDE_ENEMY = 1  # 敵の弾
 
     # 弾を初期化してゲームに登録する
     def __init__(self, game, side, x, y, angle, speed):
+        """弾を初期化しゲームに登録する。"""
         self.game = game
         self.side = side
         self.x = x
@@ -26,6 +28,7 @@ class Bullet:
 
     # 弾にダメージを与える
     def add_damage(self):
+        """弾がダメージを受けた際の処理。"""
         # 弾をリストから削除する
         if self.side == Bullet.SIDE_PLAYER:
             if self in self.game.player_state.bullets:  # 自機の弾リストに登録されている時
@@ -36,6 +39,7 @@ class Bullet:
 
     # 弾を更新する
     def update(self):
+        """弾の移動と寿命を管理する。"""
         # 弾の座標を更新する
         self.x += self.vx
         self.y += self.vy
@@ -54,5 +58,6 @@ class Bullet:
 
     # 弾を描画する
     def draw(self):
+        """弾を描画する。"""
         src_x = 0 if self.side == Bullet.SIDE_PLAYER else 8
         pyxel.blt(self.x, self.y, 0, src_x, 8, 8, 8, CLEAR_COLOR)
