@@ -7,4 +7,5 @@
 # のようにまとめてインポートできるようにする
 from .blast import Blast
 from .bullet import Bullet
+from .laser import Laser
 from .player import Player

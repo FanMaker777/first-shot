@@ -2,7 +2,7 @@ import pyxel
 
 from firstshot.constants import CLEAR_COLOR
 
-from firstshot.entities import Bullet, Blast
+from firstshot.entities import Bullet, Blast, Laser
 from firstshot.entities.enemies import Enemy
 
 
@@ -65,6 +65,16 @@ class StageTwoBossRight(Enemy):
         if self.life_time % 90 == 0 or self.life_time % 92 == 0 or self.life_time % 94 == 0:
             player_angle = self.calc_player_angle(self.x + 32, self.y + 32)
             Bullet(self.game, Bullet.SIDE_ENEMY, self.x + 32, self.y + 32, player_angle, 7)
+
+        # 一定時間毎に自機を狙ったレーザーを発射する
+        if self.life_time % 120 == 0:
+            angle = self.calc_player_angle(self.x + 32, self.y + 32)
+            Laser(self.game, self.x + 32, self.y + 80, angle, 100, 30)
+
+        # 一定時間毎にランダムな方向へレーザーを発射する
+        if self.life_time % 170 == 0:
+            angle = pyxel.rndi(0, 359)
+            Laser(self.game, self.x + 32, self.y + 80, angle, 100, 30)
 
 
     # 敵を描画する
