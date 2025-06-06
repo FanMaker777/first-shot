@@ -9,6 +9,7 @@ from dataclasses import dataclass
 
 from firstshot import constants
 
+
 @dataclass
 class GameConfig:
     """

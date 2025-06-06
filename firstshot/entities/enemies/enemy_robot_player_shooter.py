@@ -1,7 +1,6 @@
 import pyxel
 
 from firstshot.constants import CLEAR_COLOR
-
 from firstshot.entities import Bullet
 from firstshot.entities.enemies import Enemy
 

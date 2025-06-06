@@ -1,4 +1,3 @@
-import pygame
 import pyxel
 
 from firstshot.constants import (

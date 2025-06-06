@@ -2,6 +2,7 @@ import pyxel
 
 from firstshot.constants import BLAST_START_RADIUS, BLAST_END_RADIUS
 
+
 # 爆発エフェクトクラス
 class Blast:
     """爆発エフェクトを管理するクラス。"""

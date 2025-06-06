@@ -2,6 +2,7 @@ import pyxel
 
 from firstshot.constants import CLEAR_COLOR
 
+
 # 弾クラス
 class Bullet:
     """ゲーム内の弾を表すクラス。"""
