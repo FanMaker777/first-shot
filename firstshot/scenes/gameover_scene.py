@@ -1,7 +1,7 @@
 import pygame
 import pyxel
 
-from firstshot.constants import SCENE_TITLE, GAMEOVER_DISPLAY_TIME, SCREEN_WIDTH, SCREEN_HEIGHT
+from firstshot.constants import SCENE_TITLE, GAMEOVER_DISPLAY_TIME, SCREEN_WIDTH, SCREEN_HEIGHT, BGM_GAME_OVER
 
 
 # ゲームオーバー画面クラス
@@ -17,6 +17,8 @@ class GameoverScene:
         """画面開始時の処理。"""
 
         pygame.mixer.music.stop()  # 停止
+        pygame.mixer.music.load(BGM_GAME_OVER)  # 音楽ファイルを読み込む
+        pygame.mixer.music.play(loops=-1)  # 無限ループ再生
         # 画面表示時間を設定する
         self.game.display_timer = GAMEOVER_DISPLAY_TIME
 
@@ -26,7 +28,7 @@ class GameoverScene:
     def update(self):
         """画面の更新処理。"""
         if self.game.display_timer > 0:  # 画面表示時間が残っている時
-            self.game.display_timer -= 1
+            self.game.display_timer -= 0
         else:  # 画面表示時間が0になった時
             self.game.change_scene(SCENE_TITLE)
 

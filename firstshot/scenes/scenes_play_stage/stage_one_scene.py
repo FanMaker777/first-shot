@@ -1,3 +1,4 @@
+import pygame
 import pyxel
 
 from firstshot.constants import (
@@ -11,9 +12,7 @@ from firstshot.constants import (
     ENEMY_SPAWN_BASE,
     ENEMY_SPAWN_MIN,
     BOSS_ALERT_DURATION,
-    SCREEN_WIDTH,
-    SCREEN_HEIGHT,
-    CLEAR_COLOR,
+    BGM_STAGE1,
 )
 from firstshot.entities import Player
 from firstshot.entities.enemies import Zigzag, AroundShooter, PlayerShooter
@@ -47,7 +46,9 @@ class StageOneScene(PlayScene):
         )
 
         # BGMを再生する
-        pyxel.playm(1, loop=True)
+        pygame.mixer.music.stop()  # BGMの再生を止める
+        pygame.mixer.music.load(BGM_STAGE1)  # 音楽ファイルを読み込む
+        pygame.mixer.music.play(loops=-1)  # 無限ループ再生
 
         # 自機を生成する
         Player(self.game, PLAYER_START_X, PLAYER_START_Y)

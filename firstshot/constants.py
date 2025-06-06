@@ -31,10 +31,15 @@ STAGE1_ENEMY_IMAGE = "assets/enemy/enemy_sheet2_size64.png"
 STAGE1_BOSS_IMAGE = "assets/enemy/boss_sheet_size192.png"
 STAGE2_ENEMY_IMAGE = "assets/enemy/enemy_stage2.png"
 STAGE2_BOSS_IMAGE = "assets/enemy/boss_stage2.png"
-BGM_STAGE2_PATH = "assets/bgm/stage1_ba-dakkuman.ogg"
 PILOT1_IMAGE = "assets/pilot/pilot1.png"
 PILOT2_IMAGE = "assets/pilot/pilot2.png"
 PILOT3_IMAGE = "assets/pilot/pilot3.png"
+# ファイルパス(BGM)
+BGM_TITLE = "assets/bgm/title.ogg"
+BGM_STAGE1 = "assets/bgm/stage1.ogg"
+BGM_STAGE2 = "assets/bgm/stage2.ogg"
+BGM_STAGE3 = "assets/bgm/stage3.ogg"
+BGM_GAME_OVER = "assets/bgm/game_over.ogg"
 
 # パイロット
 PILOT_CLARICE = 0  # クラリーチェ

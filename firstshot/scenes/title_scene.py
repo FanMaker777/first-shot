@@ -1,6 +1,7 @@
+import pygame
 import pyxel
 
-from firstshot.constants import SCENE_SELECT_PILOT, SCREEN_WIDTH, SCREEN_HEIGHT
+from firstshot.constants import SCENE_SELECT_PILOT, SCREEN_WIDTH, SCREEN_HEIGHT, BGM_TITLE
 
 
 # タイトル画面クラス
@@ -24,7 +25,9 @@ class TitleScene:
         self.game.enemy_state.blasts = []  # 爆発エフェクトのリスト
 
         # BGMを再生する
-        pyxel.playm(0, loop=True)
+        pygame.mixer.music.stop()  # BGMの再生を止める
+        pygame.mixer.music.load(BGM_TITLE)  # 音楽ファイルを読み込む
+        pygame.mixer.music.play(loops=-1)  # 無限ループ再生
 
     def update(self):
         """画面の更新処理。"""

@@ -42,6 +42,8 @@ class Game:
         pyxel.init(self.game_config.width, self.game_config.height, title=self.game_config.title, fps=self.game_config.fps)
         # pygameのミキサーを初期化
         pygame.mixer.init()
+        # マスター音量を設定 (0.0 から 1.0 の範囲)
+        pygame.mixer.music.set_volume(0.2)
         # ビットマップフォントの読み込み
         self.font = pyxel.Font(FONT_PATH)
         # 色パレットを254色に更新

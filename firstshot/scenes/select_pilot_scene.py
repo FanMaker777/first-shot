@@ -1,3 +1,4 @@
+import pygame
 import pyxel
 
 from firstshot.constants import (
@@ -64,7 +65,6 @@ class SelectPilotScene:
             # パイロットの種類をgameに登録
             self.game.player_state.pilot_kind = self.pilot_kind
 
-            pyxel.stop()  # BGMの再生を止める
             # プレイ画面に遷移
             self.game.change_scene(SCENE_PLAY_STAGE_ONE)
 

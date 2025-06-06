@@ -13,7 +13,7 @@ from firstshot.constants import (
     STAGE2_BG_PATH,
     STAGE2_ENEMY_IMAGE,
     STAGE2_BOSS_IMAGE,
-    BGM_STAGE2_PATH,
+    BGM_STAGE2,
     STAGE2_BGM_VOLUME,
     STAGE2_BOSS_APPEAR_TIME,
     ENEMY_SPAWN_BASE,
@@ -48,8 +48,8 @@ class StageTwoScene(PlayScene):
         )
 
         # BGMを再生する
-        pygame.mixer.music.load(BGM_STAGE2_PATH)  # 音楽ファイルを読み込む
-        pygame.mixer.music.set_volume(STAGE2_BGM_VOLUME)  # 音量（0.0〜1.0）
+        pygame.mixer.music.stop()  # BGMの再生を止める
+        pygame.mixer.music.load(BGM_STAGE2)  # 音楽ファイルを読み込む
         pygame.mixer.music.play(loops=-1)  # 無限ループ再生
 
     def update(self):
