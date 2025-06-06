@@ -15,7 +15,7 @@ class StageOneBoss(Enemy):
 
         super().__init__(game, level, x, y)
         self.level = 50  # 強さ
-        self.armor = 50  # 装甲
+        self.armor = 10  # 装甲
         self.hit_area = (0, 0, 63, 63)
 
     # 敵にダメージを与える
@@ -24,15 +24,13 @@ class StageOneBoss(Enemy):
         if self.armor > 0:  # 装甲が残っている時
             self.armor -= 1
 
-            # ダメージ音を再生する
-            pyxel.play(2, 1, resume=True)  # チャンネル2で割り込み再生させる
             return
 
         # 爆発エフェクトを生成する
         Blast(self.game, self.x + 4, self.y + 4)
 
         # 爆発音を再生する
-        pyxel.play(2, 2, resume=True)  # チャンネル2で割り込み再生させる
+        self.game.sound_manager.se_blast.play()
 
         # 敵をリストから削除する
         if self in self.game.enemy_state.enemies:  # 敵リストに登録されている時

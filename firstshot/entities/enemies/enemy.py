@@ -1,6 +1,6 @@
 import pyxel
 
-from firstshot.constants import SCENE_PLAY_STAGE_ONE, PILOT_CLARICE
+from firstshot.constants import PILOT_CLARICE
 from firstshot.entities import Blast
 
 
@@ -28,23 +28,11 @@ class Enemy:
         if self.armor > 0:  # 装甲が残っている時
             self.armor -= 1
 
-            # 現在のシーンがステージ1の場合
-            if self.game.game_data.scene_name == SCENE_PLAY_STAGE_ONE:
-                # ダメージ音を再生する
-                pyxel.play(2, 1, resume=True)  # チャンネル2で割り込み再生させる
-                return
-            else:
-                pyxel.play(2, 1) # チャンネル2で割り込みなしで再生させる
-
         # 爆発エフェクトを生成する
         Blast(self.game, self.x + 4, self.y + 4)
 
-        # 現在のシーンがステージ1の場合
-        if self.game.game_data.scene_name == SCENE_PLAY_STAGE_ONE:
-            # 爆発音を再生する
-            pyxel.play(2, 2, resume=True)  # チャンネル2で割り込み再生させる
-        else:
-            pyxel.play(2, 2 )  # チャンネル2で割り込みなしで再生させる
+        # 爆発音を再生する
+        self.game.sound_manager.se_blast.play()
 
         # 敵をリストから削除する
         if self in self.game.enemy_state.enemies:  # 敵リストに登録されている時

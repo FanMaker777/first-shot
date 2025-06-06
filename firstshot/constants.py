@@ -41,6 +41,13 @@ BGM_STAGE2 = "assets/bgm/stage2.ogg"
 BGM_STAGE3 = "assets/bgm/stage3.ogg"
 BGM_GAME_OVER = "assets/bgm/game_over.ogg"
 
+# ファイルパス(SE)
+SE_SHOT = "assets/se/shot.mp3"
+SE_BLAST = "assets/se/blast.ogg"
+SE_GET_ITEM = "assets/se/get_item.mp3"
+SE_LEVEL_UP = "assets/se/level_up.mp3"
+
+
 # パイロット
 PILOT_CLARICE = 0  # クラリーチェ
 PILOT_ROCKY = 1  # ロッキー
@@ -74,7 +81,10 @@ STAGE2_BOSS_APPEAR_TIME = 300
 ENEMY_SPAWN_BASE = 90
 ENEMY_SPAWN_MIN = 20
 BOSS_ALERT_DURATION = 180
-MASTER_VOLUME = 0.2
+# ゲーム設定(音量)
+BGM_VOLUME = 0.2
+SE_VOLUME = 0.1
+SE_BLAST_VOLUME = 0.3
 
 # ダイアログ
 EXIT_DIALOG_TITLE = "終了確認"

@@ -37,7 +37,7 @@ class Player:
         if self.game.player_state.pilot_kind == PILOT_GENZOU:
             self.hit_area = (1, 1, 3, 3)  # 当たり判定の領域 (x1,y1,x2,y2)
         else:
-            self.hit_area = (1, 6, 6, 6) # 当たり判定の領域 (x1,y1,x2,y2)
+            self.hit_area = (1, 1, 6, 6) # 当たり判定の領域 (x1,y1,x2,y2)
         self.move_speed = PLAYER_MOVE_SPEED  # 移動速度
         self.shot_interval = PLAYER_SHOT_INTERVAL_DEFAULT  # 弾の発射間隔
 
@@ -50,9 +50,8 @@ class Player:
         # 爆発エフェクトを生成する
         Blast(self.game, self.x + 4, self.y + 4)
 
-        # BGMを止めて爆発音を再生する
-        pyxel.stop()
-        pyxel.play(0, 2)
+        # 爆発音を再生する
+        self.game.sound_manager.se_blast.play()
 
         # 自機を削除する
         self.game.player_state.instance = None
@@ -119,7 +118,7 @@ class Player:
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x + 3, self.y - 3, PLAYER_BULLET_ANGLE_RIGHT, PLAYER_BULLET_SPEED)
 
             # 弾発射音を再生する
-            pyxel.play(3, 0)
+            self.game.sound_manager.se_shot.play()
 
             # 次の弾発射までの残り時間を設定する
             self.shot_timer = self.shot_interval
