@@ -1,4 +1,3 @@
-import pygame
 import pyxel
 
 from firstshot.constants import (
@@ -18,6 +17,7 @@ from firstshot.constants import (
 )
 from firstshot.game_data import PlayerState, EnemyState, BossState, GameData, GameConfig
 from firstshot.logic.dialog import display_exit_dialog
+from firstshot.manager import SoundManager
 from firstshot.scenes import TitleScene, GameoverScene
 from firstshot.scenes.scenes_play_stage import StageOneScene, StageTwoScene
 from firstshot.scenes.select_pilot_scene import SelectPilotScene
@@ -37,13 +37,11 @@ class Game:
         self.player_state = PlayerState()
         self.enemy_state = EnemyState()
         self.boss_state = BossState()
+        self.sound_manager = SoundManager()
 
         # Pyxelを初期化する
         pyxel.init(self.game_config.width, self.game_config.height, title=self.game_config.title, fps=self.game_config.fps)
-        # pygameのミキサーを初期化
-        pygame.mixer.init()
-        # マスター音量を設定 (0.0 から 1.0 の範囲)
-        pygame.mixer.music.set_volume(0.2)
+
         # ビットマップフォントの読み込み
         self.font = pyxel.Font(FONT_PATH)
         # 色パレットを254色に更新

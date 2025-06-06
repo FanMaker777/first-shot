@@ -1,6 +1,15 @@
-import pygame
 import pyxel
 
+from firstshot.constants import (
+    STAGE2_BG_PATH,
+    STAGE2_ENEMY_IMAGE,
+    STAGE2_BOSS_IMAGE,
+    BGM_STAGE2,
+    STAGE2_BOSS_APPEAR_TIME,
+    ENEMY_SPAWN_BASE,
+    ENEMY_SPAWN_MIN,
+    BOSS_ALERT_DURATION,
+)
 from firstshot.entities.enemies import (
     RobotFollow,
     RobotAroundShooter,
@@ -9,22 +18,6 @@ from firstshot.entities.enemies import (
     StageTwoBossRight,
 )
 from firstshot.scenes.scenes_play_stage import PlayScene
-from firstshot.constants import (
-    STAGE2_BG_PATH,
-    STAGE2_ENEMY_IMAGE,
-    STAGE2_BOSS_IMAGE,
-    BGM_STAGE2,
-    STAGE2_BGM_VOLUME,
-    STAGE2_BOSS_APPEAR_TIME,
-    ENEMY_SPAWN_BASE,
-    ENEMY_SPAWN_MIN,
-    BOSS_ALERT_DURATION,
-    PLAYER_START_X,
-    PLAYER_START_Y,
-    SCREEN_WIDTH,
-    SCREEN_HEIGHT,
-    CLEAR_COLOR,
-)
 
 
 # ステージ1 画面クラス
@@ -48,9 +41,7 @@ class StageTwoScene(PlayScene):
         )
 
         # BGMを再生する
-        pygame.mixer.music.stop()  # BGMの再生を止める
-        pygame.mixer.music.load(BGM_STAGE2)  # 音楽ファイルを読み込む
-        pygame.mixer.music.play(loops=-1)  # 無限ループ再生
+        self.game.sound_manager.start_bgm_loop(BGM_STAGE2)
 
     def update(self):
         """フレームごとの更新処理。"""

@@ -1,4 +1,3 @@
-import pygame
 import pyxel
 
 from firstshot.constants import (
@@ -46,9 +45,7 @@ class StageOneScene(PlayScene):
         )
 
         # BGMを再生する
-        pygame.mixer.music.stop()  # BGMの再生を止める
-        pygame.mixer.music.load(BGM_STAGE1)  # 音楽ファイルを読み込む
-        pygame.mixer.music.play(loops=-1)  # 無限ループ再生
+        self.game.sound_manager.start_bgm_loop(BGM_STAGE1)
 
         # 自機を生成する
         Player(self.game, PLAYER_START_X, PLAYER_START_Y)
