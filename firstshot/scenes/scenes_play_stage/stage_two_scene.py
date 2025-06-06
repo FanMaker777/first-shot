@@ -8,7 +8,8 @@ from firstshot.constants import (
     STAGE2_BOSS_APPEAR_TIME,
     ENEMY_SPAWN_BASE,
     ENEMY_SPAWN_MIN,
-    BOSS_ALERT_DURATION,
+    BOSS_ALERT_DURATION, BASE_SCORE_STAGE_TWO, BASE_EXP_STAGE_TWO, BASE_ARMOR_STAGE_TWO, BOSS_SCORE_STAGE_TWO,
+    BOSS_EXP_STAGE_TWO, BOSS_ARMOR_STAGE_TWO,
 )
 from firstshot.entities.enemies import (
     RobotFollow,
@@ -46,9 +47,16 @@ class StageTwoScene(PlayScene):
     def update(self):
         """フレームごとの更新処理。"""
 
-        # 60秒経過後にボスフラグをオンにする
+        # 設定時間経過後にボスフラグをオンにする
         if not self.game.boss_state.active and self.game.game_data.play_time >= STAGE2_BOSS_APPEAR_TIME:
             self.game.boss_state.active = True  # ボスフラグ
+
+        # 獲得スコアを算出
+        score = BASE_SCORE_STAGE_TWO * self.game.game_data.difficulty_level
+        # 獲得経験値を算出
+        exp = BASE_EXP_STAGE_TWO * self.game.game_data.difficulty_level
+        # 装甲を算出
+        armor = BASE_ARMOR_STAGE_TWO + self.game.game_data.difficulty_level
 
         # ボスフラグがオフの時、ザコ敵を出現させる
         if not self.game.boss_state.active:
@@ -56,21 +64,26 @@ class StageTwoScene(PlayScene):
             if self.game.game_data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
-                    RobotFollow(self.game, self.game.game_data.difficulty_level, pyxel.rndi(16, 180), -8)
+                    RobotFollow(self.game, score, exp, armor + 15, pyxel.rndi(16, 180), -8, 7, 7)
                 elif kind == 1:
-                    RobotAroundShooter(self.game, self.game.game_data.difficulty_level, pyxel.rndi(16, 180), -8)
+                    RobotAroundShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
                 elif kind == 2:
-                    RobotPlayerShooter(self.game, self.game.game_data.difficulty_level, pyxel.rndi(16, 180), -8)
+                    RobotPlayerShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
 
-        # ボスフラグがオン　AND　ボスが未出現の時
-        elif self.game.boss_state.active and not any(isinstance(x, StageTwoBossLeft) for x in self.game.enemy_state.enemies.copy()):
-            self.game.boss_state.alert_timer = BOSS_ALERT_DURATION  # ボスアラートの表示時間を設定
-            StageTwoBossLeft(self.game, 50, 18, -64) # ボスを出現させる
-
-        # ボスフラグがオン　AND　ボスが未出現の時
-        elif self.game.boss_state.active and not any(isinstance(x, StageTwoBossRight) for x in self.game.enemy_state.enemies.copy()):
-            self.game.boss_state.alert_timer = BOSS_ALERT_DURATION  # ボスアラートの表示時間を設定
-            StageTwoBossRight(self.game, 50, 118, -64)  # ボスを出現させる
+        # ボスフラグがオン　AND　ボスが2体とも未出現の時
+        elif (self.game.boss_state.active and
+              not any(isinstance(x, StageTwoBossLeft) for x in self.game.enemy_state.enemies.copy()) and
+              not any(isinstance(x, StageTwoBossRight) for x in self.game.enemy_state.enemies.copy())):
+            # ボスアラートの表示時間を設定
+            self.game.boss_state.alert_timer = BOSS_ALERT_DURATION
+            # ボスを出現(左側)
+            StageTwoBossLeft(
+                self.game, BOSS_SCORE_STAGE_TWO, BOSS_EXP_STAGE_TWO, BOSS_ARMOR_STAGE_TWO,
+                18, -64, 64, 64)
+            # ボスを出現(右側)
+            StageTwoBossRight(
+                self.game, BOSS_SCORE_STAGE_TWO, BOSS_EXP_STAGE_TWO, BOSS_ARMOR_STAGE_TWO,
+                118, -64, 64, 64)
 
         # 親クラスのメソッド実行
         super().update()

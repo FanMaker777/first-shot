@@ -8,14 +8,6 @@ from firstshot.entities.enemies import Enemy
 class RobotFollow(Enemy):
     """プレイヤーを追跡するロボット型の敵。"""
 
-    # 敵を初期化してゲームに登録する
-    def __init__(self, game, level, x, y):
-        """敵の初期化を行う。"""
-        
-        super().__init__(game, level, x, y)
-        self.armor += 15  # 装甲
-        
-
     # 敵を更新する
     def update(self):
         """敵の挙動を更新する。"""

@@ -11,7 +11,8 @@ from firstshot.constants import (
     ENEMY_SPAWN_BASE,
     ENEMY_SPAWN_MIN,
     BOSS_ALERT_DURATION,
-    BGM_STAGE1,
+    BGM_STAGE1, BASE_SCORE_STAGE_ONE, BASE_EXP_STAGE_ONE, BASE_ARMOR_STAGE_ONE, BOSS_SCORE_STAGE_ONE,
+    BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE,
 )
 from firstshot.entities import Player
 from firstshot.entities.enemies import Zigzag, AroundShooter, PlayerShooter
@@ -53,14 +54,21 @@ class StageOneScene(PlayScene):
     def update(self):
         """フレームごとの更新処理。"""
 
-        # ボス撃破フラグをTrueの場合、次のステージに移行する
+        # ボス撃破フラグがTrueの場合、次のステージに移行する
         if self.game.boss_state.destroyed:
             self.game.change_scene(SCENE_PLAY_STAGE_TWO)
             return
 
-        # 60秒経過後にボスフラグをオンにする
+        # 設定時間後にボスフラグをオンにする
         if not self.game.boss_state.active and self.game.game_data.play_time >= STAGE1_BOSS_APPEAR_TIME:
             self.game.boss_state.active = True  # ボスフラグ
+
+        # 獲得スコアを算出
+        score = BASE_SCORE_STAGE_ONE * self.game.game_data.difficulty_level
+        # 獲得経験値を算出
+        exp = BASE_EXP_STAGE_ONE * self.game.game_data.difficulty_level
+        # 装甲を算出
+        armor = BASE_ARMOR_STAGE_ONE + self.game.game_data.difficulty_level
 
         # ボスフラグがオフの時、ザコ敵を出現させる
         if not self.game.boss_state.active:
@@ -68,16 +76,20 @@ class StageOneScene(PlayScene):
             if self.game.game_data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
-                    Zigzag(self.game, self.game.game_data.difficulty_level, pyxel.rndi(16, 180), -8)
+                    Zigzag(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
                 elif kind == 1:
-                    AroundShooter(self.game, self.game.game_data.difficulty_level, pyxel.rndi(16, 180), -8)
+                    AroundShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
                 elif kind == 2:
-                    PlayerShooter(self.game, self.game.game_data.difficulty_level, pyxel.rndi(16, 180), -8)
+                    PlayerShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
 
         # ボスフラグがオン　AND　ボスが未出現の時
         elif self.game.boss_state.active and not any(isinstance(x, StageOneBoss) for x in self.game.enemy_state.enemies.copy()):
-            self.game.boss_state.alert_timer = BOSS_ALERT_DURATION  # ボスアラートの表示時間を設定
-            StageOneBoss(self.game, 50, 78, -64) # ボスを出現させる
+            # ボスアラートの表示時間を設定
+            self.game.boss_state.alert_timer = BOSS_ALERT_DURATION
+            # ボスを出現
+            StageOneBoss(
+                self.game, BOSS_SCORE_STAGE_ONE, BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE,
+                78, -64, 64, 64)
 
         # 親クラスのメソッド実行
         super().update()

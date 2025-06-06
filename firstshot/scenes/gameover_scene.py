@@ -25,7 +25,7 @@ class GameoverScene:
     def update(self):
         """画面の更新処理。"""
         if self.game.display_timer > 0:  # 画面表示時間が残っている時
-            self.game.display_timer -= 0
+            self.game.display_timer -= 1
         else:  # 画面表示時間が0になった時
             self.game.change_scene(SCENE_TITLE)
 

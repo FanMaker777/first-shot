@@ -1,7 +1,7 @@
 # サウンドマネージャークラス
 import pygame
 
-from firstshot.constants import BGM_VOLUME, SE_SHOT, SE_VOLUME, SE_BLAST, SE_BLAST_VOLUME, SE_DAMAGE
+from firstshot.constants import BGM_VOLUME, SE_SHOT, SE_VOLUME, SE_BLAST, SE_BLAST_VOLUME
 
 
 class SoundManager:

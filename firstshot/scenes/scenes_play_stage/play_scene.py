@@ -25,7 +25,6 @@ class PlayScene:
         self.game.boss_state.destroyed = False  # ボス撃破フラグ
         self.game.boss_state.alert_timer = 0  # ボスアラートの表示時間
 
-        pyxel.stop()  # BGMの再生を止める
         pygame.mixer.music.stop()  # 停止
 
 
@@ -111,4 +110,4 @@ class PlayScene:
         # ボスアラートの表示時間が0より大きい場合
         if self.game.boss_state.alert_timer > 0:
             self.game.boss_state.alert_timer -= 1
-            pyxel.text(100, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)
+            pyxel.text(95, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)

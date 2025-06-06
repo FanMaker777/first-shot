@@ -118,7 +118,8 @@ class Player:
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x + 3, self.y - 3, PLAYER_BULLET_ANGLE_RIGHT, PLAYER_BULLET_SPEED)
 
             # 弾発射音を再生する
-            self.game.sound_manager.se_shot.play()
+            pyxel.play(3, 0)
+            #self.game.sound_manager.se_shot.play()
 
             # 次の弾発射までの残り時間を設定する
             self.shot_timer = self.shot_interval
