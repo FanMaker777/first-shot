@@ -14,8 +14,7 @@ from firstshot.constants import (
     BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING,
 )
 from firstshot.entities import Player
-from firstshot.entities.enemies import Zigzag, AroundShooter, PlayerShooter
-from firstshot.entities.enemies.enemy_stage1_boss import StageOneBoss
+from firstshot.entities.enemies.stage1 import Zigzag, AroundShooter, PlayerShooter, StageOneBoss
 from firstshot.scenes.scenes_play_stage import PlayScene
 
 

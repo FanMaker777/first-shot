@@ -11,13 +11,8 @@ from firstshot.constants import (
     BOSS_ALERT_DURATION, BASE_SCORE_STAGE_TWO, BASE_EXP_STAGE_TWO, BASE_ARMOR_STAGE_TWO, BOSS_SCORE_STAGE_TWO,
     BOSS_EXP_STAGE_TWO, BOSS_ARMOR_STAGE_TWO,
 )
-from firstshot.entities.enemies import (
-    RobotFollow,
-    RobotAroundShooter,
-    RobotPlayerShooter,
-    StageTwoBossLeft,
-    StageTwoBossRight,
-)
+from firstshot.entities.enemies.stage2 import RobotFollow, RobotAroundShooter, RobotPlayerShooter, StageTwoBossLeft, \
+    StageTwoBossRight
 from firstshot.scenes.scenes_play_stage import PlayScene
 
 

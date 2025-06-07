@@ -7,7 +7,7 @@ LoadingScene クラスは、ステージ開始前のローディング画面を�
 """
 
 import pygame  # サウンド(BGM)管理用
-import pyxel   # レトロゲームエンジン（Pyxel）を利用
+import pyxel  # レトロゲームエンジン（Pyxel）を利用
 
 # 定数や画像・シーン名のインポート
 from firstshot.constants import (
