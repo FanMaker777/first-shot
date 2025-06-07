@@ -55,26 +55,43 @@ class Game:
         self.scenes = {
             SCENE_TITLE: TitleScene(self),
             SCENE_SELECT_PILOT: SelectPilotScene(self),
-            SCENE_LOADING:LoadingScene(self),
+            SCENE_LOADING: LoadingScene(self),
             SCENE_PLAY_STAGE_ONE: StageOneScene(self),
             SCENE_PLAY_STAGE_TWO: StageTwoScene(self),
             SCENE_GAMEOVER: GameoverScene(self),
         }  # シーンの辞書
 
+        # フェードアウト用のパラメータ
+        self.is_fading = False         # フェードアウト中フラグ
+        self.fade_alpha = 1.0          # フェードアウトの透明度
+        self.next_scene_name = None    # フェードアウト後に遷移するシーン名
+
         # 背景の流星を生成する
         Background(self)
 
-        # シーンをタイトル画面に変更する
-        self.change_scene(SCENE_TITLE)
+        # シーンをタイトル画面に変更する（起動時は即時切り替え）
+        self.change_scene(SCENE_TITLE, with_fade=False)
 
         # ゲームの実行を開始する
         pyxel.run(self.update, self.draw)
 
     # シーンを変更する
-    def change_scene(self, scene_name):
-        """シーンを切り替える。"""
-        self.game_data.scene_name = scene_name
-        self.scenes[self.game_data.scene_name].start()
+    def change_scene(self, scene_name, *, with_fade=True):
+        """シーンを切り替える。
+
+        Args:
+            scene_name (str): 遷移先のシーン名
+            with_fade (bool): True の場合フェードアウト後に遷移する
+        """
+        if with_fade:
+            # フェードアウト用パラメータを設定
+            self.next_scene_name = scene_name
+            self.fade_alpha = 1.0
+            self.is_fading = True
+        else:
+            # 即時にシーンを切り替える
+            self.game_data.scene_name = scene_name
+            self.scenes[self.game_data.scene_name].start()
 
     # ゲーム全体を更新する
     def update(self):
@@ -86,6 +103,20 @@ class Game:
 
         # 確認ダイアログ中はゲームロジックを更新しない
         if self.game_data.is_exit_mode:
+            return
+
+        # フェードアウト処理中はシーン更新を行わない
+        if self.is_fading:
+            if self.fade_alpha > 0:
+                self.fade_alpha -= 0.1
+                if self.fade_alpha < 0:
+                    self.fade_alpha = 0
+            else:
+                # フェードアウト完了後にシーン切り替え
+                pyxel.dither(1)
+                self.is_fading = False
+                self.game_data.scene_name = self.next_scene_name
+                self.scenes[self.game_data.scene_name].start()
             return
 
         # 現在のシーンを更新する
@@ -100,6 +131,15 @@ class Game:
         """ゲーム全体の描画処理。"""
         # 画面を黒でクリアする
         pyxel.cls(COLOR_BLACK)
+
+        if self.is_fading:
+            # フェードアウト中は現在のシーンのみ描画し、dither で暗転させる
+            pyxel.dither(self.fade_alpha)
+            self.scenes[self.game_data.scene_name].draw()
+            if self.game_data.scene_name != SCENE_SELECT_PILOT:
+                self.game_data.background.draw()
+            pyxel.dither(1)
+            return
 
         # 現在のシーンを描画する
         self.scenes[self.game_data.scene_name].draw()

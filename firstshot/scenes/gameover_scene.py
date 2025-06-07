@@ -1,6 +1,13 @@
 import pyxel
 
-from firstshot.constants import SCENE_TITLE, GAMEOVER_DISPLAY_TIME, SCREEN_WIDTH, SCREEN_HEIGHT, BGM_GAME_OVER
+from firstshot.constants import (
+    SCENE_TITLE,
+    GAMEOVER_DISPLAY_TIME,
+    SCREEN_WIDTH,
+    SCREEN_HEIGHT,
+    BGM_GAME_OVER,
+    COLOR_BLACK,
+)
 
 
 # ゲームオーバー画面クラス
@@ -31,6 +38,10 @@ class GameoverScene:
 
     def draw(self):
         """画面の描画処理。"""
+        # 画面を黒でクリアしフェードアウト用の dither を設定
+        alpha = self.game.fade_alpha if self.game.is_fading else 1.0
+        pyxel.cls(COLOR_BLACK)
+        pyxel.dither(alpha)
         # 背景を描画する
         pyxel.blt(0, 0, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
         # ゲームオーバー文字を描画する
