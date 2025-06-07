@@ -39,8 +39,11 @@ class GameData:
         is_exit_mode (bool): ゲーム終了処理モードに入っているかを示すフラグ。True の場合は終了処理中。
     """
     score: int = 0                   # プレイヤーのスコア
-    scene_name: str = None           # 現在のシーン名（例："Title", "GamePlay", "GameOver" など）
-    play_time: float = 0             # プレイ経過時間（秒）
+    play_time: float = 0             # プレイ経過時間（秒
+    scene_name: str = None           # 現在のシーン名（例："Title", "GamePlay", "GameOver" など） ）
     difficulty_level: int = 0        # 難易度レベル（0: イージー, 1: ノーマル, 2: ハード など）
-    background = None  # 背景
+    cleared_stage_one = False        # ステージ1クリアフラグ
+    cleared_stage_two = False        # ステージ2クリアフラグ
+    cleared_stage_three = False      # ステージ3クリアフラグ
+    background = None                # 背景
     is_exit_mode: bool = False       # 終了処理中フラグ（True なら終了処理を行っている状態）

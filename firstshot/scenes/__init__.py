@@ -8,5 +8,6 @@
 
 from .background_scene import Background  # 背景クラス
 from .gameover_scene import GameoverScene
+from .loading_scene import LoadingScene
 from .select_pilot_scene import SelectPilotScene
 from .title_scene import TitleScene

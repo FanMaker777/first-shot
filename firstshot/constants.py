@@ -6,6 +6,7 @@ NUM_STARS = 15
 # シーン名
 SCENE_TITLE = "title"  # タイトル画面
 SCENE_SELECT_PILOT = "select_pilot"  # パイロット選択画面
+SCENE_LOADING = "loading"  # ローディング画面
 SCENE_PLAY_STAGE_ONE = "play_stage_one"  # ステージ１画面
 SCENE_PLAY_STAGE_TWO = "play_stage_two"  # ステージ２画面
 SCENE_GAMEOVER = "gameover"  # ゲームオーバー画面
@@ -36,6 +37,12 @@ STAGE2_BOSS_IMAGE = "assets/enemy/boss_stage2.png"
 PILOT1_IMAGE = "assets/pilot/pilot1.png"
 PILOT2_IMAGE = "assets/pilot/pilot2.png"
 PILOT3_IMAGE = "assets/pilot/pilot3.png"
+
+# ファイルパス(ローディング画面)
+IMAGE_LOADING_PILOT1 = "assets/loading/loading_pilot1.png"
+IMAGE_LOADING_PILOT2 = "assets/loading/loading_pilot2.png"
+IMAGE_LOADING_PILOT3 = "assets/loading/loading_pilot3.png"
+
 # ファイルパス(BGM)
 BGM_TITLE = "assets/bgm/title.ogg"
 BGM_STAGE1 = "assets/bgm/stage1.ogg"

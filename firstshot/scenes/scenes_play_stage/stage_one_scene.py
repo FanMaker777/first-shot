@@ -1,7 +1,6 @@
 import pyxel
 
 from firstshot.constants import (
-    SCENE_PLAY_STAGE_TWO,
     STAGE1_BG_PATH,
     STAGE1_ENEMY_IMAGE,
     STAGE1_BOSS_IMAGE,
@@ -12,7 +11,7 @@ from firstshot.constants import (
     ENEMY_SPAWN_MIN,
     BOSS_ALERT_DURATION,
     BGM_STAGE1, BASE_SCORE_STAGE_ONE, BASE_EXP_STAGE_ONE, BASE_ARMOR_STAGE_ONE, BOSS_SCORE_STAGE_ONE,
-    BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE,
+    BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING,
 )
 from firstshot.entities import Player
 from firstshot.entities.enemies import Zigzag, AroundShooter, PlayerShooter
@@ -56,7 +55,9 @@ class StageOneScene(PlayScene):
 
         # ボス撃破フラグがTrueの場合、次のステージに移行する
         if self.game.boss_state.destroyed:
-            self.game.change_scene(SCENE_PLAY_STAGE_TWO)
+            # ステージクリアフラグをオンにする
+            self.game.game_data.cleared_stage_one = True
+            self.game.change_scene(SCENE_LOADING)
             return
 
         # 設定時間後にボスフラグをオンにする

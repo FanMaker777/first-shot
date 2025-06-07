@@ -13,12 +13,12 @@ from firstshot.constants import (
     TITLE_IMAGE_PATH,
     COLOR_BLACK,
     SCREEN_WIDTH,
-    SCREEN_HEIGHT,
+    SCREEN_HEIGHT, SCENE_LOADING,
 )
 from firstshot.game_data import PlayerState, EnemyState, BossState, GameData, GameConfig
 from firstshot.logic.dialog import display_exit_dialog
 from firstshot.manager import SoundManager
-from firstshot.scenes import TitleScene, GameoverScene
+from firstshot.scenes import TitleScene, GameoverScene, LoadingScene
 from firstshot.scenes.scenes_play_stage import StageOneScene, StageTwoScene
 from firstshot.scenes.select_pilot_scene import SelectPilotScene
 from scenes import Background
@@ -55,6 +55,7 @@ class Game:
         self.scenes = {
             SCENE_TITLE: TitleScene(self),
             SCENE_SELECT_PILOT: SelectPilotScene(self),
+            SCENE_LOADING:LoadingScene(self),
             SCENE_PLAY_STAGE_ONE: StageOneScene(self),
             SCENE_PLAY_STAGE_TWO: StageTwoScene(self),
             SCENE_GAMEOVER: GameoverScene(self),
