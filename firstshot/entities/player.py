@@ -51,7 +51,7 @@ class Player:
         Blast(self.game, self.x + 4, self.y + 4)
 
         # 爆発音を再生する
-        self.game.sound_manager.se_blast.play()
+        self.game.sound_manager.play_se_blast()
 
         # 自機を削除する
         self.game.player_state.instance = None
@@ -118,8 +118,7 @@ class Player:
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x + 3, self.y - 3, PLAYER_BULLET_ANGLE_RIGHT, PLAYER_BULLET_SPEED)
 
             # 弾発射音を再生する
-            pyxel.play(3, 0)
-            #self.game.sound_manager.se_shot.play()
+            self.game.sound_manager.play_se_shot()
 
             # 次の弾発射までの残り時間を設定する
             self.shot_timer = self.shot_interval

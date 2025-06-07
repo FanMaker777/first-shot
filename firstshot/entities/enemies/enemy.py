@@ -72,7 +72,7 @@ class Enemy:
         Blast(self.game, self.x + 4, self.y + 4)
 
         # 2) 爆発音を再生
-        self.game.sound_manager.se_blast.play()
+        self.game.sound_manager.play_se_blast()
 
         # 3) 敵を敵リストから削除
         if self in self.game.enemy_state.enemies:
