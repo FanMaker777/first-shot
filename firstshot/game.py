@@ -108,7 +108,7 @@ class Game:
         # フェードアウト処理中はシーン更新を行わない
         if self.is_fading:
             if self.fade_alpha > 0:
-                self.fade_alpha -= 0.1
+                self.fade_alpha -= 0.075
                 if self.fade_alpha < 0:
                     self.fade_alpha = 0
             else:
