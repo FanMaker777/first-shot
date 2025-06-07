@@ -1,7 +1,7 @@
 import pygame
 import pyxel
 
-from firstshot.constants import SCREEN_HEIGHT, CLEAR_COLOR, SCREEN_WIDTH
+from firstshot.constants import SCREEN_HEIGHT, COLOR_BLACK, SCREEN_WIDTH
 from firstshot.logic.collision import check_collision
 
 
@@ -100,7 +100,7 @@ class PlayScene:
 
         # 情報スペースを表示
         pyxel.rectb(200, 0, 56, SCREEN_HEIGHT, 0)
-        pyxel.rect(201, 1, 54, SCREEN_HEIGHT - 2, CLEAR_COLOR)
+        pyxel.rect(201, 1, 54, SCREEN_HEIGHT - 2, COLOR_BLACK)
         # 各情報を描画する
         pyxel.text(208, 32, "SCORE", 0, self.game.font)
         pyxel.text(208, 48, f"{self.game.game_data.score:05}", 0, self.game.font)

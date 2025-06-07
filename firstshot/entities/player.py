@@ -16,7 +16,7 @@ from firstshot.constants import (
     PLAYER_BULLET_ANGLE_RIGHT,
     PLAYER_BULLET_ANGLE_LEFT_WIDE,
     PLAYER_BULLET_ANGLE_RIGHT_WIDE,
-    CLEAR_COLOR,
+    COLOR_BLACK,
 )
 from firstshot.entities import Blast, Bullet
 
@@ -126,4 +126,4 @@ class Player:
     # 自機を描画する
     def draw(self):
         """プレイヤーを描画する。"""
-        pyxel.blt(self.x, self.y, 0, 0, 0, 8, 8, CLEAR_COLOR)
+        pyxel.blt(self.x, self.y, 0, 0, 0, 8, 8, COLOR_BLACK)

@@ -1,6 +1,6 @@
 import pyxel
 
-from firstshot.constants import CLEAR_COLOR
+from firstshot.constants import COLOR_BLACK
 from firstshot.entities.enemies import Enemy
 
 
@@ -32,4 +32,4 @@ class RobotFollow(Enemy):
     # 敵を描画する
     def draw(self):
         """敵を描画する。"""
-        pyxel.blt(self.x, self.y, 0, 24, 20, 20, 16, CLEAR_COLOR)
+        pyxel.blt(self.x, self.y, 0, 24, 20, 20, 16, COLOR_BLACK)

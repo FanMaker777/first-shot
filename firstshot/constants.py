@@ -17,7 +17,9 @@ SCREEN_TITLE_TEXT = "First Shot"
 FPS = 30
 
 # カラー
-CLEAR_COLOR = 188
+COLOR_BLACK = 188
+COLOR_GREEN = 141
+
 
 # ファイルパス
 FONT_PATH = "assets/umplus_j10r.bdf"

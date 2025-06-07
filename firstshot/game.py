@@ -11,7 +11,7 @@ from firstshot.constants import (
     RESOURCE_FILE,
     IMAGE_PANK_PATH,
     TITLE_IMAGE_PATH,
-    CLEAR_COLOR,
+    COLOR_BLACK,
     SCREEN_WIDTH,
     SCREEN_HEIGHT,
 )
@@ -98,7 +98,7 @@ class Game:
     def draw(self):
         """ゲーム全体の描画処理。"""
         # 画面を黒でクリアする
-        pyxel.cls(CLEAR_COLOR)
+        pyxel.cls(COLOR_BLACK)
 
         # 現在のシーンを描画する
         self.scenes[self.game_data.scene_name].draw()

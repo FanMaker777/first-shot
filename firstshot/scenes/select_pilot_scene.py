@@ -8,7 +8,7 @@ from firstshot.constants import (
     PILOT1_IMAGE,
     PILOT2_IMAGE,
     PILOT3_IMAGE,
-    CLEAR_COLOR,
+    COLOR_BLACK,
     SCREEN_WIDTH,
 )
 
@@ -70,7 +70,7 @@ class SelectPilotScene:
     def draw(self):
         """画面の描画処理。"""
         # 画面をクリアする
-        pyxel.cls(CLEAR_COLOR)
+        pyxel.cls(COLOR_BLACK)
         # パイロットの表示
         pyxel.blt(0, 0, self.pilot_image, 0, 0, SCREEN_WIDTH, 200)
         # メッセージの表示

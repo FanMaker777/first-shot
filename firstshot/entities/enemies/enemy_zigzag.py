@@ -1,6 +1,6 @@
 import pyxel
 
-from firstshot.constants import CLEAR_COLOR
+from firstshot.constants import COLOR_BLACK
 from firstshot.entities.enemies import Enemy
 
 
@@ -29,4 +29,4 @@ class Zigzag(Enemy):
     # 敵を描画する
     def draw(self):
         """敵を描画する。"""
-        pyxel.blt(self.x, self.y, 0, 2, 30, 12, 12, CLEAR_COLOR)
+        pyxel.blt(self.x, self.y, 0, 2, 30, 12, 12, COLOR_BLACK)

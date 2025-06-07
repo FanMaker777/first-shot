@@ -1,6 +1,6 @@
 import pyxel
 
-from firstshot.constants import CLEAR_COLOR
+from firstshot.constants import COLOR_BLACK
 
 
 # 弾クラス
@@ -61,4 +61,4 @@ class Bullet:
     def draw(self):
         """弾を描画する。"""
         src_x = 0 if self.side == Bullet.SIDE_PLAYER else 8
-        pyxel.blt(self.x, self.y, 0, src_x, 8, 8, 8, CLEAR_COLOR)
+        pyxel.blt(self.x, self.y, 0, src_x, 8, 8, 8, COLOR_BLACK)
