@@ -75,6 +75,10 @@ class PlayScene:
 
     def draw(self):
         """ゲームプレイ中の描画処理。"""
+        # フェードアウト用の dither を設定
+        alpha = self.game.fade_alpha if self.game.is_fading else 1.0
+        pyxel.cls(COLOR_BLACK)
+        pyxel.dither(alpha)
         # ステージ背景を描画する
         pyxel.blt(0, 0, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
 

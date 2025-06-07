@@ -1,6 +1,12 @@
 import pyxel
 
-from firstshot.constants import SCENE_SELECT_PILOT, SCREEN_WIDTH, SCREEN_HEIGHT, BGM_TITLE
+from firstshot.constants import (
+    SCENE_SELECT_PILOT,
+    SCREEN_WIDTH,
+    SCREEN_HEIGHT,
+    BGM_TITLE,
+    COLOR_BLACK,
+)
 
 
 # タイトル画面クラス
@@ -34,5 +40,9 @@ class TitleScene:
 
     def draw(self):
         """画面の描画処理。"""
+        # 画面を黒でクリアし、フェードアウト用の dither を設定
+        alpha = self.game.fade_alpha if self.game.is_fading else 1.0
+        pyxel.cls(COLOR_BLACK)
+        pyxel.dither(alpha)
         # タイトル画面を表示
         pyxel.blt(0, 0, 2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0)

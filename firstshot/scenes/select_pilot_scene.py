@@ -69,8 +69,10 @@ class SelectPilotScene:
 
     def draw(self):
         """画面の描画処理。"""
-        # 画面をクリアする
+        # フェードアウト用の dither を設定し画面をクリア
+        alpha = self.game.fade_alpha if self.game.is_fading else 1.0
         pyxel.cls(COLOR_BLACK)
+        pyxel.dither(alpha)
         # パイロットの表示
         pyxel.blt(0, 0, self.pilot_image, 0, 0, SCREEN_WIDTH, 200)
         # メッセージの表示
