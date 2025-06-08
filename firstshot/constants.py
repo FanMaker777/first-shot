@@ -60,6 +60,7 @@ SE_SHOT = "assets/se/shot.mp3"
 SE_BLAST = "assets/se/blast.ogg"
 SE_GET_ITEM = "assets/se/get_item.mp3"
 SE_LEVEL_UP = "assets/se/level_up.mp3"
+SE_STAGE_CLEAR = "assets/se/stage_clear.mp3"
 
 
 # パイロット
@@ -96,6 +97,7 @@ STAGE3_BOSS_APPEAR_TIME = 600
 ENEMY_SPAWN_BASE = 90
 ENEMY_SPAWN_MIN = 20
 BOSS_ALERT_DURATION = 180
+STAGE_CLEAR_DISPLAY_TIME = FPS * 5
 # ゲーム設定(各ステージのスコア)
 BASE_SCORE_STAGE_ONE = 100
 BASE_SCORE_STAGE_TWO = 200
@@ -121,6 +123,7 @@ BOSS_ARMOR_STAGE_THREE = 30
 BGM_VOLUME = 0.2
 SE_VOLUME = 0.1
 SE_BLAST_VOLUME = 0.3
+SE_STAGE_CLEAR_VOLUME = 0.8
 
 # ダイアログ
 EXIT_DIALOG_TITLE = "終了確認"

@@ -60,9 +60,11 @@ class StageTwoScene(PlayScene):
         self.play_time += 1
 
         # ボス撃破フラグがTrueの場合、次のステージに移行する
-        if self.game.boss_state.destroyed:
+        if not self.game.game_data.cleared_stage_two and self.game.boss_state.destroyed:
             self.game.game_data.cleared_stage_two = True
-            self.game.change_scene(SCENE_LOADING)
+
+        if self.game.game_data.cleared_stage_two:
+            super().stagestruck(SCENE_LOADING)
             return
 
         # 設定時間経過後にボスフラグをオンにする

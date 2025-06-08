@@ -1,7 +1,7 @@
 import pygame
 import pyxel
 
-from firstshot.constants import SCREEN_HEIGHT, COLOR_BLACK, SCREEN_WIDTH
+from firstshot.constants import SCREEN_HEIGHT, COLOR_BLACK, SCREEN_WIDTH, STAGE_CLEAR_DISPLAY_TIME
 from firstshot.logic.collision import check_collision
 
 
@@ -12,6 +12,19 @@ class PlayScene:
     def __init__(self, game):
         """インスタンスを初期化する。"""
         self.game = game
+
+    def stagestruck(self, next_scene_name):
+        if self.game.game_data.stage_clear_display_time == 0:
+            # ステージクリア表示タイマーを開始
+            self.game.player_state.bullets = []  # 自機の弾のリスト
+            self.game.enemy_state.bullets = []  # 敵の弾のリスト
+            self.game.sound_manager.play_se_stage_clear()
+            self.game.game_data.stage_clear_display_time = STAGE_CLEAR_DISPLAY_TIME
+        else:
+            self.game.game_data.stage_clear_display_time -= 1
+            if self.game.game_data.stage_clear_display_time == 0:
+                # 規定時間経過後に次のシーンへ
+                self.game.change_scene(next_scene_name)
 
     # 画面を開始する
     def start(self):
@@ -24,6 +37,7 @@ class PlayScene:
         self.game.boss_state.active = False  # ボスフラグ
         self.game.boss_state.destroyed = False  # ボス撃破フラグ
         self.game.boss_state.alert_timer = 0  # ボスアラートの表示時間
+        self.game.game_data.stage_clear_display_time = 0 # ステージクリア表示時間
 
         pygame.mixer.music.stop()  # 停止
 
@@ -112,6 +126,10 @@ class PlayScene:
         pyxel.text(208, 128, f"LV {self.game.player_state.lv}", 0, self.game.font)
 
         # ボスアラートの表示時間が0より大きい場合
-        if self.game.boss_state.alert_timer > 0:
+        if self.game.boss_state.alert_timer > 0 and self.game.game_data.stage_clear_display_time == 0:
             self.game.boss_state.alert_timer -= 1
-            pyxel.text(95, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)
+            pyxel.text(90, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)
+
+        # ステージクリアの表示時間が0より大きい場合
+        if self.game.game_data.stage_clear_display_time > 0:
+            pyxel.text(90, 128, "STAGE CLEAR", pyxel.rndi(0, 240), self.game.font)

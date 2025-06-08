@@ -67,7 +67,7 @@ class StageThreeScene(PlayScene):
         self.game.boss_state.image = pyxel.Image.from_image(
             STAGE3_BOSS_IMAGE, incl_colors=False
         )
-        print(self.game.boss_state.image.pget(0,0))
+
         # ステージ3専用BGMをループ再生
         self.game.sound_manager.start_bgm_loop(BGM_STAGE3)
 
@@ -84,9 +84,11 @@ class StageThreeScene(PlayScene):
         self.play_time += 1
 
         # ボスが撃破済みならステージクリアフラグを立ててゲームオーバーシーンへ遷移
-        if self.game.boss_state.destroyed:
+        if not self.game.game_data.cleared_stage_three and self.game.boss_state.destroyed:
             self.game.game_data.cleared_stage_three = True  # ステージ3クリア記録
-            self.game.change_scene(SCENE_GAMEOVER)          # ゲームオーバー（クリア）へ
+
+        if self.game.game_data.cleared_stage_three:
+            super().stagestruck(SCENE_GAMEOVER)
             return
 
         # 一定時間経過後にボス出現フラグをオン

@@ -53,10 +53,12 @@ class StageOneScene(PlayScene):
         """フレームごとの更新処理。"""
 
         # ボス撃破フラグがTrueの場合、次のステージに移行する
-        if self.game.boss_state.destroyed:
+        if not self.game.game_data.cleared_stage_one and self.game.boss_state.destroyed:
             # ステージクリアフラグをオンにする
             self.game.game_data.cleared_stage_one = True
-            self.game.change_scene(SCENE_LOADING)
+
+        if self.game.game_data.cleared_stage_one:
+            super().stagestruck(SCENE_LOADING)
             return
 
         # 設定時間後にボスフラグをオンにする

@@ -45,5 +45,6 @@ class GameData:
     cleared_stage_one = False        # ステージ1クリアフラグ
     cleared_stage_two = False        # ステージ2クリアフラグ
     cleared_stage_three = False      # ステージ3クリアフラグ
+    stage_clear_display_time = 0     # ステージクリア表示時間
     background = None                # 背景
     is_exit_mode: bool = False       # 終了処理中フラグ（True なら終了処理を行っている状態）

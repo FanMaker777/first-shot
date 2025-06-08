@@ -1,7 +1,8 @@
 # サウンドマネージャークラス
 import pygame
 
-from firstshot.constants import BGM_VOLUME, SE_SHOT, SE_VOLUME, SE_BLAST, SE_BLAST_VOLUME
+from firstshot.constants import BGM_VOLUME, SE_SHOT, SE_VOLUME, SE_BLAST, SE_BLAST_VOLUME, SE_STAGE_CLEAR, \
+    SE_STAGE_CLEAR_VOLUME
 
 
 class SoundManager:
@@ -31,6 +32,10 @@ class SoundManager:
         self.channel_blast = pygame.mixer.Channel(1)
         self.se_blast = pygame.mixer.Sound(SE_BLAST)
         self.se_blast.set_volume(SE_BLAST_VOLUME)
+        # ステージクリア
+        self.channel_stage_clear = pygame.mixer.Channel(2)
+        self.se_stage_clear = pygame.mixer.Sound(SE_STAGE_CLEAR)
+        self.se_stage_clear.set_volume(SE_STAGE_CLEAR_VOLUME)
 
     def play_se_shot(self):
         """弾発射音を再生する。"""
@@ -39,6 +44,10 @@ class SoundManager:
     def play_se_blast(self):
         """爆発音を再生する。"""
         self.channel_blast.play(self.se_blast)
+
+    def play_se_stage_clear(self):
+        """ステージクリア音を再生する。"""
+        self.channel_stage_clear.play(self.se_stage_clear)
 
 
     @staticmethod
