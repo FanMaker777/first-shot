@@ -7,6 +7,7 @@ from firstshot.constants import (
     SCENE_PLAY_STAGE_TWO,
     SCENE_PLAY_STAGE_THREE,
     SCENE_GAMEOVER,
+    SCENE_GAME_CLEAR,
     FONT_PATH,
     PALETTE_IMAGE_PATH,
     RESOURCE_FILE,
@@ -19,7 +20,12 @@ from firstshot.constants import (
 from firstshot.game_data import PlayerState, EnemyState, BossState, GameData, GameConfig
 from firstshot.logic.dialog import display_exit_dialog
 from firstshot.manager import SoundManager
-from firstshot.scenes import TitleScene, GameoverScene, LoadingScene
+from firstshot.scenes import (
+    TitleScene,
+    GameoverScene,
+    GameClearScene,
+    LoadingScene,
+)
 from firstshot.scenes.scenes_play_stage import (
     StageOneScene,
     StageTwoScene,
@@ -65,6 +71,7 @@ class Game:
             SCENE_PLAY_STAGE_TWO: StageTwoScene(self),
             SCENE_PLAY_STAGE_THREE: StageThreeScene(self),
             SCENE_GAMEOVER: GameoverScene(self),
+            SCENE_GAME_CLEAR: GameClearScene(self),
         }  # シーンの辞書
 
         # フェードアウト用のパラメータ
