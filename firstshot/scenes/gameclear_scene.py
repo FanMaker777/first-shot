@@ -1,3 +1,4 @@
+import pygame
 import pyxel
 
 from firstshot.constants import (
@@ -5,7 +6,7 @@ from firstshot.constants import (
     SCREEN_WIDTH,
     SCREEN_HEIGHT,
     COLOR_BLACK,
-    GAME_CLEAR_IMAGE_PATH,
+    GAME_CLEAR_IMAGE_PATH, BGM_GAME_CLEAR,
 )
 
 
@@ -22,6 +23,10 @@ class GameClearScene:
         """ゲームクリア画面の開始処理を行う。"""
         # リソースからゲームクリア画像を読み込み表示用イメージに設定
         pyxel.Image.load(self.clear_image, 0, 0, GAME_CLEAR_IMAGE_PATH)
+
+        pygame.mixer.music.stop()  # BGM停止
+        # BGMを再生する
+        self.game.sound_manager.start_bgm_loop(BGM_GAME_CLEAR)
 
         # プレイヤーインスタンスを削除しておく
         self.game.player_state.instance = None

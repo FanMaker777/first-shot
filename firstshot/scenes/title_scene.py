@@ -1,3 +1,4 @@
+import pygame
 import pyxel
 
 from firstshot.constants import (
@@ -33,6 +34,7 @@ class TitleScene:
         self.game.game_data.cleared_stage_two = False  # ステージ2クリアフラグ
         self.game.game_data.cleared_stage_three = False  # ステージ3クリアフラグ
 
+        pygame.mixer.music.stop()  # BGM停止
         # BGMを再生する
         self.game.sound_manager.start_bgm_loop(BGM_TITLE)
 

@@ -56,6 +56,7 @@ BGM_STAGE1 = "assets/bgm/stage1.ogg"
 BGM_STAGE2 = "assets/bgm/stage2.ogg"
 BGM_STAGE3 = "assets/bgm/stage3.ogg"
 BGM_GAME_OVER = "assets/bgm/game_over.ogg"
+BGM_GAME_CLEAR = "assets/bgm/game_clear.ogg"
 
 # ファイルパス(SE)
 SE_SHOT = "assets/se/shot.mp3"
