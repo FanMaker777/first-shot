@@ -8,8 +8,14 @@ from firstshot.constants import (
     STAGE2_BOSS_APPEAR_TIME,
     ENEMY_SPAWN_BASE,
     ENEMY_SPAWN_MIN,
-    BOSS_ALERT_DURATION, BASE_SCORE_STAGE_TWO, BASE_EXP_STAGE_TWO, BASE_ARMOR_STAGE_TWO, BOSS_SCORE_STAGE_TWO,
-    BOSS_EXP_STAGE_TWO, BOSS_ARMOR_STAGE_TWO,
+    BOSS_ALERT_DURATION,
+    BASE_SCORE_STAGE_TWO,
+    BASE_EXP_STAGE_TWO,
+    BASE_ARMOR_STAGE_TWO,
+    BOSS_SCORE_STAGE_TWO,
+    BOSS_EXP_STAGE_TWO,
+    BOSS_ARMOR_STAGE_TWO,
+    SCENE_LOADING,
 )
 from firstshot.entities.enemies.stage2 import RobotFollow, RobotAroundShooter, RobotPlayerShooter, StageTwoBossLeft, \
     StageTwoBossRight
@@ -41,6 +47,12 @@ class StageTwoScene(PlayScene):
 
     def update(self):
         """フレームごとの更新処理。"""
+
+        # ボス撃破フラグがTrueの場合、次のステージに移行する
+        if self.game.boss_state.destroyed:
+            self.game.game_data.cleared_stage_two = True
+            self.game.change_scene(SCENE_LOADING)
+            return
 
         # 設定時間経過後にボスフラグをオンにする
         if not self.game.boss_state.active and self.game.game_data.play_time >= STAGE2_BOSS_APPEAR_TIME:
