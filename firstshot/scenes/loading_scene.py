@@ -21,6 +21,7 @@ from firstshot.constants import (
     PILOT_ROCKY,
     PILOT_GENZOU,
     SCENE_PLAY_STAGE_TWO,
+    SCENE_PLAY_STAGE_THREE,
 )
 
 
@@ -81,8 +82,12 @@ class LoadingScene:
         """
         # ENTERキー（Return）が押されたかを判定
         if pyxel.btnp(pyxel.KEY_RETURN):
-            # ENTERが押された場合、シーンを次のステージへ遷移
-            self.game.change_scene(SCENE_PLAY_STAGE_TWO)
+            # ENTERが押された場合、次に進むステージを判定
+            if self.game.game_data.cleared_stage_two:
+                next_scene = SCENE_PLAY_STAGE_THREE
+            else:
+                next_scene = SCENE_PLAY_STAGE_TWO
+            self.game.change_scene(next_scene)
 
     def draw(self):
         """

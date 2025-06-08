@@ -5,6 +5,7 @@ from firstshot.constants import (
     SCENE_SELECT_PILOT,
     SCENE_PLAY_STAGE_ONE,
     SCENE_PLAY_STAGE_TWO,
+    SCENE_PLAY_STAGE_THREE,
     SCENE_GAMEOVER,
     FONT_PATH,
     PALETTE_IMAGE_PATH,
@@ -19,7 +20,11 @@ from firstshot.game_data import PlayerState, EnemyState, BossState, GameData, Ga
 from firstshot.logic.dialog import display_exit_dialog
 from firstshot.manager import SoundManager
 from firstshot.scenes import TitleScene, GameoverScene, LoadingScene
-from firstshot.scenes.scenes_play_stage import StageOneScene, StageTwoScene
+from firstshot.scenes.scenes_play_stage import (
+    StageOneScene,
+    StageTwoScene,
+    StageThreeScene,
+)
 from firstshot.scenes.select_pilot_scene import SelectPilotScene
 from scenes import Background
 
@@ -58,6 +63,7 @@ class Game:
             SCENE_LOADING: LoadingScene(self),
             SCENE_PLAY_STAGE_ONE: StageOneScene(self),
             SCENE_PLAY_STAGE_TWO: StageTwoScene(self),
+            SCENE_PLAY_STAGE_THREE: StageThreeScene(self),
             SCENE_GAMEOVER: GameoverScene(self),
         }  # シーンの辞書
 
