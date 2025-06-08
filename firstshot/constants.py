@@ -11,6 +11,7 @@ SCENE_PLAY_STAGE_ONE = "play_stage_one"  # ステージ１画面
 SCENE_PLAY_STAGE_TWO = "play_stage_two"  # ステージ２画面
 SCENE_PLAY_STAGE_THREE = "play_stage_three"  # ステージ３画面
 SCENE_GAMEOVER = "gameover"  # ゲームオーバー画面
+SCENE_GAME_CLEAR = "game_clear"  # ゲームクリア画面
 
 # 画面設定
 SCREEN_WIDTH = 256
@@ -33,6 +34,7 @@ TITLE_IMAGE_PATH = "assets/background/title.png"
 STAGE1_BG_PATH = "assets/background/stage.png"
 STAGE2_BG_PATH = "assets/background/stage2.png"
 STAGE3_BG_PATH = "assets/background/stage3.png"
+GAME_CLEAR_IMAGE_PATH = "assets/background/game_clear.png"
 STAGE1_ENEMY_IMAGE = "assets/enemy/enemy_sheet2_size64.png"
 STAGE1_BOSS_IMAGE = "assets/enemy/boss_sheet_size192.png"
 STAGE2_ENEMY_IMAGE = "assets/enemy/enemy_stage2.png"
