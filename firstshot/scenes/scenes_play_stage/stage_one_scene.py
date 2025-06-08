@@ -11,7 +11,7 @@ from firstshot.constants import (
     ENEMY_SPAWN_MIN,
     BOSS_ALERT_DURATION,
     BGM_STAGE1, BASE_SCORE_STAGE_ONE, BASE_EXP_STAGE_ONE, BASE_ARMOR_STAGE_ONE, BOSS_SCORE_STAGE_ONE,
-    BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING,
+    BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING, SCENE_STAGE_CLEAR,
 )
 from firstshot.entities import Player
 from firstshot.entities.enemies.stage1 import Zigzag, AroundShooter, PlayerShooter, StageOneBoss
@@ -56,7 +56,7 @@ class StageOneScene(PlayScene):
         if self.game.boss_state.destroyed:
             # ステージクリアフラグをオンにする
             self.game.game_data.cleared_stage_one = True
-            self.game.change_scene(SCENE_LOADING)
+            self.game.change_scene(SCENE_STAGE_CLEAR)
             return
 
         # 設定時間後にボスフラグをオンにする

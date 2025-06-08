@@ -6,6 +6,7 @@ from firstshot.constants import (
     SCENE_PLAY_STAGE_ONE,
     SCENE_PLAY_STAGE_TWO,
     SCENE_PLAY_STAGE_THREE,
+    SCENE_STAGE_CLEAR,
     SCENE_GAMEOVER,
     FONT_PATH,
     PALETTE_IMAGE_PATH,
@@ -19,7 +20,7 @@ from firstshot.constants import (
 from firstshot.game_data import PlayerState, EnemyState, BossState, GameData, GameConfig
 from firstshot.logic.dialog import display_exit_dialog
 from firstshot.manager import SoundManager
-from firstshot.scenes import TitleScene, GameoverScene, LoadingScene
+from firstshot.scenes import TitleScene, GameoverScene, LoadingScene, StageClearScene
 from firstshot.scenes.scenes_play_stage import (
     StageOneScene,
     StageTwoScene,
@@ -61,6 +62,7 @@ class Game:
             SCENE_TITLE: TitleScene(self),
             SCENE_SELECT_PILOT: SelectPilotScene(self),
             SCENE_LOADING: LoadingScene(self),
+            SCENE_STAGE_CLEAR: StageClearScene(self),
             SCENE_PLAY_STAGE_ONE: StageOneScene(self),
             SCENE_PLAY_STAGE_TWO: StageTwoScene(self),
             SCENE_PLAY_STAGE_THREE: StageThreeScene(self),

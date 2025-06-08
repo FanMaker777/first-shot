@@ -16,6 +16,7 @@ from firstshot.constants import (
     BOSS_EXP_STAGE_TWO,
     BOSS_ARMOR_STAGE_TWO,
     SCENE_LOADING,
+    SCENE_STAGE_CLEAR,
 )
 from firstshot.entities.enemies.stage2 import RobotFollow, RobotAroundShooter, RobotPlayerShooter, StageTwoBossLeft, \
     StageTwoBossRight
@@ -62,7 +63,7 @@ class StageTwoScene(PlayScene):
         # ボス撃破フラグがTrueの場合、次のステージに移行する
         if self.game.boss_state.destroyed:
             self.game.game_data.cleared_stage_two = True
-            self.game.change_scene(SCENE_LOADING)
+            self.game.change_scene(SCENE_STAGE_CLEAR)
             return
 
         # 設定時間経過後にボスフラグをオンにする

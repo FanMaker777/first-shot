@@ -10,6 +10,7 @@ SCENE_LOADING = "loading"  # ローディング画面
 SCENE_PLAY_STAGE_ONE = "play_stage_one"  # ステージ１画面
 SCENE_PLAY_STAGE_TWO = "play_stage_two"  # ステージ２画面
 SCENE_PLAY_STAGE_THREE = "play_stage_three"  # ステージ３画面
+SCENE_STAGE_CLEAR = "stage_clear"  # ステージクリア画面
 SCENE_GAMEOVER = "gameover"  # ゲームオーバー画面
 
 # 画面設定
@@ -90,6 +91,7 @@ BLAST_END_RADIUS = 8
 
 # ゲーム設定
 GAMEOVER_DISPLAY_TIME = 120
+STAGE_CLEAR_DISPLAY_TIME = 150
 STAGE1_BOSS_APPEAR_TIME = 180
 STAGE2_BOSS_APPEAR_TIME = 300
 STAGE3_BOSS_APPEAR_TIME = 600

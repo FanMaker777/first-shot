@@ -17,6 +17,7 @@ from firstshot.constants import (
     BOSS_EXP_STAGE_THREE,
     BOSS_ARMOR_STAGE_THREE,
     SCENE_GAMEOVER,
+    SCENE_STAGE_CLEAR,
 )
 
 # ステージ3のエネミークラス類をインポート
@@ -86,7 +87,7 @@ class StageThreeScene(PlayScene):
         # ボスが撃破済みならステージクリアフラグを立ててゲームオーバーシーンへ遷移
         if self.game.boss_state.destroyed:
             self.game.game_data.cleared_stage_three = True  # ステージ3クリア記録
-            self.game.change_scene(SCENE_GAMEOVER)          # ゲームオーバー（クリア）へ
+            self.game.change_scene(SCENE_STAGE_CLEAR)
             return
 
         # 一定時間経過後にボス出現フラグをオン
