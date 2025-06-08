@@ -22,4 +22,4 @@ class ChargeShooter(Enemy):
 
     def draw(self):
         """敵を描画する。"""
-        pyxel.blt(self.x, self.y, 0, 15, 52, 12, 12, COLOR_BLACK)
+        pyxel.blt(self.x, self.y, 0, 0, 16, 24, 24,COLOR_BLACK)

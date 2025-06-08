@@ -19,4 +19,4 @@ class WaveShooter(Enemy):
 
     def draw(self):
         """敵を描画する。"""
-        pyxel.blt(self.x, self.y, 0, 2, 30, 12, 12, COLOR_BLACK)
+        pyxel.blt(self.x, self.y, 0, 0, 40, 24, 24, COLOR_BLACK)

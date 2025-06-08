@@ -67,6 +67,7 @@ class StageThreeScene(PlayScene):
         self.game.boss_state.image = pyxel.Image.from_image(
             STAGE3_BOSS_IMAGE, incl_colors=False
         )
+        print(self.game.boss_state.image.pget(0,0))
         # ステージ3専用BGMをループ再生
         self.game.sound_manager.start_bgm_loop(BGM_STAGE3)
 
@@ -122,10 +123,10 @@ class StageThreeScene(PlayScene):
                 BOSS_SCORE_STAGE_THREE,
                 BOSS_EXP_STAGE_THREE,
                 BOSS_ARMOR_STAGE_THREE,
-                78,    # x座標
+                36,    # x座標
                 -64,   # y座標（画面外から登場）
-                64,    # 幅
-                64,    # 高さ
+                128,    # 幅
+                128,    # 高さ
             )
 
         # 親クラス側のupdateも毎回呼び出し（弾、当たり判定等の共通処理）

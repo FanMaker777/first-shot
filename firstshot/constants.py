@@ -21,6 +21,7 @@ FPS = 30
 # カラー
 COLOR_BLACK = 188
 COLOR_GREEN = 141
+COLOR_DARK_GREEN = 122
 
 
 # ファイルパス
@@ -36,8 +37,8 @@ STAGE1_ENEMY_IMAGE = "assets/enemy/enemy_sheet2_size64.png"
 STAGE1_BOSS_IMAGE = "assets/enemy/boss_sheet_size192.png"
 STAGE2_ENEMY_IMAGE = "assets/enemy/enemy_stage2.png"
 STAGE2_BOSS_IMAGE = "assets/enemy/boss_stage2.png"
-STAGE3_ENEMY_IMAGE = STAGE2_ENEMY_IMAGE
-STAGE3_BOSS_IMAGE = STAGE1_BOSS_IMAGE
+STAGE3_ENEMY_IMAGE = "assets/enemy/stage3.png"
+STAGE3_BOSS_IMAGE = "assets/enemy/boss_stage3.png"
 PILOT1_IMAGE = "assets/pilot/pilot1.png"
 PILOT2_IMAGE = "assets/pilot/pilot2.png"
 PILOT3_IMAGE = "assets/pilot/pilot3.png"
