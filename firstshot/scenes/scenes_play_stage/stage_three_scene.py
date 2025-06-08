@@ -29,9 +29,21 @@ from firstshot.scenes.scenes_play_stage import PlayScene
 class StageThreeScene(PlayScene):
     """ステージ3を表すシーン。"""
 
+    # 画面を初期化する
+    def __init__(self, game):
+        """インスタンスを初期化する。"""
+        super().__init__(game)
+        # ステージ3固有のプレイ時間
+        self.play_time = 0
+
     def start(self):
         """シーン開始時の処理。"""
+
+        # プレイ状態を初期化する
         super().start()
+        # ステージ2固有のプレイ時間をリセット
+        self.play_time = 0
+
         pyxel.images[1].load(0, 0, STAGE3_BG_PATH)
         pyxel.images[0].load(0, 16, STAGE3_ENEMY_IMAGE)
         self.game.boss_state.image = pyxel.Image.from_image(
@@ -41,18 +53,24 @@ class StageThreeScene(PlayScene):
 
     def update(self):
         """フレームごとの更新処理。"""
+        # ステージ3固有のプレイ時間を加算
+        self.play_time += 1
+
+        # ボス撃破フラグがTrueの場合、次のステージに移行する
         if self.game.boss_state.destroyed:
             self.game.game_data.cleared_stage_three = True
             self.game.change_scene(SCENE_GAMEOVER)
             return
 
-        if not self.game.boss_state.active and self.game.game_data.play_time >= STAGE3_BOSS_APPEAR_TIME:
+        # 設定時間経過後にボスフラグをオンにする
+        if not self.game.boss_state.active and  self.play_time >= STAGE3_BOSS_APPEAR_TIME:
             self.game.boss_state.active = True
 
         score = BASE_SCORE_STAGE_THREE * self.game.game_data.difficulty_level
         exp = BASE_EXP_STAGE_THREE * self.game.game_data.difficulty_level
         armor = BASE_ARMOR_STAGE_THREE + self.game.game_data.difficulty_level
 
+        # ボスフラグがオフの時、ザコ敵を出現させる
         if not self.game.boss_state.active:
             spawn_interval = max(ENEMY_SPAWN_BASE - self.game.game_data.difficulty_level * 10, ENEMY_SPAWN_MIN)
             if self.game.game_data.play_time % spawn_interval == 0:

@@ -26,12 +26,21 @@ from firstshot.scenes.scenes_play_stage import PlayScene
 class StageTwoScene(PlayScene):
     """ステージ2を表すシーン。"""
 
+    # 画面を初期化する
+    def __init__(self, game):
+        """インスタンスを初期化する。"""
+        super().__init__(game)
+        # ステージ2固有のプレイ時間
+        self.play_time = 0
+
     # 画面を開始する
     def start(self):
         """シーン開始時の処理。"""
 
         # プレイ状態を初期化する
         super().start()
+        # ステージ2固有のプレイ時間をリセット
+        self.play_time = 0
 
         # ステージ画像を切り替え
         pyxel.images[1].load(0, 0, STAGE2_BG_PATH)
@@ -47,6 +56,8 @@ class StageTwoScene(PlayScene):
 
     def update(self):
         """フレームごとの更新処理。"""
+        # ステージ2固有のプレイ時間を加算
+        self.play_time += 1
 
         # ボス撃破フラグがTrueの場合、次のステージに移行する
         if self.game.boss_state.destroyed:
@@ -55,7 +66,7 @@ class StageTwoScene(PlayScene):
             return
 
         # 設定時間経過後にボスフラグをオンにする
-        if not self.game.boss_state.active and self.game.game_data.play_time >= STAGE2_BOSS_APPEAR_TIME:
+        if not self.game.boss_state.active and self.play_time >= STAGE2_BOSS_APPEAR_TIME:
             self.game.boss_state.active = True  # ボスフラグ
 
         # 獲得スコアを算出
