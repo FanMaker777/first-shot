@@ -16,6 +16,7 @@ class PlayScene:
     def stagestruck(self, next_scene_name):
         if self.game.game_data.stage_clear_display_time == 0:
             # ステージクリア表示タイマーを開始
+            self.game.enemy_state.enemies = []  # 敵のリスト
             self.game.player_state.bullets = []  # 自機の弾のリスト
             self.game.enemy_state.bullets = []  # 敵の弾のリスト
             self.game.sound_manager.play_se_stage_clear()
