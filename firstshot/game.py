@@ -139,8 +139,8 @@ class Game:
         # 現在のシーンを更新する
         self.scenes[self.game_data.scene_name].update()
 
-        # パイロット選択画面以外は背景の流星を更新する
-        if self.game_data.scene_name != SCENE_SELECT_PILOT:
+        # タイトル画面は背景の流星を更新する
+        if self.game_data.scene_name == SCENE_TITLE:
             self.game_data.background.update()
 
     # ゲーム全体を描画する
@@ -161,7 +161,7 @@ class Game:
         # 現在のシーンを描画する
         self.scenes[self.game_data.scene_name].draw()
 
-        # パイロット選択画面以外は背景の流星を描画する
-        if self.game_data.scene_name != SCENE_SELECT_PILOT:
+        # タイトル画面は背景の流星を描画する
+        if self.game_data.scene_name == SCENE_TITLE:
             self.game_data.background.draw()
 
