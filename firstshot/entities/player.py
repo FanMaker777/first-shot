@@ -47,17 +47,28 @@ class Player:
     # 自機にダメージを与える
     def add_damage(self):
         """プレイヤーがダメージを受けた際の処理。"""
+
+        # 全ての弾をリセット
+        self.game.player_state.bullets = []  # 自機の弾のリスト
+        self.game.enemy_state.bullets = []  # 敵の弾のリスト
+
         # 爆発エフェクトを生成する
         Blast(self.game, self.x + 4, self.y + 4)
-
         # 爆発音を再生する
         self.game.sound_manager.play_se_blast()
 
-        # 自機を削除する
-        self.game.player_state.instance = None
+        # プレイヤーのライフが0より大きい場合
+        if self.game.player_state.life > 0:
+            self.game.player_state.life -= 1 # ライフをインクリメント
 
-        # シーンをゲームオーバー画面に変更する
-        self.game.change_scene(SCENE_GAMEOVER)
+            # ライフが0になった場合
+            if self.game.player_state.life == 0:
+                # 自機を削除する
+                self.game.player_state.instance = None
+
+                # シーンをゲームオーバー画面に変更する
+                self.game.change_scene(SCENE_GAMEOVER)
+
 
     # 自機を更新する
     def update(self):
