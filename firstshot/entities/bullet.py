@@ -1,6 +1,6 @@
 import pyxel
 
-from firstshot.constants import COLOR_BLACK
+from firstshot.constants import COLOR_BLACK, PILOT_CLARICE
 
 
 # 弾クラス
@@ -42,8 +42,16 @@ class Bullet:
     def update(self):
         """弾の移動と寿命を管理する。"""
         # 弾の座標を更新する
-        self.x += self.vx
-        self.y += self.vy
+        # PILOT_CLARICE（クラリーチェ）の場合
+        if (self.game.player_state.pilot_kind == PILOT_CLARICE
+             and self.game.player_state.skill_cool_time > 0 #and　スキルクールタイムが0の場合
+             and self.side == Bullet.SIDE_ENEMY): #and 敵の弾の場合
+            # 弾速を減少させる
+            self.x += self.vx * 0.25
+            self.y += self.vy * 0.25
+        else:
+            self.x += self.vx
+            self.y += self.vy
 
         # 弾が画面外に出たら弾リストから登録を削除する
         if (

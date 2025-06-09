@@ -7,7 +7,7 @@ from typing import List, Optional
 
 import pyxel
 
-from firstshot.constants import PLAYER_LIFE_DEFAULT
+from firstshot.constants import PLAYER_LIFE_DEFAULT, PLAYER_SKILL_USE_TIME
 from firstshot.entities import Player, Bullet, Blast
 from firstshot.entities.enemies import Enemy
 
@@ -21,6 +21,8 @@ class PlayerState:
         exp (int): プレイヤーの経験値。初期値は 0 。
         lv (int): プレイヤーのレベル。初期値は 1 。
         life (int): プレイヤーのライフ。初期値は 3 。
+        skill_use_time (int): プレイヤーのスキル使用回数。
+        skill_cool_time (int): プレイヤーのスキルクールタイム。
         pilot_kind (int): プレイヤーの種類を示す識別子。ゲーム内でキャラクター種別を区別するために使用。
         instance (Optional[Player]): Player クラスのインスタンスへの参照。未生成時は None。
         bullets (List[Bullet]): プレイヤーが発射した弾丸（Bullet インスタンス）の一覧。
@@ -28,6 +30,8 @@ class PlayerState:
     exp: int = 0
     lv: int = 1
     life: int = PLAYER_LIFE_DEFAULT
+    skill_use_time: int = PLAYER_SKILL_USE_TIME
+    skill_cool_time: int = 0
     pilot_kind: int = 0
     instance: Optional[Player] = None
     bullets: List[Bullet] = field(default_factory=list)

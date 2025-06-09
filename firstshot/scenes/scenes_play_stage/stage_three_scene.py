@@ -58,6 +58,7 @@ class StageThreeScene(PlayScene):
         """
         super().start()  # 親クラス側のstartも実行（共通初期化）
         self.play_time = 0  # ステージ3独自のプレイタイムもリセット
+        self.game.player_state.skill_cool_time = 0  # スキルクールタイムをリセット
 
         # 背景画像をイメージバンク1へロード
         pyxel.images[1].load(0, 0, STAGE3_BG_PATH)

@@ -64,6 +64,7 @@ SE_BLAST = "assets/se/blast.ogg"
 SE_GET_ITEM = "assets/se/get_item.mp3"
 SE_LEVEL_UP = "assets/se/level_up.mp3"
 SE_STAGE_CLEAR = "assets/se/stage_clear.mp3"
+SE_USE_SKILL = "assets/se/use_skill.mp3"
 
 
 # パイロット
@@ -75,6 +76,8 @@ PILOT_GENZOU = 2  # ゲンゾウ
 PLAYER_MOVE_SPEED = 2
 PLAYER_LIFE_DEFAULT = 3
 PLAYER_DAMAGED_COOL_TIME = 3 * FPS
+PLAYER_SKILL_USE_TIME = 3
+PLAYER_SKILL_COOL_TIME = 10 * FPS
 PLAYER_SHOT_INTERVAL_DEFAULT = 12
 PLAYER_SHOT_INTERVAL_LV2 = 10
 PLAYER_SHOT_INTERVAL_LV3 = 8

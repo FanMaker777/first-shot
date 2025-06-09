@@ -41,6 +41,7 @@ class StageTwoScene(PlayScene):
         super().start()
         # ステージ2固有のプレイ時間をリセット
         self.play_time = 0
+        self.game.player_state.skill_cool_time = 0  # スキルクールタイムをリセット
         self.game.boss_state.destroyed_stage2_left = False  # ボス撃破フラグ(左)
         self.game.boss_state.destroyed_stage2_right = False  # ボス撃破フラグ(右)
 

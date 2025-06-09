@@ -11,7 +11,7 @@ from firstshot.constants import (
     ENEMY_SPAWN_MIN,
     BOSS_ALERT_DURATION,
     BGM_STAGE1, BASE_SCORE_STAGE_ONE, BASE_EXP_STAGE_ONE, BASE_ARMOR_STAGE_ONE, BOSS_SCORE_STAGE_ONE,
-    BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING, PLAYER_LIFE_DEFAULT,
+    BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING, PLAYER_LIFE_DEFAULT, PLAYER_SKILL_USE_TIME,
 )
 from firstshot.entities import Player
 from firstshot.entities.enemies.stage1 import Zigzag, AroundShooter, PlayerShooter, StageOneBoss
@@ -34,6 +34,8 @@ class StageOneScene(PlayScene):
         self.game.player_state.exp = 0  # プレイヤー経験値を0に戻す
         self.game.player_state.lv = 1  # プレイヤーレベルを1に戻す
         self.game.player_state.life = PLAYER_LIFE_DEFAULT  # プレイヤーライフを初期値に戻す
+        self.game.player_state.skill_cool_time = 0  # スキルクールタイムをリセット
+        self.game.player_state.skill_use_time = PLAYER_SKILL_USE_TIME # スキル使用回数をリセット
 
         # ステージ画像を切り替え
         pyxel.images[1].load(0, 0, STAGE1_BG_PATH)

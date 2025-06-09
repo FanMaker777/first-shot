@@ -16,7 +16,7 @@ from firstshot.constants import (
     PLAYER_BULLET_ANGLE_RIGHT,
     PLAYER_BULLET_ANGLE_LEFT_WIDE,
     PLAYER_BULLET_ANGLE_RIGHT_WIDE,
-    COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME,
+    COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME, PLAYER_SKILL_COOL_TIME,
 )
 from firstshot.entities import Blast, Bullet
 
@@ -87,6 +87,23 @@ class Player:
         if self.damaged_cool_time > 0:
             # クールタイムをインクリメント
             self.damaged_cool_time -= 1
+
+        # スキルクールタイムが0より大きい場合
+        if self.game.player_state.skill_cool_time > 0:
+            # クールタイムをインクリメント
+            self.game.player_state.skill_cool_time -= 1
+
+        # スキルキーが押下された場合
+        if (pyxel.btn(pyxel.KEY_S)
+            and self.game.player_state.skill_cool_time == 0 #and　スキルクールタイムが0の場合
+            and self.game.player_state.skill_use_time > 0): #and　スキル使用回数が0より大きい場合
+            # スキルクールタイムを設定
+            self.game.player_state.skill_cool_time = PLAYER_SKILL_COOL_TIME
+            # スキル使用回数をインクリメント
+            self.game.player_state.skill_use_time -= 1
+            # スキル使用音を再生する
+            self.game.sound_manager.play_se_use_skill()
+
 
         #プレイヤーレベル判定
         if self.game.player_state.exp >= 128:
