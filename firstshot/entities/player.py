@@ -16,7 +16,7 @@ from firstshot.constants import (
     PLAYER_BULLET_ANGLE_RIGHT,
     PLAYER_BULLET_ANGLE_LEFT_WIDE,
     PLAYER_BULLET_ANGLE_RIGHT_WIDE,
-    COLOR_BLACK,
+    COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME,
 )
 from firstshot.entities import Blast, Bullet
 
@@ -40,6 +40,7 @@ class Player:
             self.hit_area = (1, 1, 6, 6) # 当たり判定の領域 (x1,y1,x2,y2)
         self.move_speed = PLAYER_MOVE_SPEED  # 移動速度
         self.shot_interval = PLAYER_SHOT_INTERVAL_DEFAULT  # 弾の発射間隔
+        self.damaged_cool_time = 0  # 被弾時のクールタイム
 
         # ゲームに自機を登録する
         self.game.player_state.instance = self
@@ -47,6 +48,15 @@ class Player:
     # 自機にダメージを与える
     def add_damage(self):
         """プレイヤーがダメージを受けた際の処理。"""
+        # 被弾時のクールタイムが0より大きい場合
+        if self.damaged_cool_time > 0:
+            # 被弾処理を行わずアーリーリターン
+            return
+
+        # 被弾時のクールタイムが0の場合
+        elif self.damaged_cool_time == 0:
+            # 被弾時のクールタイムを設定
+            self.damaged_cool_time = PLAYER_DAMAGED_COOL_TIME
 
         # 全ての弾をリセット
         self.game.player_state.bullets = []  # 自機の弾のリスト
@@ -73,6 +83,10 @@ class Player:
     # 自機を更新する
     def update(self):
         """プレイヤーの状態を更新する。"""
+        # 被弾時のクールタイムが0より大きい場合
+        if self.damaged_cool_time > 0:
+            # クールタイムをインクリメント
+            self.damaged_cool_time -= 1
 
         #プレイヤーレベル判定
         if self.game.player_state.exp >= 128:
