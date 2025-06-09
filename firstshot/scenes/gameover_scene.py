@@ -45,4 +45,4 @@ class GameoverScene:
         # 背景を描画する
         pyxel.blt(0, 0, 1, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
         # ゲームオーバー文字を描画する
-        pyxel.text(112, 128, "GAME OVER", 8, self.game.font)
+        pyxel.text(100, 128, "GAME OVER", 8, self.game.font)

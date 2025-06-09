@@ -15,11 +15,13 @@ class PlayScene:
 
     def stagestruck(self, next_scene_name):
         if self.game.game_data.stage_clear_display_time == 0:
-            # ステージクリア表示タイマーを開始
+            # ボスアラートの表示時間を0に設定
+            self.game.boss_state.alert_timer = 0
             self.game.enemy_state.enemies = []  # 敵のリスト
             self.game.player_state.bullets = []  # 自機の弾のリスト
             self.game.enemy_state.bullets = []  # 敵の弾のリスト
             self.game.sound_manager.play_se_stage_clear()
+            # ステージクリア表示タイマーを開始
             self.game.game_data.stage_clear_display_time = STAGE_CLEAR_DISPLAY_TIME
         else:
             self.game.game_data.stage_clear_display_time -= 1
@@ -137,10 +139,10 @@ class PlayScene:
         pyxel.text(208, 176, f"{self.game.player_state.skill_cool_time}", 0, self.game.font)
 
         # ボスアラートの表示時間が0より大きい場合
-        if self.game.boss_state.alert_timer > 0 and self.game.game_data.stage_clear_display_time == 0:
+        if self.game.boss_state.alert_timer > 0:
             self.game.boss_state.alert_timer -= 1
-            pyxel.text(90, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)
+            pyxel.text(82, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)
 
         # ステージクリアの表示時間が0より大きい場合
         if self.game.game_data.stage_clear_display_time > 0:
-            pyxel.text(90, 128, "STAGE CLEAR", pyxel.rndi(0, 240), self.game.font)
+            pyxel.text(82, 128, "STAGE CLEAR", pyxel.rndi(0, 240), self.game.font)
