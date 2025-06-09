@@ -53,7 +53,7 @@ class SelectPilotScene:
             self.pilot_skill = "SPスキル：一定時間、敵と敵弾の速度が遅くなる"
         elif self.pilot_kind == PILOT_ROCKY:
             pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT2_IMAGE)
-            self.pilot_ability = "アビリティ：アイテムのドロップ率が少し増える"
+            self.pilot_ability = "アビリティ：ショットの連射速度が少し早い"
             self.pilot_skill = "SPスキル：一定時間、特殊弾を追加発射する"
         elif self.pilot_kind == PILOT_GENZOU:
             pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT3_IMAGE)

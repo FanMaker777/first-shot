@@ -176,8 +176,14 @@ class Player:
             # 弾発射音を再生する
             self.game.sound_manager.play_se_shot()
 
-            # 次の弾発射までの残り時間を設定する
-            self.shot_timer = self.shot_interval
+            # パイロットがロッキーの場合
+            if self.game.player_state.pilot_kind == PILOT_ROCKY:
+                # 次の弾発射までの残り時間を設定する(少し早い)
+                self.shot_timer = self.shot_interval - 1
+            else:
+                # 次の弾発射までの残り時間を設定する
+                self.shot_timer = self.shot_interval
+
 
     # 自機を描画する
     def draw(self):
