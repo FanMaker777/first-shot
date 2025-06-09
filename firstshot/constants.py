@@ -44,6 +44,7 @@ STAGE3_BOSS_IMAGE = "assets/enemy/boss_stage3.png"
 PILOT1_IMAGE = "assets/pilot/pilot1.png"
 PILOT2_IMAGE = "assets/pilot/pilot2.png"
 PILOT3_IMAGE = "assets/pilot/pilot3.png"
+IMAGE_MISSILE = "assets/special_bullet/missile.png"
 
 # ファイルパス(ローディング画面)
 IMAGE_LOADING_PILOT1 = "assets/loading/loading_pilot1.png"

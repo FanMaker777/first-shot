@@ -58,7 +58,7 @@ class SelectPilotScene:
         elif self.pilot_kind == PILOT_GENZOU:
             pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT3_IMAGE)
             self.pilot_ability = "アビリティ：自機のアタリ判定が少し小さくなる"
-            self.pilot_skill = "SPスキル：一定時間、ダメージがアップする"
+            self.pilot_skill = "SPスキル：一定時間、ミサイルで追加攻撃する"
 
         if pyxel.btnp(pyxel.KEY_RETURN):
             # パイロットの種類をgameに登録

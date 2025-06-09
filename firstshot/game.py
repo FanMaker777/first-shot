@@ -15,7 +15,7 @@ from firstshot.constants import (
     TITLE_IMAGE_PATH,
     COLOR_BLACK,
     SCREEN_WIDTH,
-    SCREEN_HEIGHT, SCENE_LOADING,
+    SCREEN_HEIGHT, SCENE_LOADING, IMAGE_MISSILE,
 )
 from firstshot.game_data import PlayerState, EnemyState, BossState, GameData, GameConfig
 from firstshot.logic.dialog import display_exit_dialog
@@ -62,6 +62,9 @@ class Game:
         pyxel.load(RESOURCE_FILE)
         pyxel.images[0].load(0, 0, IMAGE_PANK_PATH)
         pyxel.images[2].load(0, 0, TITLE_IMAGE_PATH)
+        # 特殊弾の画像読込
+        self.special_bullet_image = pyxel.Image(SCREEN_WIDTH, SCREEN_HEIGHT)
+        pyxel.Image.load(self.special_bullet_image, 0, 0, IMAGE_MISSILE)
 
         self.scenes = {
             SCENE_TITLE: TitleScene(self),

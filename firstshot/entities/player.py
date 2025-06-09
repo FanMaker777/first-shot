@@ -19,6 +19,7 @@ from firstshot.constants import (
     COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME, PLAYER_SKILL_COOL_TIME,
 )
 from firstshot.entities import Blast, Bullet
+from firstshot.entities.missile import Missile
 
 
 # 自機クラス
@@ -92,6 +93,13 @@ class Player:
         if self.game.player_state.skill_cool_time > 0:
             # クールタイムをインクリメント
             self.game.player_state.skill_cool_time -= 1
+
+            # パイロットがゲンゾウの場合
+            if (self.game.player_state.pilot_kind == PILOT_GENZOU
+                and self.game.player_state.skill_cool_time % 30 == 0): # and 1秒ごとに
+                # 10発のミサイルを召喚
+                for i in range(8):
+                    Missile(self.game, Bullet.SIDE_PLAYER, i * 25 + 5, 230, PLAYER_BULLET_ANGLE_UP, 3)
 
         # スキルキーが押下された場合
         if (pyxel.btn(pyxel.KEY_S)
