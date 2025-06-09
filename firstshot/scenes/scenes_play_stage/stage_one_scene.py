@@ -79,11 +79,11 @@ class StageOneScene(PlayScene):
             if self.game.game_data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
-                    Zigzag(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
+                    Zigzag(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 12, 12)
                 elif kind == 1:
-                    AroundShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
+                    AroundShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 12, 12)
                 elif kind == 2:
-                    PlayerShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
+                    PlayerShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 12, 12)
 
         # ボスフラグがオン　AND　ボスが未出現の時
         elif self.game.boss_state.active and not any(isinstance(x, StageOneBoss) for x in self.game.enemy_state.enemies.copy()):

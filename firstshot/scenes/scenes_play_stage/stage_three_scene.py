@@ -109,13 +109,13 @@ class StageThreeScene(PlayScene):
                 kind = pyxel.rndi(0, 2)  # 敵の種類をランダム決定
                 if kind == 0:
                     # 波型弾エネミー生成
-                    WaveShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
+                    WaveShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 24, 24)
                 elif kind == 1:
                     # 円形弾エネミー生成
-                    CircleShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
+                    CircleShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 24, 24)
                 else:
                     # 突進エネミー生成
-                    ChargeShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
+                    ChargeShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 24, 24)
         # ボス出現フラグが立ち、かつまだボスが生成されていなければボス出現演出
         elif self.game.boss_state.active and not any(isinstance(e, StageThreeBoss) for e in self.game.enemy_state.enemies.copy()):
             self.game.boss_state.alert_timer = BOSS_ALERT_DURATION  # ボス警告タイマーセット

@@ -84,11 +84,11 @@ class StageTwoScene(PlayScene):
             if self.game.game_data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
-                    RobotFollow(self.game, score, exp, armor + 15, pyxel.rndi(16, 180), -8, 7, 7)
+                    RobotFollow(self.game, score, exp, armor + 15, pyxel.rndi(16, 180), -8, 16, 16)
                 elif kind == 1:
-                    RobotAroundShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
+                    RobotAroundShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 16, 16)
                 elif kind == 2:
-                    RobotPlayerShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 7, 7)
+                    RobotPlayerShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 16, 16)
 
         # ボスフラグがオン　AND　ボスが2体とも未出現の時
         elif (self.game.boss_state.active and
