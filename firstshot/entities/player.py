@@ -16,9 +16,10 @@ from firstshot.constants import (
     PLAYER_BULLET_ANGLE_RIGHT,
     PLAYER_BULLET_ANGLE_LEFT_WIDE,
     PLAYER_BULLET_ANGLE_RIGHT_WIDE,
-    COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME, PLAYER_SKILL_COOL_TIME,
+    COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME, PLAYER_SKILL_COOL_TIME, PILOT_ROCKY,
 )
 from firstshot.entities import Blast, Bullet
+from firstshot.entities.bullets import DogBullet
 from firstshot.entities.missile import Missile
 
 
@@ -166,6 +167,11 @@ class Player:
             elif self.game.player_state.lv >= 3:
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x - 3, self.y - 3, PLAYER_BULLET_ANGLE_LEFT, PLAYER_BULLET_SPEED)
                 Bullet(self.game, Bullet.SIDE_PLAYER, self.x + 3, self.y - 3, PLAYER_BULLET_ANGLE_RIGHT, PLAYER_BULLET_SPEED)
+
+            # スキルクールタイムが0より大きい場合 and パイロットがロッキーの場合
+            if self.game.player_state.skill_cool_time > 0 and self.game.player_state.pilot_kind == PILOT_ROCKY:
+                for i in range(5):
+                    DogBullet(self.game, Bullet.SIDE_PLAYER, self.x, self.y, pyxel.rndi(-0, -180), 7)
 
             # 弾発射音を再生する
             self.game.sound_manager.play_se_shot()

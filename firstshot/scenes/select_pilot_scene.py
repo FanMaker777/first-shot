@@ -54,11 +54,11 @@ class SelectPilotScene:
         elif self.pilot_kind == PILOT_ROCKY:
             pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT2_IMAGE)
             self.pilot_ability = "アビリティ：アイテムのドロップ率が少し増える"
-            self.pilot_skill = "SPスキル：一定時間、連射速度がアップする"
+            self.pilot_skill = "SPスキル：一定時間、特殊弾を追加発射する"
         elif self.pilot_kind == PILOT_GENZOU:
             pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT3_IMAGE)
             self.pilot_ability = "アビリティ：自機のアタリ判定が少し小さくなる"
-            self.pilot_skill = "SPスキル：一定時間、ミサイルで追加攻撃する"
+            self.pilot_skill = "SPスキル：一定時間、ミサイルで支援攻撃する"
 
         if pyxel.btnp(pyxel.KEY_RETURN):
             # パイロットの種類をgameに登録
