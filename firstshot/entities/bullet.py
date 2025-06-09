@@ -60,10 +60,11 @@ class Bullet:
             or self.y <= -8
             or self.y >= pyxel.height
         ):
-            if self.side == Bullet.SIDE_PLAYER:
-                self.game.player_state.bullets.remove(self)
-            else:
-                self.game.enemy_state.bullets.remove(self)
+            if self in self.game.player_state.bullets:
+                if self.side == Bullet.SIDE_PLAYER:
+                    self.game.player_state.bullets.remove(self)
+                else:
+                    self.game.enemy_state.bullets.remove(self)
 
     # 弾を描画する
     def draw(self):
