@@ -171,7 +171,7 @@ class Player:
             # スキルクールタイムが0より大きい場合 and パイロットがロッキーの場合
             if self.game.player_state.skill_cool_time > 0 and self.game.player_state.pilot_kind == PILOT_ROCKY:
                 for i in range(5):
-                    DogBullet(self.game, Bullet.SIDE_PLAYER, self.x, self.y, pyxel.rndi(-0, -180), 7)
+                    DogBullet(self.game, Bullet.SIDE_PLAYER, self.x, self.y, pyxel.rndi(-25, -155), 7)
 
             # 弾発射音を再生する
             self.game.sound_manager.play_se_shot()
