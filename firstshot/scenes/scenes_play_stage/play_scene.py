@@ -1,7 +1,7 @@
 import pygame
 import pyxel
 
-from firstshot.constants import SCREEN_HEIGHT, COLOR_BLACK, SCREEN_WIDTH, STAGE_CLEAR_DISPLAY_TIME
+from firstshot.constants import SCREEN_HEIGHT, COLOR_BLACK, SCREEN_WIDTH, STAGE_CLEAR_DISPLAY_TIME, PILOT_CLARICE
 from firstshot.logic.collision import check_collision
 
 
@@ -53,14 +53,21 @@ class PlayScene:
         if self.game.player_state.instance is not None:
             self.game.player_state.instance.update()
 
-        # 敵を更新する
-        # ループ中に要素の追加・削除が行われても問題ないようにコピーしたリストを使用する
-        for enemy in self.game.enemy_state.enemies.copy():
-            enemy.update()
+        # スキルクールタイムが0より大きい場合
+        if (self.game.player_state.skill_cool_time > 0
+                and self.game.player_state.pilot_kind == PILOT_CLARICE # PILOT_CLARICE（クラリーチェ）の場合
+                and self.game.game_data.play_time % 2 == 0):  # and　2フレーム毎に
+            # 処理をパスする
+            pass
+        else:
+            # 敵を更新する
+            # ループ中に要素の追加・削除が行われても問題ないようにコピーしたリストを使用する
+            for enemy in self.game.enemy_state.enemies.copy():
+                enemy.update()
 
-            # 自機と敵の当たり判定を行う
-            if self.game.player_state.instance is not None and check_collision(self.game.player_state.instance, enemy):
-                self.game.player_state.instance.add_damage()  # 自機にダメージを与える
+                # 自機と敵の当たり判定を行う
+                if self.game.player_state.instance is not None and check_collision(self.game.player_state.instance, enemy):
+                    self.game.player_state.instance.add_damage()  # 自機にダメージを与える
 
         # 自機の弾を更新する
         for bullet in self.game.player_state.bullets.copy():
