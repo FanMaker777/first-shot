@@ -41,6 +41,8 @@ class StageTwoScene(PlayScene):
         super().start()
         # ステージ2固有のプレイ時間をリセット
         self.play_time = 0
+        self.game.boss_state.destroyed_stage2_left = False  # ボス撃破フラグ(左)
+        self.game.boss_state.destroyed_stage2_right = False  # ボス撃破フラグ(右)
 
         # ステージ画像を切り替え
         pyxel.images[1].load(0, 0, STAGE2_BG_PATH)
@@ -59,10 +61,14 @@ class StageTwoScene(PlayScene):
         # ステージ2固有のプレイ時間を加算
         self.play_time += 1
 
-        # ボス撃破フラグがTrueの場合、次のステージに移行する
-        if not self.game.game_data.cleared_stage_two and self.game.boss_state.destroyed:
+        # 左右のボス撃破フラグがTrueの場合
+        if (not self.game.game_data.cleared_stage_two
+                and self.game.boss_state.destroyed_stage2_left
+                and self.game.boss_state.destroyed_stage2_right):
+            # ステージクリアフラグをONに設定
             self.game.game_data.cleared_stage_two = True
 
+        # ステージクリアフラグがONの場合
         if self.game.game_data.cleared_stage_two:
             super().stagestruck(SCENE_LOADING)
             return

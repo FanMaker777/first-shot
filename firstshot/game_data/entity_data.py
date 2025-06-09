@@ -56,10 +56,14 @@ class BossState:
     Attributes:
         active (bool): ボスが出現中かどうか。True の場合は画面上に表示されている。
         destroyed (bool): ボスが倒されたかどうか。True の場合は撃破済み。
+        destroyed_stage2_right (bool): ボスが倒されたかどうか。True の場合は撃破済み。
+        destroyed_stage2_left (bool): ボスが倒されたかどうか。True の場合は撃破済み。
         alert_timer (int): ボス出現前や特殊フェーズ時に使用する警告タイマー（フレーム単位）。
         image (Optional[pyxel.Image]): ボスの表示用画像（pyxel.Image）。読み込み前は None。
     """
     active: bool = False
     destroyed: bool = False
+    destroyed_stage2_right: bool = False
+    destroyed_stage2_left: bool = False
     alert_timer: int = 0
     image: Optional[pyxel.Image] = pyxel.Image(256, 256)

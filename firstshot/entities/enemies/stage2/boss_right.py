@@ -17,7 +17,7 @@ class StageTwoBossRight(Enemy):
         # 敵リストに登録されていない時
         if not self in self.game.enemy_state.enemies:
             # ボス撃破フラグをTrueにする
-            self.game.boss_state.destroyed = True
+            self.game.boss_state.destroyed_stage2_right = True
 
     # 敵を更新する
     def update(self):
