@@ -65,6 +65,8 @@ class Enemy:
         if self.armor > 0:
             # 装甲が残っている場合は装甲値を 1 減らし、すぐに戻る（敵はまだ破壊されない）
             self.armor -= 1
+            # ダメージ音を再生する
+            pyxel.play(2, 1, resume=True)  # チャンネル2で割り込み再生させる
             return
 
         # 装甲が 0 の場合は敵を破壊
