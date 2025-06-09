@@ -137,6 +137,8 @@ class PlayScene:
         pyxel.text(208, 144, f"LIFE {self.game.player_state.life}", 0, self.game.font)
         pyxel.text(208, 160, f"SKILL {self.game.player_state.skill_use_time}", 0, self.game.font)
         pyxel.text(208, 176, f"{self.game.player_state.skill_cool_time}", 0, self.game.font)
+        if self.game.player_state.auto_shot_mode:
+            pyxel.text(208, 192, "AUTO", 0, self.game.font)
 
         # ボスアラートの表示時間が0より大きい場合
         if self.game.boss_state.alert_timer > 0:

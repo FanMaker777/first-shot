@@ -24,6 +24,7 @@ class PlayerState:
         skill_use_time (int): プレイヤーのスキル使用回数。
         skill_cool_time (int): プレイヤーのスキルクールタイム。
         pilot_kind (int): プレイヤーの種類を示す識別子。ゲーム内でキャラクター種別を区別するために使用。
+        auto_shot_mode (bool): オートショットモード。trueの場合、モードオン。
         instance (Optional[Player]): Player クラスのインスタンスへの参照。未生成時は None。
         bullets (List[Bullet]): プレイヤーが発射した弾丸（Bullet インスタンス）の一覧。
     """
@@ -33,6 +34,7 @@ class PlayerState:
     skill_use_time: int = PLAYER_SKILL_USE_TIME
     skill_cool_time: int = 0
     pilot_kind: int = 0
+    auto_shot_mode = False  # オートショットモード
     instance: Optional[Player] = None
     bullets: List[Bullet] = field(default_factory=list)
 

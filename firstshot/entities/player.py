@@ -43,6 +43,7 @@ class Player:
         self.move_speed = PLAYER_MOVE_SPEED  # 移動速度
         self.shot_interval = PLAYER_SHOT_INTERVAL_DEFAULT  # 弾の発射間隔
         self.damaged_cool_time = 0  # 被弾時のクールタイム
+        self.game.player_state.auto_shot_mode = False # オートショットモード
 
         # ゲームに自機を登録する
         self.game.player_state.instance = self
@@ -82,9 +83,13 @@ class Player:
                 self.game.change_scene(SCENE_GAMEOVER)
 
 
-    # 自機を更新する
     def update(self):
         """プレイヤーの状態を更新する。"""
+        # シフトボタンを押下
+        if pyxel.btnp(pyxel.KEY_SHIFT):
+            # オートショットモードを切り替え
+            self.game.player_state.auto_shot_mode = not self.game.player_state.auto_shot_mode
+
         # 被弾時のクールタイムが0より大きい場合
         if self.damaged_cool_time > 0:
             # クールタイムをインクリメント
@@ -148,7 +153,7 @@ class Player:
         if self.shot_timer > 0:  # 弾発射までの残り時間を減らす
             self.shot_timer -= 1
 
-        if pyxel.btn(pyxel.KEY_SPACE) and self.shot_timer == 0:
+        if (self.game.player_state.auto_shot_mode or pyxel.btn(pyxel.KEY_SPACE)) and self.shot_timer == 0:
             # 自機の弾を生成する
             Bullet(
                 self.game,
