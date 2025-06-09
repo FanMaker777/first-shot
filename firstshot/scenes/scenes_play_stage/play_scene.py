@@ -141,7 +141,7 @@ class PlayScene:
         # ボスアラートの表示時間が0より大きい場合
         if self.game.boss_state.alert_timer > 0:
             self.game.boss_state.alert_timer -= 1
-            pyxel.text(82, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)
+            pyxel.text(90, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)
 
         # ステージクリアの表示時間が0より大きい場合
         if self.game.game_data.stage_clear_display_time > 0:
