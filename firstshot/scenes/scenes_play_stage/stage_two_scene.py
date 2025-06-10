@@ -15,7 +15,7 @@ from firstshot.constants import (
     BOSS_SCORE_STAGE_TWO,
     BOSS_EXP_STAGE_TWO,
     BOSS_ARMOR_STAGE_TWO,
-    SCENE_LOADING,
+    SCENE_LOADING, FPS,
 )
 from firstshot.entities.enemies.stage2 import RobotFollow, RobotAroundShooter, RobotPlayerShooter, StageTwoBossLeft, \
     StageTwoBossRight
@@ -88,14 +88,33 @@ class StageTwoScene(PlayScene):
         # ボスフラグがオフの時、ザコ敵を出現させる
         if not self.game.boss_state.active:
             spawn_interval = max(ENEMY_SPAWN_BASE - self.game.game_data.difficulty_level * 10, ENEMY_SPAWN_MIN)
-            if self.game.game_data.play_time % spawn_interval == 0:
+            if len(self.game.enemy_state.enemies) <= 10 and self.game.game_data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
-                    RobotFollow(self.game, score, exp, armor + 15, pyxel.rndi(16, 180), -8, 16, 16)
+                    RobotFollow(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 16, 16)
                 elif kind == 1:
                     RobotAroundShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 16, 16)
                 elif kind == 2:
                     RobotPlayerShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 16, 16)
+
+            # BGMのサビに合わせて固定出現
+            if self.play_time == FPS * 5:
+                for i in range(1, 6):
+                    RobotPlayerShooter(self.game, score, exp, armor, i * 30, -8, 16, 16)
+
+            # BGMのサビに合わせて固定出現
+            if self.play_time == FPS * 50:
+                for i in range(1, 5):
+                    RobotAroundShooter(self.game, score, exp, armor, i * 40, -16, 16, 16)
+                for i in range(1, 5):
+                    RobotFollow(self.game, score, exp, armor, i * 40, -8, 16, 16)
+
+            # BGMのサビに合わせて固定出現
+            if self.play_time == FPS * 85:
+                for i in range(1, 5):
+                    RobotAroundShooter(self.game, score, exp, armor, i * 40, -8, 16, 16)
+                for i in range(1, 4):
+                    RobotPlayerShooter(self.game, score, exp, armor, i * 50, -8, 16, 16)
 
         # ボスフラグがオン　AND　ボスが2体とも未出現の時
         elif (self.game.boss_state.active and

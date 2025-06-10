@@ -16,7 +16,7 @@ from firstshot.constants import (
     BOSS_SCORE_STAGE_THREE,
     BOSS_EXP_STAGE_THREE,
     BOSS_ARMOR_STAGE_THREE,
-    SCENE_GAME_CLEAR,
+    SCENE_GAME_CLEAR, FPS,
 )
 
 # ステージ3のエネミークラス類をインポート
@@ -106,7 +106,7 @@ class StageThreeScene(PlayScene):
             # ザコ出現間隔を難易度に応じて調整（最小間隔で下限あり）
             spawn_interval = max(ENEMY_SPAWN_BASE - self.game.game_data.difficulty_level * 10, ENEMY_SPAWN_MIN)
             # play_timeのタイミングで敵出現判定
-            if self.game.game_data.play_time % spawn_interval == 0:
+            if len(self.game.enemy_state.enemies) <= 10 and self.game.game_data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)  # 敵の種類をランダム決定
                 if kind == 0:
                     # 波型弾エネミー生成
@@ -117,6 +117,21 @@ class StageThreeScene(PlayScene):
                 else:
                     # 突進エネミー生成
                     ChargeShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 24, 24)
+
+            # BGMのサビに合わせて固定出現
+            if self.play_time == FPS * 10:
+                for i in range(1, 5):
+                    TridentShooter(self.game, score, exp, armor, i * 40, -8, 16, 16)
+
+            # BGMのサビに合わせて固定出現
+            if self.play_time == FPS * 35:
+                for i in range(1, 5):
+                    CircleShooter(self.game, score, exp, armor, i * 40, -8, 16, 16)
+
+            # BGMのサビに合わせて固定出現
+            if self.play_time == FPS * 95:
+                for i in range(1, 6):
+                    ChargeShooter(self.game, score, exp, armor, i * 30, -8, 16, 16)
 
         # ボス出現フラグが立ち、かつまだボスが生成されていなければボス出現演出
         elif self.game.boss_state.active and not any(isinstance(e, StageThreeBoss) for e in self.game.enemy_state.enemies.copy()):

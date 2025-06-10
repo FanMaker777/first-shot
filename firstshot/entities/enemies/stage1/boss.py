@@ -30,9 +30,9 @@ class StageOneBoss(Enemy):
             self.y += 1.0
 
         # 一定時間毎に４方向に弾を発射する
-        if self.life_time % 30 == 0:
+        if self.life_time % 30 == 0 or self.life_time % 33 == 0 or self.life_time % 36 == 0:
             for i in range(8):
-                Bullet(self.game, Bullet.SIDE_ENEMY, self.x +32, self.y + 32, i * 45 + 22, 4)
+                Bullet(self.game, Bullet.SIDE_ENEMY, self.x +32, self.y + 32, i * 45 + pyxel.rndi(0, 22), 3)
 
         # 一定時間毎に自機の方向に向けて弾を発射する
         if self.life_time % 50 == 0:

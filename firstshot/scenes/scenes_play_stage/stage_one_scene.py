@@ -11,7 +11,7 @@ from firstshot.constants import (
     ENEMY_SPAWN_MIN,
     BOSS_ALERT_DURATION,
     BGM_STAGE1, BASE_SCORE_STAGE_ONE, BASE_EXP_STAGE_ONE, BASE_ARMOR_STAGE_ONE, BOSS_SCORE_STAGE_ONE,
-    BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING, PLAYER_LIFE_DEFAULT, PLAYER_SKILL_USE_TIME,
+    BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING, PLAYER_LIFE_DEFAULT, PLAYER_SKILL_USE_TIME, FPS,
 )
 from firstshot.entities import Player
 from firstshot.entities.enemies.stage1 import Zigzag, AroundShooter, PlayerShooter, StageOneBoss
@@ -78,14 +78,26 @@ class StageOneScene(PlayScene):
         # ボスフラグがオフの時、ザコ敵を出現させる
         if not self.game.boss_state.active:
             spawn_interval = max(ENEMY_SPAWN_BASE - self.game.game_data.difficulty_level * 10, ENEMY_SPAWN_MIN)
-            if self.game.game_data.play_time % spawn_interval == 0:
+            if len(self.game.enemy_state.enemies) <= 10 and self.game.game_data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
-                    Zigzag(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 12, 12)
+                    Zigzag(self.game, score, exp, armor, pyxel.rndi(16, 160), -8, 12, 12)
                 elif kind == 1:
                     AroundShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 12, 12)
                 elif kind == 2:
                     PlayerShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 12, 12)
+
+            # BGMのサビに合わせて固定出現
+            if self.game.game_data.play_time == FPS * 25:
+                for i in range(1,5):
+                    PlayerShooter(self.game, score, exp, armor, i * 40 , -8, 12, 12)
+
+            # BGMのサビに合わせて固定出現
+            if (self.game.game_data.play_time == FPS * 40
+                    or self.game.game_data.play_time == FPS * 43
+                    or self.game.game_data.play_time == FPS * 46):
+                for i in range(1, 6):
+                    Zigzag(self.game, score, exp, armor, i * 30, -8, 12, 12)
 
         # ボスフラグがオン　AND　ボスが未出現の時
         elif self.game.boss_state.active and not any(isinstance(x, StageOneBoss) for x in self.game.enemy_state.enemies.copy()):

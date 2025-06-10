@@ -15,16 +15,17 @@ class RobotFollow(Enemy):
         self.add_life_time()
 
         # 経過時間にプレイヤーを追跡する
-        if self.life_time // 90 % 2 == 0:
-            if self.game.player_state.instance.x - self.x > 0:
-                self.x += 1.5
-            else:
-                self.x -= 1.5
+        if self.game.player_state.instance is not None:
+            if self.life_time // 30 % 3 == 0:
+                if self.game.player_state.instance.x - self.x > 0:
+                    self.x += pyxel.rndi(1, 2)
+                else:
+                    self.x -= pyxel.rndi(1, 2)
 
-            if self.game.player_state.instance.y - self.y > 0:
-                self.y += 1.5
-            else:
-                self.y -= 1.5
+                if self.game.player_state.instance.y - self.y > 0:
+                    self.y += pyxel.rndi(1, 2)
+                else:
+                    self.y -= pyxel.rndi(1, 2)
 
         # 画面外にでた敵を削除する
         self.delete_out_enemy()
