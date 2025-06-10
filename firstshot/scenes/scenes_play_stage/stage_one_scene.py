@@ -12,6 +12,7 @@ from firstshot.constants import (
     BOSS_ALERT_DURATION,
     BGM_STAGE1, BASE_SCORE_STAGE_ONE, BASE_EXP_STAGE_ONE, BASE_ARMOR_STAGE_ONE, BOSS_SCORE_STAGE_ONE,
     BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING, PLAYER_LIFE_DEFAULT, PLAYER_SKILL_USE_TIME, FPS,
+    PILOT_ROCKY,
 )
 from firstshot.entities import Player
 from firstshot.entities.enemies.stage1 import Zigzag, AroundShooter, PlayerShooter, StageOneBoss
@@ -51,6 +52,10 @@ class StageOneScene(PlayScene):
 
         # 自機を生成する
         Player(self.game, PLAYER_START_X, PLAYER_START_Y)
+
+        # ロッキーのみ最大体力増加
+        if self.game.player_state.pilot_kind == PILOT_ROCKY:
+            self.game.player_state.life += 2
 
     def update(self):
         """フレームごとの更新処理。"""

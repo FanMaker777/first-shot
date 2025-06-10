@@ -16,7 +16,7 @@ from firstshot.constants import (
     PLAYER_BULLET_ANGLE_RIGHT,
     PLAYER_BULLET_ANGLE_LEFT_WIDE,
     PLAYER_BULLET_ANGLE_RIGHT_WIDE,
-    COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME, PLAYER_SKILL_COOL_TIME, PILOT_ROCKY,
+    COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME, PLAYER_SKILL_COOL_TIME, PILOT_ROCKY, PILOT_CLARICE,
 )
 from firstshot.entities import Blast
 from firstshot.entities.bullets import DogBullet, Bullet
@@ -215,8 +215,8 @@ class Player:
             # 発射音再生
             self.game.sound_manager.play_se_shot()
 
-            # ロッキーのみ発射間隔短縮
-            if self.game.player_state.pilot_kind == PILOT_ROCKY:
+            # クラリーチェのみ発射間隔短縮
+            if self.game.player_state.pilot_kind == PILOT_CLARICE:
                 self.shot_timer = self.shot_interval - 1
             else:
                 self.shot_timer = self.shot_interval
