@@ -2,14 +2,12 @@ import pyxel
 
 from firstshot.constants import COLOR_GREEN
 from firstshot.entities import Bullet
+from firstshot.entities.bullets import EnemyMissile
 from firstshot.entities.enemies import Enemy
 
-
-# ステージ2のボスクラス
 class StageTwoBossRight(Enemy):
     """ステージ2で登場する右側のボス。"""
 
-    # 敵にダメージを与える
     def add_damage(self):
         """ボスがダメージを受けた際の処理。"""
         super().add_damage()
@@ -19,7 +17,6 @@ class StageTwoBossRight(Enemy):
             # ボス撃破フラグをTrueにする
             self.game.boss_state.destroyed_stage2_right = True
 
-    # 敵を更新する
     def update(self):
         """ボスの挙動を更新する。"""
         # 生存時間をカウントする
@@ -30,17 +27,19 @@ class StageTwoBossRight(Enemy):
             self.y += 1.0
 
         # 一定時間毎に自機の方向に向けて弾を発射する
-        if self.life_time % 30 == 0 or self.life_time % 32 == 0 or self.life_time % 34 == 0:
-            player_angle = self.calc_player_angle(self.x + 32,self.y + 32)
-            Bullet(self.game, Bullet.SIDE_ENEMY, self.x + 32, self.y + 32, player_angle, 3)
-
         if self.life_time % 60 == 0 or self.life_time % 62 == 0 or self.life_time % 64 == 0:
             player_angle = self.calc_player_angle(self.x + 32,self.y + 32)
-            Bullet(self.game, Bullet.SIDE_ENEMY, self.x + 32, self.y + 32, player_angle, 4)
+            EnemyMissile(self.game, Bullet.SIDE_ENEMY, self.x + 32, self.y + 32, player_angle, 3)
 
-        if self.life_time % 90 == 0 or self.life_time % 92 == 0 or self.life_time % 94 == 0:
+        if self.life_time % 120 == 0 or self.life_time % 122 == 0 or self.life_time % 124 == 0:
             player_angle = self.calc_player_angle(self.x + 32, self.y + 32)
-            Bullet(self.game, Bullet.SIDE_ENEMY, self.x + 32, self.y + 32, player_angle, 5)
+            EnemyMissile(self.game, Bullet.SIDE_ENEMY, self.x + 32, self.y + 32, player_angle, 3)
+
+        if self.life_time % 300 == 0:
+            player_angle = self.calc_player_angle(self.x + 32, self.y + 32)
+            EnemyMissile(self.game, Bullet.SIDE_ENEMY, self.x + 32, self.y + 32, player_angle, 6)
+            EnemyMissile(self.game, Bullet.SIDE_ENEMY, self.x + 32, self.y + 32, player_angle - 15, 6)
+            EnemyMissile(self.game, Bullet.SIDE_ENEMY, self.x + 32, self.y + 32, player_angle + 15, 6)
 
 
     # 敵を描画する

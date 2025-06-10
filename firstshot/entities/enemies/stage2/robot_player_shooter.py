@@ -24,6 +24,10 @@ class RobotPlayerShooter(Enemy):
             player_angle = self.calc_player_angle(self.x,self.y)
             Bullet(self.game, Bullet.SIDE_ENEMY, self.x, self.y, player_angle, 3)
 
+        if self.life_time % 45 == 0:
+            player_angle = self.calc_player_angle(self.x,self.y)
+            Bullet(self.game, Bullet.SIDE_ENEMY, self.x, self.y, player_angle, 3)
+
     # 敵を描画する
     def draw(self):
         """敵を描画する。"""

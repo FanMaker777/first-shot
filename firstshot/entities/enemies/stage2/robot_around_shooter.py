@@ -19,9 +19,14 @@ class RobotAroundShooter(Enemy):
         if self.y < 30:
             self.y += 1.0
 
-        # 一定時間毎に４方向に弾を発射する
-        if self.life_time % 40 == 0:
+        # 一定時間毎に6方向に弾を発射する
+        if self.life_time % 30 == 0:
             for i in range(6):
+                Bullet(self.game, Bullet.SIDE_ENEMY, self.x, self.y, i * 45 + 22, 3)
+
+        # 一定時間毎に6方向に弾を発射する
+        if self.life_time % 90 == 0:
+            for i in range(8):
                 Bullet(self.game, Bullet.SIDE_ENEMY, self.x, self.y, i * 45 + 22, 3)
 
     # 敵を描画する
