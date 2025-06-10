@@ -3,7 +3,7 @@ import math
 import pyxel
 
 from firstshot.constants import COLOR_DARK_GREEN
-from firstshot.entities import Bullet
+from firstshot.entities.bullets import Bullet
 from firstshot.entities.enemies import Enemy
 
 

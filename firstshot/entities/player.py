@@ -18,9 +18,9 @@ from firstshot.constants import (
     PLAYER_BULLET_ANGLE_RIGHT_WIDE,
     COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME, PLAYER_SKILL_COOL_TIME, PILOT_ROCKY,
 )
-from firstshot.entities import Blast, Bullet
-from firstshot.entities.bullets import DogBullet
-from firstshot.entities.missile import Missile
+from firstshot.entities import Blast
+from firstshot.entities.bullets import DogBullet, Bullet
+from firstshot.entities.bullets.missile import Missile
 
 
 # 自機クラス

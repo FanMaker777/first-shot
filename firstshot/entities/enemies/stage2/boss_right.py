@@ -1,9 +1,10 @@
 import pyxel
 
 from firstshot.constants import COLOR_GREEN
-from firstshot.entities import Bullet
+from firstshot.entities.bullets import Bullet
 from firstshot.entities.bullets import EnemyMissile
 from firstshot.entities.enemies import Enemy
+
 
 class StageTwoBossRight(Enemy):
     """ステージ2で登場する右側のボス。"""

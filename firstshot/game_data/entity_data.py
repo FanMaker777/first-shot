@@ -8,7 +8,8 @@ from typing import List, Optional
 import pyxel
 
 from firstshot.constants import PLAYER_LIFE_DEFAULT, PLAYER_SKILL_USE_TIME
-from firstshot.entities import Player, Bullet, Blast
+from firstshot.entities import Player, Blast
+from firstshot.entities.bullets import Bullet
 from firstshot.entities.enemies import Enemy
 
 
