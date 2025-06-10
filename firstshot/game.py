@@ -9,10 +9,10 @@ from firstshot.constants import (
     SCENE_GAMEOVER,
     SCENE_GAME_CLEAR,
     FONT_PATH,
-    PALETTE_IMAGE_PATH,
-    RESOURCE_FILE,
-    IMAGE_PANK_PATH,
-    TITLE_IMAGE_PATH,
+    IMAGE_COLOR_PALETTE,
+    PYXEL_RESOURCE_FILE,
+    IMAGE_DEFAULT_PANK,
+    IMAGE_TITLE,
     COLOR_BLACK,
     SCREEN_WIDTH,
     SCREEN_HEIGHT, SCENE_LOADING, IMAGE_MISSILE, IMAGE_DOG_BULLET,
@@ -57,11 +57,11 @@ class Game:
         self.font = pyxel.Font(FONT_PATH)
         # 色パレットを254色に更新
         self.color_image = pyxel.Image(SCREEN_WIDTH, SCREEN_HEIGHT)
-        self.color_image = pyxel.Image.from_image(PALETTE_IMAGE_PATH, incl_colors=True)
+        self.color_image = pyxel.Image.from_image(IMAGE_COLOR_PALETTE, incl_colors=True)
         # リソースファイル読込
-        pyxel.load(RESOURCE_FILE)
-        pyxel.images[0].load(0, 0, IMAGE_PANK_PATH)
-        pyxel.images[2].load(0, 0, TITLE_IMAGE_PATH)
+        pyxel.load(PYXEL_RESOURCE_FILE)
+        pyxel.images[0].load(0, 0, IMAGE_DEFAULT_PANK)
+        pyxel.images[2].load(0, 0, IMAGE_TITLE)
         # 特殊弾の画像読込
         self.special_bullet_image = pyxel.Image(SCREEN_WIDTH, SCREEN_HEIGHT)
         pyxel.Image.load(self.special_bullet_image, 0, 0, IMAGE_MISSILE)

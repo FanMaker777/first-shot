@@ -25,28 +25,31 @@ COLOR_GREEN = 141
 COLOR_DARK_GREEN = 122
 
 
-# ファイルパス
+# ファイルパス(リソース)
 FONT_PATH = "assets/umplus_j10r.bdf"
-PALETTE_IMAGE_PATH = "assets/color254.png"
-RESOURCE_FILE = "assets/first_shot.pyxres"
-IMAGE_PANK_PATH = "assets/image/imagePank/pyxel-image0.png"
-TITLE_IMAGE_PATH = "assets/image/background/title.png"
-STAGE1_BG_PATH = "assets/image/background/stage.png"
-STAGE2_BG_PATH = "assets/image/background/stage2.png"
-STAGE3_BG_PATH = "assets/image/background/stage3.png"
-GAME_CLEAR_IMAGE_PATH = "assets/image/background/game_clear.png"
-STAGE1_ENEMY_IMAGE = "assets/image/enemy/stage1_enemy.png"
-STAGE1_BOSS_IMAGE = "assets/image/enemy/stage1_boss.png"
-STAGE2_ENEMY_IMAGE = "assets/image/enemy/stage2_enemy.png"
-STAGE2_BOSS_IMAGE = "assets/image/enemy/stage2_boss.png"
-STAGE3_ENEMY_IMAGE = "assets/image/enemy/stage3_enemy.png"
-STAGE3_BOSS_IMAGE = "assets/image/enemy/stage3_boss.png"
-PILOT1_IMAGE = "assets/image/pilot/pilot1.png"
-PILOT2_IMAGE = "assets/image/pilot/pilot2.png"
-PILOT3_IMAGE = "assets/image/pilot/pilot3.png"
+PYXEL_RESOURCE_FILE = "assets/first_shot.pyxres"
+IMAGE_DEFAULT_PANK = "assets/image/imagePank/pyxel-image0.png"
+IMAGE_COLOR_PALETTE = "assets/color254.png"
+# ファイルパス(背景画像)
+IMAGE_TITLE = "assets/image/background/title.png"
+IMAGE_STAGE1_BG = "assets/image/background/stage.png"
+IMAGE_STAGE2_BG = "assets/image/background/stage2.png"
+IMAGE_STAGE3_BG = "assets/image/background/stage3.png"
+IMAGE_GAME_CLEAR = "assets/image/background/game_clear.png"
+# ファイルパス(エネミー画像)
+IMAGE_STAGE1_ENEMY = "assets/image/enemy/stage1_enemy.png"
+IMAGE_STAGE1_BOSS = "assets/image/enemy/stage1_boss.png"
+IMAGE_STAGE2_ENEMY = "assets/image/enemy/stage2_enemy.png"
+IMAGE_STAGE2_BOSS = "assets/image/enemy/stage2_boss.png"
+IMAGE_STAGE3_ENEMY = "assets/image/enemy/stage3_enemy.png"
+IMAGE_STAGE3_BOSS = "assets/image/enemy/stage3_boss.png"
+# ファイルパス(パイロット画像)
+IMAGE_PILOT1 = "assets/image/pilot/pilot1.png"
+IMAGE_PILOT2 = "assets/image/pilot/pilot2.png"
+IMAGE_PILOT3 = "assets/image/pilot/pilot3.png"
+# ファイルパス(バレット画像)
 IMAGE_MISSILE = "assets/image/special_bullet/missile.png"
 IMAGE_DOG_BULLET = "assets/image/special_bullet/dog_bullet.png"
-
 # ファイルパス(ローディング画面)
 IMAGE_LOADING_PILOT1 = "assets/image/loading/loading_pilot1.png"
 IMAGE_LOADING_PILOT2 = "assets/image/loading/loading_pilot2.png"

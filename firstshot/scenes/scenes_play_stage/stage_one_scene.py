@@ -1,9 +1,9 @@
 import pyxel
 
 from firstshot.constants import (
-    STAGE1_BG_PATH,
-    STAGE1_ENEMY_IMAGE,
-    STAGE1_BOSS_IMAGE,
+    IMAGE_STAGE1_BG,
+    IMAGE_STAGE1_ENEMY,
+    IMAGE_STAGE1_BOSS,
     PLAYER_START_X,
     PLAYER_START_Y,
     STAGE1_BOSS_APPEAR_TIME,
@@ -39,12 +39,12 @@ class StageOneScene(PlayScene):
         self.game.player_state.skill_use_time = PLAYER_SKILL_USE_TIME # スキル使用回数をリセット
 
         # ステージ画像を切り替え
-        pyxel.images[1].load(0, 0, STAGE1_BG_PATH)
+        pyxel.images[1].load(0, 0, IMAGE_STAGE1_BG)
         # エネミー画像を切り替え
-        pyxel.images[0].load(0, 16, STAGE1_ENEMY_IMAGE)
+        pyxel.images[0].load(0, 16, IMAGE_STAGE1_ENEMY)
         # ボス画像を切り替え
         self.game.boss_state.image = pyxel.Image.from_image(
-            STAGE1_BOSS_IMAGE, incl_colors=False
+            IMAGE_STAGE1_BOSS, incl_colors=False
         )
 
         # BGMを再生する

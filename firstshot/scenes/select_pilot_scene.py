@@ -5,9 +5,9 @@ from firstshot.constants import (
     PILOT_CLARICE,
     PILOT_ROCKY,
     PILOT_GENZOU,
-    PILOT1_IMAGE,
-    PILOT2_IMAGE,
-    PILOT3_IMAGE,
+    IMAGE_PILOT1,
+    IMAGE_PILOT2,
+    IMAGE_PILOT3,
     COLOR_BLACK,
     SCREEN_WIDTH, PILOT_ABILITY_GENZOU, PILOT_SKILL_GENZOU, PILOT_SKILL_ROCKY, PILOT_ABILITY_ROCKY, PILOT_SKILL_CLARICE,
     PILOT_ABILITY_CLARICE,
@@ -36,7 +36,7 @@ class SelectPilotScene:
         # パイロットの順番
         self.pilot_kind = 0
         # パイロット画像をイメージパンクに読み込む
-        pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT1_IMAGE)
+        pyxel.Image.load(self.pilot_image, x=0, y=0, filename=IMAGE_PILOT1)
 
     def update(self):
         """画面の更新処理。"""
@@ -49,15 +49,15 @@ class SelectPilotScene:
 
         # パイロットの画像と説明文を切り替え
         if self.pilot_kind == PILOT_CLARICE:
-            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT1_IMAGE)
+            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=IMAGE_PILOT1)
             self.pilot_ability = PILOT_ABILITY_CLARICE
             self.pilot_skill = PILOT_SKILL_CLARICE
         elif self.pilot_kind == PILOT_ROCKY:
-            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT2_IMAGE)
+            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=IMAGE_PILOT2)
             self.pilot_ability = PILOT_ABILITY_ROCKY
             self.pilot_skill = PILOT_SKILL_ROCKY
         elif self.pilot_kind == PILOT_GENZOU:
-            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT3_IMAGE)
+            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=IMAGE_PILOT3)
             self.pilot_ability = PILOT_ABILITY_GENZOU
             self.pilot_skill = PILOT_SKILL_GENZOU
 

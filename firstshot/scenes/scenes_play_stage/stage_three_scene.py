@@ -2,9 +2,9 @@ import pyxel
 
 # ステージ3用の定数・画像パス・BGM・スコアなどをインポート
 from firstshot.constants import (
-    STAGE3_BG_PATH,
-    STAGE3_ENEMY_IMAGE,
-    STAGE3_BOSS_IMAGE,
+    IMAGE_STAGE3_BG,
+    IMAGE_STAGE3_ENEMY,
+    IMAGE_STAGE3_BOSS,
     BGM_STAGE3,
     STAGE3_BOSS_APPEAR_TIME,
     ENEMY_SPAWN_BASE,
@@ -61,12 +61,12 @@ class StageThreeScene(PlayScene):
         self.game.player_state.skill_cool_time = 0  # スキルクールタイムをリセット
 
         # 背景画像をイメージバンク1へロード
-        pyxel.images[1].load(0, 0, STAGE3_BG_PATH)
+        pyxel.images[1].load(0, 0, IMAGE_STAGE3_BG)
         # ザコ敵画像をイメージバンク0の一部にロード
-        pyxel.images[0].load(0, 16, STAGE3_ENEMY_IMAGE)
+        pyxel.images[0].load(0, 16, IMAGE_STAGE3_ENEMY)
         # ボス画像をpyxel.Imageインスタンスとしてgameオブジェクトにセット
         self.game.boss_state.image = pyxel.Image.from_image(
-            STAGE3_BOSS_IMAGE, incl_colors=False
+            IMAGE_STAGE3_BOSS, incl_colors=False
         )
 
         # ステージ3専用BGMをループ再生

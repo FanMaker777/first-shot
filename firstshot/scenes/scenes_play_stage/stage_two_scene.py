@@ -1,9 +1,9 @@
 import pyxel
 
 from firstshot.constants import (
-    STAGE2_BG_PATH,
-    STAGE2_ENEMY_IMAGE,
-    STAGE2_BOSS_IMAGE,
+    IMAGE_STAGE2_BG,
+    IMAGE_STAGE2_ENEMY,
+    IMAGE_STAGE2_BOSS,
     BGM_STAGE2,
     STAGE2_BOSS_APPEAR_TIME,
     ENEMY_SPAWN_BASE,
@@ -46,12 +46,12 @@ class StageTwoScene(PlayScene):
         self.game.boss_state.destroyed_stage2_right = False  # ボス撃破フラグ(右)
 
         # ステージ画像を切り替え
-        pyxel.images[1].load(0, 0, STAGE2_BG_PATH)
+        pyxel.images[1].load(0, 0, IMAGE_STAGE2_BG)
         # エネミー画像を切り替え
-        pyxel.images[0].load(0, 16, STAGE2_ENEMY_IMAGE)
+        pyxel.images[0].load(0, 16, IMAGE_STAGE2_ENEMY)
         # ボス画像を切り替え
         self.game.boss_state.image = pyxel.Image.from_image(
-            STAGE2_BOSS_IMAGE, incl_colors=False
+            IMAGE_STAGE2_BOSS, incl_colors=False
         )
 
         # BGMを再生する
