@@ -17,7 +17,7 @@ from firstshot.constants import (
     SCREEN_WIDTH,
     SCREEN_HEIGHT, SCENE_LOADING, IMAGE_MISSILE, IMAGE_DOG_BULLET,
 )
-from firstshot.game_data import PlayerState, EnemyState, BossState, GameData, GameConfig
+from firstshot.data import PlayerState, EnemyState, BossState, GameData, GameConfig
 from firstshot.logic.dialog import display_exit_dialog
 from firstshot.manager import SoundManager
 from firstshot.scenes import (
