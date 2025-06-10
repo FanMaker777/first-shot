@@ -117,9 +117,11 @@ class StageThreeScene(PlayScene):
                 else:
                     # 突進エネミー生成
                     ChargeShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 24, 24)
+
         # ボス出現フラグが立ち、かつまだボスが生成されていなければボス出現演出
         elif self.game.boss_state.active and not any(isinstance(e, StageThreeBoss) for e in self.game.enemy_state.enemies.copy()):
             self.game.boss_state.alert_timer = BOSS_ALERT_DURATION  # ボス警告タイマーセット
+            self.game.enemy_state.enemies = []  # 敵のリストをクリア
             # ボスインスタンス生成（出現位置やサイズ等は定数で指定）
             StageThreeBoss(
                 self.game,

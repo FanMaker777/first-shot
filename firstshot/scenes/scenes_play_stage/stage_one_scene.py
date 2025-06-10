@@ -91,6 +91,7 @@ class StageOneScene(PlayScene):
         elif self.game.boss_state.active and not any(isinstance(x, StageOneBoss) for x in self.game.enemy_state.enemies.copy()):
             # ボスアラートの表示時間を設定
             self.game.boss_state.alert_timer = BOSS_ALERT_DURATION
+            self.game.enemy_state.enemies = []  # 敵のリストをクリア
             # ボスを出現
             StageOneBoss(
                 self.game, BOSS_SCORE_STAGE_ONE, BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE,

@@ -103,6 +103,7 @@ class StageTwoScene(PlayScene):
               not any(isinstance(x, StageTwoBossRight) for x in self.game.enemy_state.enemies.copy())):
             # ボスアラートの表示時間を設定
             self.game.boss_state.alert_timer = BOSS_ALERT_DURATION
+            self.game.enemy_state.enemies = []  # 敵のリストをクリア
             # ボスを出現(左側)
             StageTwoBossLeft(
                 self.game, BOSS_SCORE_STAGE_TWO, BOSS_EXP_STAGE_TWO, BOSS_ARMOR_STAGE_TWO,
