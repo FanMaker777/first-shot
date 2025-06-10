@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b55b034-856c-4665-9e99-989d7ce24a2a" name="変更" comment="変更内容:&#10;- player.pyからテストコードを削除">
-      <change afterPath="$PROJECT_DIR$/firstshot/game_data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/game_data/entity_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firstshot/game_data/game_data.py" afterDir="false" />
+    <list default="true" id="9b55b034-856c-4665-9e99-989d7ce24a2a" name="変更" comment="refactoring：モジュール名の修正">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/entities/bullet.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/bullet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_robot_follow.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_robot_follow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage1_boss.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage1_boss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_left.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_left.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_right.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/enemies/enemy_stage2_boss_right.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/entities/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/firstshot/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/logic/dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/logic/dialog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/background_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/background_scene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/gameover_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/gameover_scene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/play_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/play_scene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_one_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_one_scene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_two_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/scenes_play_stage/stage_two_scene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/title_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/title_scene.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +40,9 @@
     &quot;accountId&quot;: &quot;be985bd1-ae36-412b-a027-a6dac3e414eb&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -68,21 +54,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "Python.player.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "5-create-dataclass",
-    "last_opened_file_path": "C:/Users/myoso/PycharmProjects/Firstshot",
-    "settings.editor.selected.configurable": "configurable.group.project"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.game.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gameover_scene.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mega_wing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.player.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;refactoring-general&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/myoso/PycharmProjects/Firstshot/firstshot/entities/pilot&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.project&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\myoso\PycharmProjects\Firstshot" />
+      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\entities\pilot" />
+      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\entities\bullets" />
+      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\assets\se" />
+      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\entities" />
+      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\assets\special_bullet" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\assets\image" />
+      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\entities\bullets" />
+      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\entities\bullet" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -119,7 +118,311 @@
       <option name="project" value="LOCAL" />
       <updated>1749087535837</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add:ステージクリア時のエフェクト&#10;- ステージクリア時のメッセージとSEを追加">
+      <option name="closed" value="true" />
+      <created>1749385045559</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749385045559</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add:ゲームクリア画面の画像">
+      <option name="closed" value="true" />
+      <created>1749385399725</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1749385399725</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add:ゲームクリア画面のBGM">
+      <option name="closed" value="true" />
+      <created>1749387680887</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749387680887</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add：プレイヤーのライフステータス">
+      <option name="closed" value="true" />
+      <created>1749447193866</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749447193866</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix：ENEMYの当たり判定を適正化">
+      <option name="closed" value="true" />
+      <created>1749448038801</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749448038801</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix：ステージクリア時、全ての敵を削除するよう修正">
+      <option name="closed" value="true" />
+      <created>1749448476508</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749448476508</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix：ステージ2のboss撃破判定ロジック&#10;- ステージ2のbossは、左右2体を倒さないと次に進まないよう修正">
+      <option name="closed" value="true" />
+      <created>1749449229927</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749449229927</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add：ENEMY被弾時の効果音">
+      <option name="closed" value="true" />
+      <created>1749450978329</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749450978329</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add：プレイヤー被弾時の無敵時間">
+      <option name="closed" value="true" />
+      <created>1749451738255</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1749451738255</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add：プレイヤー(クラリーチェ)のSPスキル">
+      <option name="closed" value="true" />
+      <created>1749456630116</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749456630116</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add：プレイヤー(ゲンゾウ)のSPスキル">
+      <option name="closed" value="true" />
+      <created>1749459063813</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1749459063813</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix：弾が画面外に出た際の消去条件&#10; -消去対象が弾リストに存在しているかチェックを追加">
+      <option name="closed" value="true" />
+      <created>1749459131420</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1749459131420</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add：パイロット(ロッキー)のSPスキルを実装">
+      <option name="closed" value="true" />
+      <created>1749464540339</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1749464540339</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix：パイロット(クラリーチェ)のSPスキル&#10; -クラリーチェのSPスキルを敵の行動全てに適用">
+      <option name="closed" value="true" />
+      <created>1749469600808</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1749469600808</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix：パイロット(ロッキー)のSPスキル&#10; -ロッキーのSPスキルの発射角が狭くなるよう修正">
+      <option name="closed" value="true" />
+      <created>1749470394419</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1749470394419</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix：パイロット(ロッキー)のアビリティ&#10; -ロッキーのアビリティは、連射速度を上げるよう変更">
+      <option name="closed" value="true" />
+      <created>1749471036007</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1749471036007</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix：プレイヤーの移動速度を少し増加">
+      <option name="closed" value="true" />
+      <created>1749471362065</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1749471362065</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix：背景の流星表現はタイトル画面のみに変更">
+      <option name="closed" value="true" />
+      <created>1749471568687</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1749471568687</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix：文字の画面表示位置を修正">
+      <option name="closed" value="true" />
+      <created>1749472308206</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1749472308206</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix：文字の画面表示位置を修正">
+      <option name="closed" value="true" />
+      <created>1749472506007</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1749472506007</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add：オートショットモードを追加">
+      <option name="closed" value="true" />
+      <created>1749473442143</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1749473442143</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix：stage3のエネミーの行動ロジックを変更">
+      <option name="closed" value="true" />
+      <created>1749528186156</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1749528186156</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix：stage3のエネミーの名前を変更&#10; -stage3のエネミーに詳細なコメントを追加">
+      <option name="closed" value="true" />
+      <created>1749528859448</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1749528859448</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix：stage3のエネミーファイル名を変更">
+      <option name="closed" value="true" />
+      <created>1749529296003</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1749529296003</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix：stage2のエネミー行動ロジックを変更&#10; -stage2のエネミーファイル名を変更">
+      <option name="closed" value="true" />
+      <created>1749531198700</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1749531198700</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix：BOSS出現時、ザコ敵は消去するよう変更">
+      <option name="closed" value="true" />
+      <created>1749531398291</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1749531398291</updated>
+    </task>
+    <task id="LOCAL-00029" summary="refactoring：弾クラスを専用モジュールに移動">
+      <option name="closed" value="true" />
+      <created>1749534531592</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1749534531592</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add：弾クラスにダメージの変数を追加">
+      <option name="closed" value="true" />
+      <created>1749535532044</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1749535532044</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fix：高レベル時のプレイヤーのショットを変更&#10; -プレイヤーのアップデート処理をリファクタリング">
+      <option name="closed" value="true" />
+      <created>1749538412113</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1749538412113</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix：ドッグ弾の当たり判定を画像通りに修正">
+      <option name="closed" value="true" />
+      <created>1749538512338</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1749538512338</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix：ゲーム全体の難易度を調整">
+      <option name="closed" value="true" />
+      <created>1749549046191</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1749549046191</updated>
+    </task>
+    <task id="LOCAL-00034" summary="refactoring：パイロット説明文を定数化">
+      <option name="closed" value="true" />
+      <created>1749567961393</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1749567961393</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix：パイロットのアビリティを変更">
+      <option name="closed" value="true" />
+      <created>1749568198416</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1749568198416</updated>
+    </task>
+    <task id="LOCAL-00036" summary="refactoring：ステージ1のエネミーのファイル名修正">
+      <option name="closed" value="true" />
+      <created>1749568356980</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1749568356980</updated>
+    </task>
+    <task id="LOCAL-00037" summary="refactoring：assets内の画像ファイルを整理">
+      <option name="closed" value="true" />
+      <created>1749569119019</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1749569119019</updated>
+    </task>
+    <task id="LOCAL-00038" summary="refactoring：画像ファイルの定数名を統一">
+      <option name="closed" value="true" />
+      <created>1749569674538</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1749569674538</updated>
+    </task>
+    <task id="LOCAL-00039" summary="refactoring：モジュール名の修正">
+      <option name="closed" value="true" />
+      <created>1749569775402</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1749569775402</updated>
+    </task>
+    <task id="LOCAL-00040" summary="refactoring：モジュール名の修正">
+      <option name="closed" value="true" />
+      <created>1749569834865</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1749569834865</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,8 +449,49 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="初期登録" />
-    <MESSAGE value="変更内容:&#10;- player.pyからテストコードを削除" />
-    <option name="LAST_COMMIT_MESSAGE" value="変更内容:&#10;- player.pyからテストコードを削除" />
+    <MESSAGE value="fix：弾が画面外に出た際の消去条件&#10; -消去対象が弾リストに存在しているかチェックを追加" />
+    <MESSAGE value="add：パイロット(ロッキー)のSPスキルを実装" />
+    <MESSAGE value="fix：パイロット(クラリーチェ)のSPスキル&#10; -クラリーチェのSPスキルを敵の行動全てに適用" />
+    <MESSAGE value="fix：パイロット(ロッキー)のSPスキル&#10; -ロッキーのSPスキルの発射角が狭くなるよう修正" />
+    <MESSAGE value="fix：パイロット(ロッキー)のアビリティ&#10; -ロッキーのアビリティは、連射速度を上げるよう変更" />
+    <MESSAGE value="fix：プレイヤーの移動速度を少し増加" />
+    <MESSAGE value="fix：背景の流星表現はタイトル画面のみに変更" />
+    <MESSAGE value="fix：文字の画面表示位置を修正" />
+    <MESSAGE value="add：オートショットモードを追加" />
+    <MESSAGE value="fix：stage3のエネミーの行動ロジックを変更" />
+    <MESSAGE value="fix：stage3のエネミーの名前を変更&#10; -stage3のエネミーに詳細なコメントを追加" />
+    <MESSAGE value="fix：stage3のエネミーファイル名を変更" />
+    <MESSAGE value="fix：stage2のエネミー行動ロジックを変更&#10; -stage2のエネミーファイル名を変更" />
+    <MESSAGE value="fix：BOSS出現時、ザコ敵は消去するよう変更" />
+    <MESSAGE value="refactoring：弾クラスを専用モジュールに移動" />
+    <MESSAGE value="add：弾クラスにダメージの変数を追加" />
+    <MESSAGE value="fix：高レベル時のプレイヤーのショットを変更&#10; -プレイヤーのアップデート処理をリファクタリング" />
+    <MESSAGE value="fix：ドッグ弾の当たり判定を画像通りに修正" />
+    <MESSAGE value="fix：ゲーム全体の難易度を調整" />
+    <MESSAGE value="refactoring：パイロット説明文を定数化" />
+    <MESSAGE value="fix：パイロットのアビリティを変更" />
+    <MESSAGE value="refactoring：ステージ1のエネミーのファイル名修正" />
+    <MESSAGE value="refactoring：assets内の画像ファイルを整理" />
+    <MESSAGE value="refactoring：画像ファイルの定数名を統一" />
+    <MESSAGE value="refactoring：モジュール名の修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring：モジュール名の修正" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/firstshot/entities/__init__.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/firstshot/entities/enemies/stage3/trident_shooter.py</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/firstshot/entities/enemies/stage1/__init__.py</url>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

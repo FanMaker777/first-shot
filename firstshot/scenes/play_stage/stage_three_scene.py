@@ -85,10 +85,10 @@ class StageThreeScene(PlayScene):
         self.play_time += 1
 
         # ボスが撃破済みならステージクリアフラグを立ててゲームオーバーシーンへ遷移
-        if not self.game.game_data.cleared_stage_three and self.game.boss_state.destroyed:
-            self.game.game_data.cleared_stage_three = True  # ステージ3クリア記録
+        if not self.game.data.cleared_stage_three and self.game.boss_state.destroyed:
+            self.game.data.cleared_stage_three = True  # ステージ3クリア記録
 
-        if self.game.game_data.cleared_stage_three:
+        if self.game.data.cleared_stage_three:
             super().stagestruck(SCENE_GAME_CLEAR)
             return
 
@@ -97,16 +97,16 @@ class StageThreeScene(PlayScene):
             self.game.boss_state.active = True
 
         # 敵の能力値を難易度に応じて算出
-        score = BASE_SCORE_STAGE_THREE * self.game.game_data.difficulty_level
-        exp = BASE_EXP_STAGE_THREE * self.game.game_data.difficulty_level
-        armor = BASE_ARMOR_STAGE_THREE + self.game.game_data.difficulty_level
+        score = BASE_SCORE_STAGE_THREE * self.game.data.difficulty_level
+        exp = BASE_EXP_STAGE_THREE * self.game.data.difficulty_level
+        armor = BASE_ARMOR_STAGE_THREE + self.game.data.difficulty_level
 
         # ボスが未出現ならザコ敵を生成する処理
         if not self.game.boss_state.active:
             # ザコ出現間隔を難易度に応じて調整（最小間隔で下限あり）
-            spawn_interval = max(ENEMY_SPAWN_BASE - self.game.game_data.difficulty_level * 10, ENEMY_SPAWN_MIN)
+            spawn_interval = max(ENEMY_SPAWN_BASE - self.game.data.difficulty_level * 10, ENEMY_SPAWN_MIN)
             # play_timeのタイミングで敵出現判定
-            if len(self.game.enemy_state.enemies) <= 10 and self.game.game_data.play_time % spawn_interval == 0:
+            if len(self.game.enemy_state.enemies) <= 10 and self.game.data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)  # 敵の種類をランダム決定
                 if kind == 0:
                     # 波型弾エネミー生成

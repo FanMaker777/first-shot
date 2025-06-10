@@ -29,9 +29,9 @@ class StageOneScene(PlayScene):
 
         # プレイ状態を初期化する
         super().start()
-        self.game.game_data.score = 0  # スコアを0に戻す
-        self.game.game_data.play_time = 0  # プレイ時間を0に戻す
-        self.game.game_data.difficulty_level = 1  # 難易度レベルを1に戻す
+        self.game.data.score = 0  # スコアを0に戻す
+        self.game.data.play_time = 0  # プレイ時間を0に戻す
+        self.game.data.difficulty_level = 1  # 難易度レベルを1に戻す
         self.game.player_state.exp = 0  # プレイヤー経験値を0に戻す
         self.game.player_state.lv = 1  # プレイヤーレベルを1に戻す
         self.game.player_state.life = PLAYER_LIFE_DEFAULT  # プレイヤーライフを初期値に戻す
@@ -61,29 +61,29 @@ class StageOneScene(PlayScene):
         """フレームごとの更新処理。"""
 
         # ボス撃破フラグがTrueの場合、次のステージに移行する
-        if not self.game.game_data.cleared_stage_one and self.game.boss_state.destroyed:
+        if not self.game.data.cleared_stage_one and self.game.boss_state.destroyed:
             # ステージクリアフラグをオンにする
-            self.game.game_data.cleared_stage_one = True
+            self.game.data.cleared_stage_one = True
 
-        if self.game.game_data.cleared_stage_one:
+        if self.game.data.cleared_stage_one:
             super().stagestruck(SCENE_LOADING)
             return
 
         # 設定時間後にボスフラグをオンにする
-        if not self.game.boss_state.active and self.game.game_data.play_time >= STAGE1_BOSS_APPEAR_TIME:
+        if not self.game.boss_state.active and self.game.data.play_time >= STAGE1_BOSS_APPEAR_TIME:
             self.game.boss_state.active = True  # ボスフラグ
 
         # 獲得スコアを算出
-        score = BASE_SCORE_STAGE_ONE * self.game.game_data.difficulty_level
+        score = BASE_SCORE_STAGE_ONE * self.game.data.difficulty_level
         # 獲得経験値を算出
-        exp = BASE_EXP_STAGE_ONE * self.game.game_data.difficulty_level
+        exp = BASE_EXP_STAGE_ONE * self.game.data.difficulty_level
         # 装甲を算出
-        armor = BASE_ARMOR_STAGE_ONE + self.game.game_data.difficulty_level
+        armor = BASE_ARMOR_STAGE_ONE + self.game.data.difficulty_level
 
         # ボスフラグがオフの時、ザコ敵を出現させる
         if not self.game.boss_state.active:
-            spawn_interval = max(ENEMY_SPAWN_BASE - self.game.game_data.difficulty_level * 10, ENEMY_SPAWN_MIN)
-            if len(self.game.enemy_state.enemies) <= 10 and self.game.game_data.play_time % spawn_interval == 0:
+            spawn_interval = max(ENEMY_SPAWN_BASE - self.game.data.difficulty_level * 10, ENEMY_SPAWN_MIN)
+            if len(self.game.enemy_state.enemies) <= 10 and self.game.data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
                     Zigzag(self.game, score, exp, armor, pyxel.rndi(16, 160), -8, 12, 12)
@@ -93,14 +93,14 @@ class StageOneScene(PlayScene):
                     PlayerShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 12, 12)
 
             # BGMのサビに合わせて固定出現
-            if self.game.game_data.play_time == FPS * 25:
+            if self.game.data.play_time == FPS * 25:
                 for i in range(1,5):
                     PlayerShooter(self.game, score, exp, armor, i * 40 , -8, 12, 12)
 
             # BGMのサビに合わせて固定出現
-            if (self.game.game_data.play_time == FPS * 40
-                    or self.game.game_data.play_time == FPS * 43
-                    or self.game.game_data.play_time == FPS * 46):
+            if (self.game.data.play_time == FPS * 40
+                    or self.game.data.play_time == FPS * 43
+                    or self.game.data.play_time == FPS * 46):
                 for i in range(1, 6):
                     Zigzag(self.game, score, exp, armor, i * 30, -8, 12, 12)
 

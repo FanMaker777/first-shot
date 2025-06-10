@@ -14,7 +14,7 @@ class PlayScene:
         self.game = game
 
     def stagestruck(self, next_scene_name):
-        if self.game.game_data.stage_clear_display_time == 0:
+        if self.game.data.stage_clear_display_time == 0:
             # ボスアラートの表示時間を0に設定
             self.game.boss_state.alert_timer = 0
             self.game.enemy_state.enemies = []  # 敵のリスト
@@ -22,10 +22,10 @@ class PlayScene:
             self.game.enemy_state.bullets = []  # 敵の弾のリスト
             self.game.sound_manager.play_se_stage_clear()
             # ステージクリア表示タイマーを開始
-            self.game.game_data.stage_clear_display_time = STAGE_CLEAR_DISPLAY_TIME
+            self.game.data.stage_clear_display_time = STAGE_CLEAR_DISPLAY_TIME
         else:
-            self.game.game_data.stage_clear_display_time -= 1
-            if self.game.game_data.stage_clear_display_time == 0:
+            self.game.data.stage_clear_display_time -= 1
+            if self.game.data.stage_clear_display_time == 0:
                 # 規定時間経過後に次のシーンへ
                 self.game.change_scene(next_scene_name)
 
@@ -40,16 +40,16 @@ class PlayScene:
         self.game.boss_state.active = False  # ボスフラグ
         self.game.boss_state.destroyed = False  # ボス撃破フラグ
         self.game.boss_state.alert_timer = 0  # ボスアラートの表示時間
-        self.game.game_data.stage_clear_display_time = 0 # ステージクリア表示時間
+        self.game.data.stage_clear_display_time = 0 # ステージクリア表示時間
 
         pygame.mixer.music.stop()  # 停止
 
 
     def update(self):
         """ゲームプレイ中の更新処理。"""
-        self.game.game_data.play_time += 1  # プレイ時間をカウントする
+        self.game.data.play_time += 1  # プレイ時間をカウントする
         # 30秒(毎秒30フレームx30)毎に難易度を1上げる
-        self.game.game_data.difficulty_level = self.game.game_data.play_time // 900 + 1
+        self.game.data.difficulty_level = self.game.data.play_time // 900 + 1
 
         # 自機を更新する
         if self.game.player_state.instance is not None:
@@ -58,7 +58,7 @@ class PlayScene:
         # スキルクールタイムが0より大きい場合
         if (self.game.player_state.skill_cool_time > 0
                 and self.game.player_state.pilot_kind == PILOT_CLARICE # PILOT_CLARICE（クラリーチェ）の場合
-                and self.game.game_data.play_time % 2 == 0):  # and　2フレーム毎に
+                and self.game.data.play_time % 2 == 0):  # and　2フレーム毎に
             # 処理をパスする
             pass
         else:
@@ -131,7 +131,7 @@ class PlayScene:
         pyxel.rect(201, 1, 54, SCREEN_HEIGHT - 2, COLOR_BLACK)
         # 各情報を描画する
         pyxel.text(208, 32, "SCORE", 0, self.game.font)
-        pyxel.text(208, 48, f"{self.game.game_data.score:05}", 0, self.game.font)
+        pyxel.text(208, 48, f"{self.game.data.score:05}", 0, self.game.font)
         pyxel.text(208, 112, f"EXP {int(self.game.player_state.exp)}", 0, self.game.font)
         pyxel.text(208, 128, f"LV {self.game.player_state.lv}", 0, self.game.font)
         pyxel.text(208, 144, f"LIFE {self.game.player_state.life}", 0, self.game.font)
@@ -146,5 +146,5 @@ class PlayScene:
             pyxel.text(90, 128, "BOSS", pyxel.rndi(0, 240), self.game.font)
 
         # ステージクリアの表示時間が0より大きい場合
-        if self.game.game_data.stage_clear_display_time > 0:
+        if self.game.data.stage_clear_display_time > 0:
             pyxel.text(82, 128, "STAGE CLEAR", pyxel.rndi(0, 240), self.game.font)

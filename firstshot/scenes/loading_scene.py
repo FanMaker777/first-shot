@@ -83,7 +83,7 @@ class LoadingScene:
         # ENTERキー（Return）が押されたかを判定
         if pyxel.btnp(pyxel.KEY_RETURN):
             # ENTERが押された場合、次に進むステージを判定
-            if self.game.game_data.cleared_stage_two:
+            if self.game.data.cleared_stage_two:
                 next_scene = SCENE_PLAY_STAGE_THREE
             else:
                 next_scene = SCENE_PLAY_STAGE_TWO

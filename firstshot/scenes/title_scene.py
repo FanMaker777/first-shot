@@ -30,9 +30,9 @@ class TitleScene:
         self.game.enemy_state.bullets = []  # 敵の弾のリスト
         self.game.enemy_state.blasts = []  # 爆発エフェクトのリスト
         # 全てのステージクリアフラグを初期化
-        self.game.game_data.cleared_stage_one = False  # ステージ1クリアフラグ
-        self.game.game_data.cleared_stage_two = False  # ステージ2クリアフラグ
-        self.game.game_data.cleared_stage_three = False  # ステージ3クリアフラグ
+        self.game.data.cleared_stage_one = False  # ステージ1クリアフラグ
+        self.game.data.cleared_stage_two = False  # ステージ2クリアフラグ
+        self.game.data.cleared_stage_three = False  # ステージ3クリアフラグ
 
         pygame.mixer.music.stop()  # BGM停止
         # BGMを再生する

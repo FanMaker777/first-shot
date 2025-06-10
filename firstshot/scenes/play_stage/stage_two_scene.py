@@ -63,14 +63,14 @@ class StageTwoScene(PlayScene):
         self.play_time += 1
 
         # 左右のボス撃破フラグがTrueの場合
-        if (not self.game.game_data.cleared_stage_two
+        if (not self.game.data.cleared_stage_two
                 and self.game.boss_state.destroyed_stage2_left
                 and self.game.boss_state.destroyed_stage2_right):
             # ステージクリアフラグをONに設定
-            self.game.game_data.cleared_stage_two = True
+            self.game.data.cleared_stage_two = True
 
         # ステージクリアフラグがONの場合
-        if self.game.game_data.cleared_stage_two:
+        if self.game.data.cleared_stage_two:
             super().stagestruck(SCENE_LOADING)
             return
 
@@ -79,16 +79,16 @@ class StageTwoScene(PlayScene):
             self.game.boss_state.active = True  # ボスフラグ
 
         # 獲得スコアを算出
-        score = BASE_SCORE_STAGE_TWO * self.game.game_data.difficulty_level
+        score = BASE_SCORE_STAGE_TWO * self.game.data.difficulty_level
         # 獲得経験値を算出
-        exp = BASE_EXP_STAGE_TWO * self.game.game_data.difficulty_level
+        exp = BASE_EXP_STAGE_TWO * self.game.data.difficulty_level
         # 装甲を算出
-        armor = BASE_ARMOR_STAGE_TWO + self.game.game_data.difficulty_level
+        armor = BASE_ARMOR_STAGE_TWO + self.game.data.difficulty_level
 
         # ボスフラグがオフの時、ザコ敵を出現させる
         if not self.game.boss_state.active:
-            spawn_interval = max(ENEMY_SPAWN_BASE - self.game.game_data.difficulty_level * 10, ENEMY_SPAWN_MIN)
-            if len(self.game.enemy_state.enemies) <= 10 and self.game.game_data.play_time % spawn_interval == 0:
+            spawn_interval = max(ENEMY_SPAWN_BASE - self.game.data.difficulty_level * 10, ENEMY_SPAWN_MIN)
+            if len(self.game.enemy_state.enemies) <= 10 and self.game.data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
                     RobotFollow(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 16, 16)

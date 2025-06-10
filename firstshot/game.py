@@ -43,15 +43,15 @@ class Game:
         """ゲームの初期化を行う。"""
         # ゲームの状態を初期化する
         # 各サブコンポーネントの状態だけを持つ
-        self.game_config = GameConfig()
-        self.game_data = GameData()
+        self.config = GameConfig()
+        self.data = GameData()
         self.player_state = PlayerState()
         self.enemy_state = EnemyState()
         self.boss_state = BossState()
         self.sound_manager = SoundManager()
 
         # Pyxelを初期化する
-        pyxel.init(self.game_config.width, self.game_config.height, title=self.game_config.title, fps=self.game_config.fps)
+        pyxel.init(self.config.width, self.config.height, title=self.config.title, fps=self.config.fps)
 
         # ビットマップフォントの読み込み
         self.font = pyxel.Font(FONT_PATH)
@@ -107,19 +107,19 @@ class Game:
             self.is_fading = True
         else:
             # 即時にシーンを切り替える
-            self.game_data.scene_name = scene_name
-            self.scenes[self.game_data.scene_name].start()
+            self.data.scene_name = scene_name
+            self.scenes[self.data.scene_name].start()
 
     # ゲーム全体を更新する
     def update(self):
         """ゲーム全体の更新処理。"""
         # Escキーを押されたら、終了確認ダイアログを表示
-        if not self.game_data.is_exit_mode and pyxel.btnp(pyxel.KEY_E):
-            self.game_data.is_exit_mode = True
+        if not self.data.is_exit_mode and pyxel.btnp(pyxel.KEY_E):
+            self.data.is_exit_mode = True
             display_exit_dialog(self)
 
         # 確認ダイアログ中はゲームロジックを更新しない
-        if self.game_data.is_exit_mode:
+        if self.data.is_exit_mode:
             return
 
         # フェードアウト処理中はシーン更新を行わない
@@ -132,16 +132,16 @@ class Game:
                 # フェードアウト完了後にシーン切り替え
                 pyxel.dither(1)
                 self.is_fading = False
-                self.game_data.scene_name = self.next_scene_name
-                self.scenes[self.game_data.scene_name].start()
+                self.data.scene_name = self.next_scene_name
+                self.scenes[self.data.scene_name].start()
             return
 
         # 現在のシーンを更新する
-        self.scenes[self.game_data.scene_name].update()
+        self.scenes[self.data.scene_name].update()
 
         # タイトル画面は背景の流星を更新する
-        if self.game_data.scene_name == SCENE_TITLE:
-            self.game_data.background.update()
+        if self.data.scene_name == SCENE_TITLE:
+            self.data.background.update()
 
     # ゲーム全体を描画する
     def draw(self):
@@ -152,16 +152,16 @@ class Game:
         if self.is_fading:
             # フェードアウト中は現在のシーンのみ描画し、dither で暗転させる
             pyxel.dither(self.fade_alpha)
-            self.scenes[self.game_data.scene_name].draw()
-            if self.game_data.scene_name != SCENE_SELECT_PILOT:
-                self.game_data.background.draw()
+            self.scenes[self.data.scene_name].draw()
+            if self.data.scene_name != SCENE_SELECT_PILOT:
+                self.data.background.draw()
             pyxel.dither(1)
             return
 
         # 現在のシーンを描画する
-        self.scenes[self.game_data.scene_name].draw()
+        self.scenes[self.data.scene_name].draw()
 
         # タイトル画面は背景の流星を描画する
-        if self.game_data.scene_name == SCENE_TITLE:
-            self.game_data.background.draw()
+        if self.data.scene_name == SCENE_TITLE:
+            self.data.background.draw()
 

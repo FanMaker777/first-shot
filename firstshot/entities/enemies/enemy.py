@@ -81,7 +81,7 @@ class Enemy:
             self.game.enemy_state.enemies.remove(self)
 
         # 4) プレイヤーにスコアを加算
-        self.game.game_data.score += self.score
+        self.game.data.score += self.score
 
         # 5) パイロットの種別に応じて経験値を加算
         #    PILOT_CLARICE（クラリーチェ）の場合は 1.1 倍の経験値を与える
