@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b55b034-856c-4665-9e99-989d7ce24a2a" name="変更" comment="refactoring：モジュール名の修正">
+    <list default="true" id="9b55b034-856c-4665-9e99-989d7ce24a2a" name="変更" comment="refactoring：importの最適化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/entities/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_one_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_one_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_three_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_three_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_two_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_two_scene.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,22 +58,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.game.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gameover_scene.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.mega_wing.executor&quot;: &quot;Run&quot;,
-    &quot;Python.player.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;refactoring-general&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/myoso/PycharmProjects/Firstshot/firstshot/entities/pilot&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.project&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.game.executor": "Run",
+    "Python.gameover_scene.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.mega_wing.executor": "Run",
+    "Python.player.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "fix-play-difficulty",
+    "last_opened_file_path": "C:/Users/myoso/PycharmProjects/Firstshot/firstshot/entities/pilot",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "configurable.group.project"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\entities\pilot" />
@@ -422,7 +426,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749569834865</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="refactoring：変数名の修正">
+      <option name="closed" value="true" />
+      <created>1749570133336</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1749570133336</updated>
+    </task>
+    <task id="LOCAL-00042" summary="refactoring：importの最適化">
+      <option name="closed" value="true" />
+      <created>1749570548611</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1749570548611</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -449,8 +469,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix：弾が画面外に出た際の消去条件&#10; -消去対象が弾リストに存在しているかチェックを追加" />
-    <MESSAGE value="add：パイロット(ロッキー)のSPスキルを実装" />
     <MESSAGE value="fix：パイロット(クラリーチェ)のSPスキル&#10; -クラリーチェのSPスキルを敵の行動全てに適用" />
     <MESSAGE value="fix：パイロット(ロッキー)のSPスキル&#10; -ロッキーのSPスキルの発射角が狭くなるよう修正" />
     <MESSAGE value="fix：パイロット(ロッキー)のアビリティ&#10; -ロッキーのアビリティは、連射速度を上げるよう変更" />
@@ -474,7 +492,9 @@
     <MESSAGE value="refactoring：assets内の画像ファイルを整理" />
     <MESSAGE value="refactoring：画像ファイルの定数名を統一" />
     <MESSAGE value="refactoring：モジュール名の修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring：モジュール名の修正" />
+    <MESSAGE value="refactoring：変数名の修正" />
+    <MESSAGE value="refactoring：importの最適化" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring：importの最適化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -486,10 +506,6 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/firstshot/entities/enemies/stage3/trident_shooter.py</url>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/firstshot/entities/enemies/stage1/__init__.py</url>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

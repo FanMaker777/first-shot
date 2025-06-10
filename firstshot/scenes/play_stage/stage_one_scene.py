@@ -12,7 +12,7 @@ from firstshot.constants import (
     BOSS_ALERT_DURATION,
     BGM_STAGE1, BASE_SCORE_STAGE_ONE, BASE_EXP_STAGE_ONE, BASE_ARMOR_STAGE_ONE, BOSS_SCORE_STAGE_ONE,
     BOSS_EXP_STAGE_ONE, BOSS_ARMOR_STAGE_ONE, SCENE_LOADING, PLAYER_LIFE_DEFAULT, PLAYER_SKILL_USE_TIME, FPS,
-    PILOT_ROCKY,
+    PILOT_ROCKY, ENEMY_SPAWN_NUM_MAX,
 )
 from firstshot.entities import Player
 from firstshot.entities.enemies.stage1 import Zigzag, AroundShooter, PlayerShooter, StageOneBoss
@@ -83,7 +83,7 @@ class StageOneScene(PlayScene):
         # ボスフラグがオフの時、ザコ敵を出現させる
         if not self.game.boss_state.active:
             spawn_interval = max(ENEMY_SPAWN_BASE - self.game.data.difficulty_level * 10, ENEMY_SPAWN_MIN)
-            if len(self.game.enemy_state.enemies) <= 10 and self.game.data.play_time % spawn_interval == 0:
+            if len(self.game.enemy_state.enemies) <= ENEMY_SPAWN_NUM_MAX and self.game.data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
                     Zigzag(self.game, score, exp, armor, pyxel.rndi(16, 160), -8, 12, 12)

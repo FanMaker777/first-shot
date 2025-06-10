@@ -15,7 +15,7 @@ from firstshot.constants import (
     BOSS_SCORE_STAGE_TWO,
     BOSS_EXP_STAGE_TWO,
     BOSS_ARMOR_STAGE_TWO,
-    SCENE_LOADING, FPS,
+    SCENE_LOADING, FPS, ENEMY_SPAWN_NUM_MAX,
 )
 from firstshot.entities.enemies.stage2 import RobotFollow, RobotAroundShooter, RobotPlayerShooter, StageTwoBossLeft, \
     StageTwoBossRight
@@ -88,7 +88,7 @@ class StageTwoScene(PlayScene):
         # ボスフラグがオフの時、ザコ敵を出現させる
         if not self.game.boss_state.active:
             spawn_interval = max(ENEMY_SPAWN_BASE - self.game.data.difficulty_level * 10, ENEMY_SPAWN_MIN)
-            if len(self.game.enemy_state.enemies) <= 10 and self.game.data.play_time % spawn_interval == 0:
+            if len(self.game.enemy_state.enemies) <= ENEMY_SPAWN_NUM_MAX and self.game.data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)
                 if kind == 0:
                     RobotFollow(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 16, 16)

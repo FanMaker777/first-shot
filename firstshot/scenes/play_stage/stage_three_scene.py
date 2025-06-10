@@ -16,7 +16,7 @@ from firstshot.constants import (
     BOSS_SCORE_STAGE_THREE,
     BOSS_EXP_STAGE_THREE,
     BOSS_ARMOR_STAGE_THREE,
-    SCENE_GAME_CLEAR, FPS,
+    SCENE_GAME_CLEAR, FPS, ENEMY_SPAWN_NUM_MAX,
 )
 # ステージ3のエネミークラス類をインポート
 from firstshot.entities.enemies.stage3 import (
@@ -105,7 +105,7 @@ class StageThreeScene(PlayScene):
             # ザコ出現間隔を難易度に応じて調整（最小間隔で下限あり）
             spawn_interval = max(ENEMY_SPAWN_BASE - self.game.data.difficulty_level * 10, ENEMY_SPAWN_MIN)
             # play_timeのタイミングで敵出現判定
-            if len(self.game.enemy_state.enemies) <= 10 and self.game.data.play_time % spawn_interval == 0:
+            if len(self.game.enemy_state.enemies) <= ENEMY_SPAWN_NUM_MAX and self.game.data.play_time % spawn_interval == 0:
                 kind = pyxel.rndi(0, 2)  # 敵の種類をランダム決定
                 if kind == 0:
                     # 波型弾エネミー生成

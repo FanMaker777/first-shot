@@ -143,10 +143,10 @@ class Player:
         """
         プレイヤーレベルを経験値から判定し、ショット間隔・レベル値を更新する。
         """
-        if self.game.player_state.exp >= 3000:
+        if self.game.player_state.exp >= 2000:
             self.game.player_state.lv = 5
             self.shot_interval = PLAYER_SHOT_INTERVAL_LV5
-        elif self.game.player_state.exp >= 1000:
+        elif self.game.player_state.exp >= 640:
             self.game.player_state.lv = 4
             self.shot_interval = PLAYER_SHOT_INTERVAL_LV4
         elif self.game.player_state.exp >= 64:
