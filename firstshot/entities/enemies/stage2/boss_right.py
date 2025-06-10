@@ -9,9 +9,9 @@ from firstshot.entities.enemies import Enemy
 class StageTwoBossRight(Enemy):
     """ステージ2で登場する右側のボス。"""
 
-    def add_damage(self):
+    def add_damage(self, damage):
         """ボスがダメージを受けた際の処理。"""
-        super().add_damage()
+        super().add_damage(damage)
 
         # 敵リストに登録されていない時
         if not self in self.game.enemy_state.enemies:

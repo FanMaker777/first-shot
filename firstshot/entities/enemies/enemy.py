@@ -55,7 +55,7 @@ class Enemy:
         # ゲームの敵リストにこの敵を登録する
         self.game.enemy_state.enemies.append(self)
 
-    def add_damage(self):
+    def add_damage(self, damage):
         """
         敵にダメージを与えた際の処理
 
@@ -63,8 +63,8 @@ class Enemy:
         サウンドを再生し、スコアと経験値を加算、敵リストから削除します。
         """
         if self.armor > 0:
-            # 装甲が残っている場合は装甲値を 1 減らし、すぐに戻る（敵はまだ破壊されない）
-            self.armor -= 1
+            # 装甲が残っている場合は装甲値をdamage分減らし、すぐに戻る（敵はまだ破壊されない）
+            self.armor -= damage
             # ダメージ音を再生する
             pyxel.play(2, 1, resume=True)  # チャンネル2で割り込み再生させる
             return

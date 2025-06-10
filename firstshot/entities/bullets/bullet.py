@@ -1,6 +1,6 @@
 import pyxel
 
-from firstshot.constants import COLOR_BLACK, PILOT_CLARICE
+from firstshot.constants import COLOR_BLACK, PILOT_CLARICE, PLAYER_BULLET_DAMAGE
 
 
 # 弾クラス
@@ -18,6 +18,7 @@ class Bullet:
         self.y = y
         self.vx = pyxel.cos(angle) * speed
         self.vy = pyxel.sin(angle) * speed
+        self.damage = PLAYER_BULLET_DAMAGE
 
         # 弾の種類に応じた初期化とリストへの登録を行う
         if self.side == Bullet.SIDE_PLAYER:

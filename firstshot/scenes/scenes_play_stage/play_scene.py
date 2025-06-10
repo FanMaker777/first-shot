@@ -79,7 +79,7 @@ class PlayScene:
             for enemy in self.game.enemy_state.enemies.copy():
                 if check_collision(enemy, bullet):
                     bullet.add_damage()  # 自機の弾にダメージを与える
-                    enemy.add_damage()  # 敵にダメージを与える
+                    enemy.add_damage(bullet.damage)  # 敵にダメージを与える
 
                     if self.game.player_state.instance is not None:  # 自機が存在する時
                         self.game.player_state.instance.sound_timer = 5  # 弾発射音を止める時間を設定する

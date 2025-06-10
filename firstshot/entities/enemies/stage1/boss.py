@@ -10,9 +10,9 @@ class StageOneBoss(Enemy):
     """ステージ1のボスキャラクター。"""
 
     # 敵にダメージを与える
-    def add_damage(self):
+    def add_damage(self, damage):
         """ボスがダメージを受けた際の処理。"""
-        super().add_damage()
+        super().add_damage(damage)
 
         # 敵リストに登録されていない時
         if not self in self.game.enemy_state.enemies:

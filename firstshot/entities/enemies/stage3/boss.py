@@ -14,14 +14,14 @@ class StageThreeBoss(Enemy):
     Enemyクラスを継承し、ボス特有の攻撃パターン・行動・描画処理を定義する。
     """
 
-    def add_damage(self):
+    def add_damage(self, damage):
         """
         ボスがダメージを受けた際の処理。
 
         ・通常のダメージ処理を実行（親クラスのadd_damage呼び出し）
         ・ボスが敵リストから外れている場合、ボス撃破フラグをON
         """
-        super().add_damage()  # 親クラスのダメージ処理を実行
+        super().add_damage(damage)  # 親クラスのダメージ処理を実行
 
         # ボス自身が敵リストに存在しない場合（撃破直後など）
         if self not in self.game.enemy_state.enemies:
