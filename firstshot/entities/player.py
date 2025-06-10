@@ -14,14 +14,12 @@ from firstshot.constants import (
     PLAYER_BULLET_ANGLE_UP,
     PLAYER_BULLET_ANGLE_LEFT,
     PLAYER_BULLET_ANGLE_RIGHT,
-    PLAYER_BULLET_ANGLE_LEFT_WIDE,
-    PLAYER_BULLET_ANGLE_RIGHT_WIDE,
     COLOR_BLACK, PLAYER_DAMAGED_COOL_TIME, PLAYER_SKILL_COOL_TIME, PILOT_ROCKY, PILOT_CLARICE,
 )
 from firstshot.entities import Blast
-from firstshot.entities.bullets import DogBullet, Bullet
-from firstshot.entities.bullets.missile import Missile
+from firstshot.entities.bullets import Bullet
 from firstshot.entities.pilot import genzou, rocky
+
 
 class Player:
     """

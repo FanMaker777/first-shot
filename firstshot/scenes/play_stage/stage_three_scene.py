@@ -18,13 +18,12 @@ from firstshot.constants import (
     BOSS_ARMOR_STAGE_THREE,
     SCENE_GAME_CLEAR, FPS,
 )
-
 # ステージ3のエネミークラス類をインポート
 from firstshot.entities.enemies.stage3 import (
-    TridentShooter,   # 波型弾エネミー
-    CircleShooter, # 円形弾エネミー
-    ChargeShooter, # 突進エネミー
-    StageThreeBoss,# ステージ3ボス
+    TridentShooter,  # 波型弾エネミー
+    CircleShooter,  # 円形弾エネミー
+    ChargeShooter,  # 突進エネミー
+    StageThreeBoss,  # ステージ3ボス
 )
 # プレイシーンの親クラスをインポート
 from firstshot.scenes.play_stage import PlayScene

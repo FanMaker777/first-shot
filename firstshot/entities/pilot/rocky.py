@@ -1,7 +1,7 @@
 import pyxel
 
-from firstshot.constants import PLAYER_BULLET_ANGLE_UP
-from firstshot.entities.bullets import Missile, Bullet, DogBullet
+from firstshot.entities.bullets import Bullet, DogBullet
+
 
 def skill(game, x, y):
     if game.player_state.skill_cool_time > 0:
