@@ -21,7 +21,7 @@ from firstshot.constants import (
 
 # ステージ3のエネミークラス類をインポート
 from firstshot.entities.enemies.stage3 import (
-    WaveShooter,   # 波型弾エネミー
+    TridentShooter,   # 波型弾エネミー
     CircleShooter, # 円形弾エネミー
     ChargeShooter, # 突進エネミー
     StageThreeBoss,# ステージ3ボス
@@ -110,7 +110,7 @@ class StageThreeScene(PlayScene):
                 kind = pyxel.rndi(0, 2)  # 敵の種類をランダム決定
                 if kind == 0:
                     # 波型弾エネミー生成
-                    WaveShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 24, 24)
+                    TridentShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 24, 24)
                 elif kind == 1:
                     # 円形弾エネミー生成
                     CircleShooter(self.game, score, exp, armor, pyxel.rndi(16, 180), -8, 24, 24)
