@@ -9,7 +9,8 @@ from firstshot.constants import (
     PILOT2_IMAGE,
     PILOT3_IMAGE,
     COLOR_BLACK,
-    SCREEN_WIDTH,
+    SCREEN_WIDTH, PILOT_ABILITY_GENZOU, PILOT_SKILL_GENZOU, PILOT_SKILL_ROCKY, PILOT_ABILITY_ROCKY, PILOT_SKILL_CLARICE,
+    PILOT_ABILITY_CLARICE,
 )
 
 
@@ -49,16 +50,16 @@ class SelectPilotScene:
         # パイロットの画像と説明文を切り替え
         if self.pilot_kind == PILOT_CLARICE:
             pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT1_IMAGE)
-            self.pilot_ability = "アビリティ：獲得EXPが少し増える"
-            self.pilot_skill = "SPスキル：一定時間、敵と敵弾の速度が遅くなる"
+            self.pilot_ability = PILOT_ABILITY_CLARICE
+            self.pilot_skill = PILOT_SKILL_CLARICE
         elif self.pilot_kind == PILOT_ROCKY:
             pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT2_IMAGE)
-            self.pilot_ability = "アビリティ：ショットの連射速度が少し早い"
-            self.pilot_skill = "SPスキル：一定時間、特殊弾を追加発射する"
+            self.pilot_ability = PILOT_ABILITY_ROCKY
+            self.pilot_skill = PILOT_SKILL_ROCKY
         elif self.pilot_kind == PILOT_GENZOU:
             pyxel.Image.load(self.pilot_image, x=0, y=0, filename=PILOT3_IMAGE)
-            self.pilot_ability = "アビリティ：自機のアタリ判定が少し小さくなる"
-            self.pilot_skill = "SPスキル：一定時間、ミサイルで支援攻撃する"
+            self.pilot_ability = PILOT_ABILITY_GENZOU
+            self.pilot_skill = PILOT_SKILL_GENZOU
 
         if pyxel.btnp(pyxel.KEY_RETURN):
             # パイロットの種類をgameに登録
