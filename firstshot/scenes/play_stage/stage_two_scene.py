@@ -19,7 +19,7 @@ from firstshot.constants import (
 )
 from firstshot.entities.enemies.stage2 import RobotFollow, RobotAroundShooter, RobotPlayerShooter, StageTwoBossLeft, \
     StageTwoBossRight
-from firstshot.scenes.scenes_play_stage import PlayScene
+from firstshot.scenes.play_stage import PlayScene
 
 
 # ステージ1 画面クラス

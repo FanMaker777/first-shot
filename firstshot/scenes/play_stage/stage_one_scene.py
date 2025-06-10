@@ -16,7 +16,7 @@ from firstshot.constants import (
 )
 from firstshot.entities import Player
 from firstshot.entities.enemies.stage1 import Zigzag, AroundShooter, PlayerShooter, StageOneBoss
-from firstshot.scenes.scenes_play_stage import PlayScene
+from firstshot.scenes.play_stage import PlayScene
 
 
 # ステージ1 画面クラス

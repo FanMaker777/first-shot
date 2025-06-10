@@ -27,7 +27,7 @@ from firstshot.entities.enemies.stage3 import (
     StageThreeBoss,# ステージ3ボス
 )
 # プレイシーンの親クラスをインポート
-from firstshot.scenes.scenes_play_stage import PlayScene
+from firstshot.scenes.play_stage import PlayScene
 
 
 class StageThreeScene(PlayScene):

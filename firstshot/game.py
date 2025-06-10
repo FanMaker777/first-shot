@@ -26,7 +26,7 @@ from firstshot.scenes import (
     GameClearScene,
     LoadingScene,
 )
-from firstshot.scenes.scenes_play_stage import (
+from firstshot.scenes.play_stage import (
     StageOneScene,
     StageTwoScene,
     StageThreeScene,
