@@ -36,7 +36,7 @@ class GameData:
         scene_name (str | None): 現在表示しているシーンの名前。シーン切り替え時に使用。
         play_time (float): ゲーム開始からの経過時間（秒）。更新していく。
         difficulty_level (int): 現在の難易度レベル。0 が初期値で、ゲーム進行に応じて変化する。
-        is_exit_mode (bool): ゲーム終了処理モードに入っているかを示すフラグ。True の場合は終了処理中。
+        is_pause_mode (bool): 一時停止フラグ
     """
     score: int = 0                   # プレイヤーのスコア
     play_time: float = 0             # プレイ経過時間（秒
@@ -47,4 +47,4 @@ class GameData:
     cleared_stage_three = False      # ステージ3クリアフラグ
     stage_clear_display_time = 0     # ステージクリア表示時間
     background = None                # 背景
-    is_exit_mode: bool = False       # 終了処理中フラグ（True なら終了処理を行っている状態）
+    is_pause_mode: bool = False       # 一時停止フラグ

@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b55b034-856c-4665-9e99-989d7ce24a2a" name="変更" comment="refactoring：importの最適化">
+    <list default="true" id="9b55b034-856c-4665-9e99-989d7ce24a2a" name="変更" comment="add：pyxappファイルを追加">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/entities/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/entities/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_one_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_one_scene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_three_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_three_scene.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_two_scene.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/scenes/play_stage/stage_two_scene.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/data/game_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/data/game_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/firstshot/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firstshot/logic/dialog.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,19 +66,19 @@
     "Python.player.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "fix-play-difficulty",
-    "last_opened_file_path": "C:/Users/myoso/PycharmProjects/Firstshot/firstshot/entities/pilot",
+    "git-widget-placeholder": "add-pause",
+    "last_opened_file_path": "C:/Users/myoso/PycharmProjects/Firstshot/firstshot",
     "run.code.analysis.last.selected.profile": "aDefault",
     "settings.editor.selected.configurable": "configurable.group.project"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot" />
       <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\entities\pilot" />
       <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\entities\bullets" />
       <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\assets\se" />
       <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\entities" />
-      <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\assets\special_bullet" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\myoso\PycharmProjects\Firstshot\firstshot\assets\image" />
@@ -442,7 +440,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749570548611</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="add：ルートディレクトリにinitファイルを追加">
+      <option name="closed" value="true" />
+      <created>1749630572697</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1749630572697</updated>
+    </task>
+    <task id="LOCAL-00044" summary="add：pyxappファイルを追加">
+      <option name="closed" value="true" />
+      <created>1749632294125</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1749632294125</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -469,8 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix：パイロット(クラリーチェ)のSPスキル&#10; -クラリーチェのSPスキルを敵の行動全てに適用" />
-    <MESSAGE value="fix：パイロット(ロッキー)のSPスキル&#10; -ロッキーのSPスキルの発射角が狭くなるよう修正" />
     <MESSAGE value="fix：パイロット(ロッキー)のアビリティ&#10; -ロッキーのアビリティは、連射速度を上げるよう変更" />
     <MESSAGE value="fix：プレイヤーの移動速度を少し増加" />
     <MESSAGE value="fix：背景の流星表現はタイトル画面のみに変更" />
@@ -494,7 +506,9 @@
     <MESSAGE value="refactoring：モジュール名の修正" />
     <MESSAGE value="refactoring：変数名の修正" />
     <MESSAGE value="refactoring：importの最適化" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring：importの最適化" />
+    <MESSAGE value="add：ルートディレクトリにinitファイルを追加" />
+    <MESSAGE value="add：pyxappファイルを追加" />
+    <option name="LAST_COMMIT_MESSAGE" value="add：pyxappファイルを追加" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -502,10 +516,6 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/firstshot/entities/__init__.py</url>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/firstshot/entities/enemies/stage3/trident_shooter.py</url>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

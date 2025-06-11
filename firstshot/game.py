@@ -18,7 +18,6 @@ from firstshot.constants import (
     SCREEN_HEIGHT, SCENE_LOADING, IMAGE_MISSILE, IMAGE_DOG_BULLET,
 )
 from firstshot.data import PlayerState, EnemyState, BossState, GameData, GameConfig
-from firstshot.logic.dialog import display_exit_dialog
 from firstshot.manager import SoundManager
 from firstshot.scenes import (
     TitleScene,
@@ -113,13 +112,12 @@ class Game:
     # ゲーム全体を更新する
     def update(self):
         """ゲーム全体の更新処理。"""
-        # Escキーを押されたら、終了確認ダイアログを表示
-        if not self.data.is_exit_mode and pyxel.btnp(pyxel.KEY_E):
-            self.data.is_exit_mode = True
-            display_exit_dialog(self)
+        # Pキーを押されたら、画面を一時停止
+        if pyxel.btnp(pyxel.KEY_P):
+            self.data.is_pause_mode = not self.data.is_pause_mode
 
-        # 確認ダイアログ中はゲームロジックを更新しない
-        if self.data.is_exit_mode:
+        # 一時停止中はゲームロジックを更新しない
+        if self.data.is_pause_mode:
             return
 
         # フェードアウト処理中はシーン更新を行わない
@@ -160,6 +158,10 @@ class Game:
 
         # 現在のシーンを描画する
         self.scenes[self.data.scene_name].draw()
+
+        # 一時停止中を画面に表示
+        if self.data.is_pause_mode:
+            pyxel.text(90, 128, "PAUSE", 0, self.font)
 
         # タイトル画面は背景の流星を描画する
         if self.data.scene_name == SCENE_TITLE:
