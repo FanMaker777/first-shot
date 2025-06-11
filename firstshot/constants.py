@@ -1,6 +1,21 @@
-# 定数モジュール
+"""ゲーム全体で使用する定数を定義するモジュール。
 
-# 背景の星の数
+主に画面サイズやアセットファイルのパスなど、ゲームの各所で
+参照される値をまとめて管理している。定数値はグローバル変数と
+して提供されるため、インポートするだけで利用可能である。
+"""
+
+from __future__ import annotations
+
+import os
+
+# このファイルが存在するディレクトリを基準とする絶対パスを取得する
+_BASE_DIR: str = os.path.dirname(os.path.abspath(__file__))
+
+# アセットディレクトリのフルパス
+_ASSETS_DIR: str = os.path.join(_BASE_DIR, "assets")
+
+# 定数: 背景の星の数
 NUM_STARS = 15
 
 # シーン名
@@ -26,50 +41,50 @@ COLOR_DARK_GREEN = 122
 
 
 # ファイルパス(リソース)
-FONT_PATH = "assets/umplus_j10r.bdf"
-PYXEL_RESOURCE_FILE = "assets/first_shot.pyxres"
-IMAGE_DEFAULT_PANK = "assets/image/imagePank/pyxel-image0.png"
-IMAGE_COLOR_PALETTE = "assets/color254.png"
+FONT_PATH = os.path.join(_ASSETS_DIR, "umplus_j10r.bdf")
+PYXEL_RESOURCE_FILE = os.path.join(_ASSETS_DIR, "first_shot.pyxres")
+IMAGE_DEFAULT_PANK = os.path.join(_ASSETS_DIR, "image", "imagePank", "pyxel-image0.png")
+IMAGE_COLOR_PALETTE = os.path.join(_ASSETS_DIR, "color254.png")
 # ファイルパス(背景画像)
-IMAGE_TITLE = "assets/image/background/title.png"
-IMAGE_STAGE1_BG = "assets/image/background/stage.png"
-IMAGE_STAGE2_BG = "assets/image/background/stage2.png"
-IMAGE_STAGE3_BG = "assets/image/background/stage3.png"
-IMAGE_GAME_CLEAR = "assets/image/background/game_clear.png"
+IMAGE_TITLE = os.path.join(_ASSETS_DIR, "image", "background", "title.png")
+IMAGE_STAGE1_BG = os.path.join(_ASSETS_DIR, "image", "background", "stage.png")
+IMAGE_STAGE2_BG = os.path.join(_ASSETS_DIR, "image", "background", "stage2.png")
+IMAGE_STAGE3_BG = os.path.join(_ASSETS_DIR, "image", "background", "stage3.png")
+IMAGE_GAME_CLEAR = os.path.join(_ASSETS_DIR, "image", "background", "game_clear.png")
 # ファイルパス(エネミー画像)
-IMAGE_STAGE1_ENEMY = "assets/image/enemy/stage1_enemy.png"
-IMAGE_STAGE1_BOSS = "assets/image/enemy/stage1_boss.png"
-IMAGE_STAGE2_ENEMY = "assets/image/enemy/stage2_enemy.png"
-IMAGE_STAGE2_BOSS = "assets/image/enemy/stage2_boss.png"
-IMAGE_STAGE3_ENEMY = "assets/image/enemy/stage3_enemy.png"
-IMAGE_STAGE3_BOSS = "assets/image/enemy/stage3_boss.png"
+IMAGE_STAGE1_ENEMY = os.path.join(_ASSETS_DIR, "image", "enemy", "stage1_enemy.png")
+IMAGE_STAGE1_BOSS = os.path.join(_ASSETS_DIR, "image", "enemy", "stage1_boss.png")
+IMAGE_STAGE2_ENEMY = os.path.join(_ASSETS_DIR, "image", "enemy", "stage2_enemy.png")
+IMAGE_STAGE2_BOSS = os.path.join(_ASSETS_DIR, "image", "enemy", "stage2_boss.png")
+IMAGE_STAGE3_ENEMY = os.path.join(_ASSETS_DIR, "image", "enemy", "stage3_enemy.png")
+IMAGE_STAGE3_BOSS = os.path.join(_ASSETS_DIR, "image", "enemy", "stage3_boss.png")
 # ファイルパス(パイロット画像)
-IMAGE_PILOT1 = "assets/image/pilot/pilot1.png"
-IMAGE_PILOT2 = "assets/image/pilot/pilot2.png"
-IMAGE_PILOT3 = "assets/image/pilot/pilot3.png"
+IMAGE_PILOT1 = os.path.join(_ASSETS_DIR, "image", "pilot", "pilot1.png")
+IMAGE_PILOT2 = os.path.join(_ASSETS_DIR, "image", "pilot", "pilot2.png")
+IMAGE_PILOT3 = os.path.join(_ASSETS_DIR, "image", "pilot", "pilot3.png")
 # ファイルパス(バレット画像)
-IMAGE_MISSILE = "assets/image/special_bullet/missile.png"
-IMAGE_DOG_BULLET = "assets/image/special_bullet/dog_bullet.png"
+IMAGE_MISSILE = os.path.join(_ASSETS_DIR, "image", "special_bullet", "missile.png")
+IMAGE_DOG_BULLET = os.path.join(_ASSETS_DIR, "image", "special_bullet", "dog_bullet.png")
 # ファイルパス(ローディング画面)
-IMAGE_LOADING_PILOT1 = "assets/image/loading/loading_pilot1.png"
-IMAGE_LOADING_PILOT2 = "assets/image/loading/loading_pilot2.png"
-IMAGE_LOADING_PILOT3 = "assets/image/loading/loading_pilot3.png"
+IMAGE_LOADING_PILOT1 = os.path.join(_ASSETS_DIR, "image", "loading", "loading_pilot1.png")
+IMAGE_LOADING_PILOT2 = os.path.join(_ASSETS_DIR, "image", "loading", "loading_pilot2.png")
+IMAGE_LOADING_PILOT3 = os.path.join(_ASSETS_DIR, "image", "loading", "loading_pilot3.png")
 
 # ファイルパス(BGM)
-BGM_TITLE = "assets/bgm/title.ogg"
-BGM_STAGE1 = "assets/bgm/stage1.ogg"
-BGM_STAGE2 = "assets/bgm/stage2.ogg"
-BGM_STAGE3 = "assets/bgm/stage3.ogg"
-BGM_GAME_OVER = "assets/bgm/game_over.ogg"
-BGM_GAME_CLEAR = "assets/bgm/game_clear.ogg"
+BGM_TITLE = os.path.join(_ASSETS_DIR, "bgm", "title.ogg")
+BGM_STAGE1 = os.path.join(_ASSETS_DIR, "bgm", "stage1.ogg")
+BGM_STAGE2 = os.path.join(_ASSETS_DIR, "bgm", "stage2.ogg")
+BGM_STAGE3 = os.path.join(_ASSETS_DIR, "bgm", "stage3.ogg")
+BGM_GAME_OVER = os.path.join(_ASSETS_DIR, "bgm", "game_over.ogg")
+BGM_GAME_CLEAR = os.path.join(_ASSETS_DIR, "bgm", "game_clear.ogg")
 
 # ファイルパス(SE)
-SE_SHOT = "assets/se/shot.mp3"
-SE_BLAST = "assets/se/blast.ogg"
-SE_GET_ITEM = "assets/se/get_item.mp3"
-SE_LEVEL_UP = "assets/se/level_up.mp3"
-SE_STAGE_CLEAR = "assets/se/stage_clear.mp3"
-SE_USE_SKILL = "assets/se/use_skill.mp3"
+SE_SHOT = os.path.join(_ASSETS_DIR, "se", "shot.mp3")
+SE_BLAST = os.path.join(_ASSETS_DIR, "se", "blast.ogg")
+SE_GET_ITEM = os.path.join(_ASSETS_DIR, "se", "get_item.mp3")
+SE_LEVEL_UP = os.path.join(_ASSETS_DIR, "se", "level_up.mp3")
+SE_STAGE_CLEAR = os.path.join(_ASSETS_DIR, "se", "stage_clear.mp3")
+SE_USE_SKILL = os.path.join(_ASSETS_DIR, "se", "use_skill.mp3")
 
 
 # パイロット
