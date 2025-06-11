@@ -1,4 +1,5 @@
 # First Shot（ファーストショット）
+![title](../firstshot/assets/image/background/title.png)
 
 **First Shot（ファーストショット）** は、Python 向けのレトロゲームエンジン「Pyxel (ピクセル)」をメインに開発されたレトロスタイルのシューティングゲームです。  
 本プロジェクトは、Pythonの学習を目的として制作されており、クラシックなピクセルアートやシンプルな操作性を特徴としています。<br>
