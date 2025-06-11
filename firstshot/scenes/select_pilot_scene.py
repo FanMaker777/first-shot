@@ -9,7 +9,12 @@ from firstshot.constants import (
     IMAGE_PILOT2,
     IMAGE_PILOT3,
     COLOR_BLACK,
-    SCREEN_WIDTH, PILOT_ABILITY_GENZOU, PILOT_SKILL_GENZOU, PILOT_SKILL_ROCKY, PILOT_ABILITY_ROCKY, PILOT_SKILL_CLARICE,
+    SCREEN_WIDTH,
+    PILOT_ABILITY_GENZOU,
+    PILOT_SKILL_GENZOU,
+    PILOT_SKILL_ROCKY,
+    PILOT_ABILITY_ROCKY,
+    PILOT_SKILL_CLARICE,
     PILOT_ABILITY_CLARICE,
 )
 
@@ -19,7 +24,14 @@ class SelectPilotScene:
     """パイロット選択画面を管理するクラス。"""
     # 画面を初期化する
     def __init__(self, game):
-        """インスタンスを初期化する。"""
+        """SelectPilotScene のインスタンスを初期化する。
+
+        Args:
+            game: ゲーム全体を管理する :class:`Game` オブジェクト
+
+        このメソッドではパイロットごとの画像を読み込み、後のフレームで
+        毎回読み込むことなく高速に描画できるよう辞書に保持しておく。
+        """
         self.game = game  # ゲームクラス
         # パイロットの順番
         self.pilot_kind = 0
@@ -29,17 +41,26 @@ class SelectPilotScene:
         self.pilot_skill = ""
         # パイロット画像のイメージパンク
         self.pilot_image = pyxel.Image(SCREEN_WIDTH, SCREEN_WIDTH)
+        # 各パイロットごとの画像を保持する辞書
+        self.pilot_images = {
+            PILOT_CLARICE: pyxel.Image.from_image(IMAGE_PILOT1, incl_colors=False),
+            PILOT_ROCKY: pyxel.Image.from_image(IMAGE_PILOT2, incl_colors=False),
+            PILOT_GENZOU: pyxel.Image.from_image(IMAGE_PILOT3, incl_colors=False),
+        }
 
     # 画面を開始する
     def start(self):
-        """画面開始時の処理。"""
-        # パイロットの順番
-        self.pilot_kind = 0
-        # パイロット画像をイメージパンクに読み込む
-        pyxel.Image.load(self.pilot_image, x=0, y=0, filename=IMAGE_PILOT1)
+        """パイロット選択画面の表示を開始する。"""
+        # パイロットの順番と初期画像・説明文を設定
+        self.pilot_kind = PILOT_CLARICE
+        self.pilot_image = self.pilot_images[self.pilot_kind]
+        self.pilot_ability = PILOT_ABILITY_CLARICE
+        self.pilot_skill = PILOT_SKILL_CLARICE
 
     def update(self):
-        """画面の更新処理。"""
+        """毎フレーム呼び出される更新処理を行う。"""
+        prev_kind = self.pilot_kind
+
         if pyxel.btnp(pyxel.KEY_RIGHT):
             # パイロットの順番を次に
             self.pilot_kind = (self.pilot_kind + 1) % 3
@@ -47,19 +68,20 @@ class SelectPilotScene:
             # パイロットの順番を前に
             self.pilot_kind = (self.pilot_kind - 1) % 3
 
-        # パイロットの画像と説明文を切り替え
-        if self.pilot_kind == PILOT_CLARICE:
-            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=IMAGE_PILOT1)
-            self.pilot_ability = PILOT_ABILITY_CLARICE
-            self.pilot_skill = PILOT_SKILL_CLARICE
-        elif self.pilot_kind == PILOT_ROCKY:
-            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=IMAGE_PILOT2)
-            self.pilot_ability = PILOT_ABILITY_ROCKY
-            self.pilot_skill = PILOT_SKILL_ROCKY
-        elif self.pilot_kind == PILOT_GENZOU:
-            pyxel.Image.load(self.pilot_image, x=0, y=0, filename=IMAGE_PILOT3)
-            self.pilot_ability = PILOT_ABILITY_GENZOU
-            self.pilot_skill = PILOT_SKILL_GENZOU
+        # パイロットの順番が変更されたときのみ画像と説明文を更新
+        if self.pilot_kind != prev_kind:
+            if self.pilot_kind == PILOT_CLARICE:
+                self.pilot_image = self.pilot_images[PILOT_CLARICE]
+                self.pilot_ability = PILOT_ABILITY_CLARICE
+                self.pilot_skill = PILOT_SKILL_CLARICE
+            elif self.pilot_kind == PILOT_ROCKY:
+                self.pilot_image = self.pilot_images[PILOT_ROCKY]
+                self.pilot_ability = PILOT_ABILITY_ROCKY
+                self.pilot_skill = PILOT_SKILL_ROCKY
+            elif self.pilot_kind == PILOT_GENZOU:
+                self.pilot_image = self.pilot_images[PILOT_GENZOU]
+                self.pilot_ability = PILOT_ABILITY_GENZOU
+                self.pilot_skill = PILOT_SKILL_GENZOU
 
         if pyxel.btnp(pyxel.KEY_RETURN):
             # パイロットの種類をgameに登録
@@ -69,7 +91,7 @@ class SelectPilotScene:
             self.game.change_scene(SCENE_PLAY_STAGE_ONE)
 
     def draw(self):
-        """画面の描画処理。"""
+        """選択中のパイロット画像と説明を描画する。"""
         # フェードアウト用の dither を設定し画面をクリア
         alpha = self.game.fade_alpha if self.game.is_fading else 1.0
         pyxel.cls(COLOR_BLACK)
