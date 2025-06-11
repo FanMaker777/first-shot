@@ -1,2 +1,3 @@
 from .collision import check_collision
-from .dialog import *
+
+__all__ = ["check_collision"]
